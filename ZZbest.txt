@@ -1,0 +1,574 @@
+================================================================================
+HYBRID QUANTUM FEATURE SELECTION - SESSION LOG
+================================================================================
+Start time: 2025-11-23 01:36:19
+Results file: hybrid_qfs_results_20251123_013619.txt
+================================================================================
+
+================================================================================
+HYBRID QUANTUM FEATURE SELECTION
+Exhaustive 2-Features + Greedy 3-7
+================================================================================
+
+Starting: 2025-11-23 01:36:19
+Available CPU cores: 16
+
+[*] Configuration:
+    Training size: 400
+    Test size: 200
+    Feature map: ZZ, reps=1
+    Entanglement: linear
+    Shots: 1024
+    Workers: 6
+    Results file: hybrid_qfs_results_20251123_013619.txt
+
+[*] Feature Pre-filter: 30 features
+    Selection range: 2 to 7
+
+[*] Complexity Comparison:
+    Pure exhaustive C(30,7): 2,035,800 evaluations
+    Hybrid approach: ~585 evaluations
+    Speedup: ~3480x faster!
+================================================================================
+LOADING DATA
+================================================================================
+[+] Loaded: 284807 rows, 31 columns
+  Fraud: 492
+  Genuine: 284315
+
+================================================================================
+PREPARING DATASET
+================================================================================
+
+================================================================================
+PREPARING DATA - Trial 1
+================================================================================
+[+] Balanced: 600 samples (300 fraud, 300 genuine)
+[+] Split: Train=400, Test=200
+[+] Normalized to [-1.00, 1.00]
+
+[*] Dataset: 0.14 MB per worker
+    Total memory: ~0.85 MB
+
+================================================================================
+HYBRID QUANTUM FEATURE SELECTION ALGORITHM
+================================================================================
+Device: CPU
+Workers: 6
+Algorithm: HYBRID (Exhaustive 2-features + Greedy 3-7)
+
+[+] Using pre-filter list (30 features):
+    ['V10', 'V14', 'V12', 'V4', 'V17', 'V5', 'V20', 'V27', 'V22', 'V11', 'V16', 'V3', 'V9', 'V7', 'V26', 'V21', 'V8', 'V18', 'V1', 'V6', 'V19', 'V2', 'V28', 'V13', 'V15', 'V23', 'V24', 'V25', 'Amount', 'Time']
+    Indices: [10, 14, 12, 4, 17, 5, 20, 27, 22, 11, 16, 3, 9, 7, 26, 21, 8, 18, 1, 6, 19, 2, 28, 13, 15, 23, 24, 25, 29, 0]
+
+[*] Algorithm Plan:
+    Step 1: Exhaustive 2-feature pairs = C(30,2) = 435 combinations
+    Steps 2-7: Greedy selection = ~150 additional evaluations
+    Total evaluations: ~585 (vs 2,035,800 for pure exhaustive!)
+    Dataset: 0.14 MB per worker
+================================================================================
+
+================================================================================
+STEP 1: EXHAUSTIVE 2-FEATURE PAIR SEARCH
+================================================================================
+
+[*] Testing all 435 pairs in parallel...
+    Using 6 workers
+    Estimated time: ~18.1 minutes
+
+[>>>] Starting parallel evaluation...
+      Progress updates every 6 combinations
+
+  [*][*][*] NEW BEST! AUC: 0.9660 [*][*][*]
+      Pair: ['V10', 'V14']
+      (Acc: 0.9350, HR: 0.8800, FAR: 0.0114)
+
+  Progress: 6/435 (1.4%)
+  Elapsed: 2.6m | Remaining: 186.8m
+  Avg: 26.13s/combo | Best AUC so far: 0.9660
+
+  Progress: 12/435 (2.8%)
+  Elapsed: 5.6m | Remaining: 195.7m
+  Avg: 27.76s/combo | Best AUC so far: 0.9660
+
+  Progress: 18/435 (4.1%)
+  Elapsed: 8.9m | Remaining: 207.1m
+  Avg: 29.80s/combo | Best AUC so far: 0.9660
+
+  Progress: 24/435 (5.5%)
+  Elapsed: 12.4m | Remaining: 211.6m
+  Avg: 30.90s/combo | Best AUC so far: 0.9660
+
+  Progress: 30/435 (6.9%)
+  Elapsed: 15.8m | Remaining: 213.4m
+  Avg: 31.62s/combo | Best AUC so far: 0.9660
+  [*][*][*] NEW BEST! AUC: 0.9691 [*][*][*]
+      Pair: ['V14', 'V4']
+      (Acc: 0.9300, HR: 0.8700, FAR: 0.0115)
+
+  Progress: 36/435 (8.3%)
+  Elapsed: 19.2m | Remaining: 213.2m
+  Avg: 32.07s/combo | Best AUC so far: 0.9691
+  [*][*][*] NEW BEST! AUC: 0.9719 [*][*][*]
+      Pair: ['V14', 'V7']
+      (Acc: 0.9200, HR: 0.8500, FAR: 0.0118)
+
+  Progress: 42/435 (9.7%)
+  Elapsed: 22.7m | Remaining: 212.7m
+  Avg: 32.47s/combo | Best AUC so far: 0.9719
+
+  Progress: 48/435 (11.0%)
+  Elapsed: 26.1m | Remaining: 210.5m
+  Avg: 32.64s/combo | Best AUC so far: 0.9719
+
+  Progress: 54/435 (12.4%)
+  Elapsed: 29.5m | Remaining: 208.4m
+  Avg: 32.82s/combo | Best AUC so far: 0.9719
+
+  Progress: 60/435 (13.8%)
+  Elapsed: 32.9m | Remaining: 205.8m
+  Avg: 32.93s/combo | Best AUC so far: 0.9719
+
+  Progress: 66/435 (15.2%)
+  Elapsed: 35.6m | Remaining: 199.0m
+  Avg: 32.35s/combo | Best AUC so far: 0.9719
+
+  Progress: 72/435 (16.6%)
+  Elapsed: 38.5m | Remaining: 194.3m
+  Avg: 32.12s/combo | Best AUC so far: 0.9719
+
+  Progress: 78/435 (17.9%)
+  Elapsed: 41.9m | Remaining: 191.6m
+  Avg: 32.20s/combo | Best AUC so far: 0.9719
+
+  Progress: 84/435 (19.3%)
+  Elapsed: 45.2m | Remaining: 188.8m
+  Avg: 32.27s/combo | Best AUC so far: 0.9719
+
+  Progress: 90/435 (20.7%)
+  Elapsed: 48.6m | Remaining: 186.2m
+  Avg: 32.38s/combo | Best AUC so far: 0.9719
+
+  Progress: 96/435 (22.1%)
+  Elapsed: 52.0m | Remaining: 183.5m
+  Avg: 32.48s/combo | Best AUC so far: 0.9719
+
+  Progress: 102/435 (23.4%)
+  Elapsed: 55.3m | Remaining: 180.4m
+  Avg: 32.51s/combo | Best AUC so far: 0.9719
+
+  Progress: 108/435 (24.8%)
+  Elapsed: 58.7m | Remaining: 177.9m
+  Avg: 32.63s/combo | Best AUC so far: 0.9719
+
+  Progress: 114/435 (26.2%)
+  Elapsed: 62.1m | Remaining: 174.9m
+  Avg: 32.69s/combo | Best AUC so far: 0.9719
+
+  Progress: 120/435 (27.6%)
+  Elapsed: 65.5m | Remaining: 171.9m
+  Avg: 32.73s/combo | Best AUC so far: 0.9719
+
+  Progress: 126/435 (29.0%)
+  Elapsed: 68.8m | Remaining: 168.8m
+  Avg: 32.77s/combo | Best AUC so far: 0.9719
+
+  Progress: 132/435 (30.3%)
+  Elapsed: 72.2m | Remaining: 165.8m
+  Avg: 32.83s/combo | Best AUC so far: 0.9719
+
+  Progress: 138/435 (31.7%)
+  Elapsed: 75.6m | Remaining: 162.7m
+  Avg: 32.87s/combo | Best AUC so far: 0.9719
+
+  Progress: 144/435 (33.1%)
+  Elapsed: 78.9m | Remaining: 159.5m
+  Avg: 32.88s/combo | Best AUC so far: 0.9719
+
+  Progress: 150/435 (34.5%)
+  Elapsed: 82.3m | Remaining: 156.3m
+  Avg: 32.90s/combo | Best AUC so far: 0.9719
+
+  Progress: 156/435 (35.9%)
+  Elapsed: 85.7m | Remaining: 153.2m
+  Avg: 32.95s/combo | Best AUC so far: 0.9719
+
+  Progress: 162/435 (37.2%)
+  Elapsed: 89.1m | Remaining: 150.2m
+  Avg: 33.00s/combo | Best AUC so far: 0.9719
+
+  Progress: 168/435 (38.6%)
+  Elapsed: 92.4m | Remaining: 146.9m
+  Avg: 33.00s/combo | Best AUC so far: 0.9719
+
+  Progress: 174/435 (40.0%)
+  Elapsed: 95.8m | Remaining: 143.7m
+  Avg: 33.03s/combo | Best AUC so far: 0.9719
+
+  Progress: 180/435 (41.4%)
+  Elapsed: 99.1m | Remaining: 140.4m
+  Avg: 33.04s/combo | Best AUC so far: 0.9719
+
+  Progress: 186/435 (42.8%)
+  Elapsed: 102.6m | Remaining: 137.3m
+  Avg: 33.09s/combo | Best AUC so far: 0.9719
+
+  Progress: 192/435 (44.1%)
+  Elapsed: 105.9m | Remaining: 134.1m
+  Avg: 33.11s/combo | Best AUC so far: 0.9719
+
+  Progress: 198/435 (45.5%)
+  Elapsed: 109.5m | Remaining: 131.0m
+  Avg: 33.17s/combo | Best AUC so far: 0.9719
+
+  Progress: 204/435 (46.9%)
+  Elapsed: 112.8m | Remaining: 127.8m
+  Avg: 33.19s/combo | Best AUC so far: 0.9719
+
+  Progress: 210/435 (48.3%)
+  Elapsed: 116.2m | Remaining: 124.5m
+  Avg: 33.19s/combo | Best AUC so far: 0.9719
+
+  Progress: 216/435 (49.7%)
+  Elapsed: 119.5m | Remaining: 121.2m
+  Avg: 33.20s/combo | Best AUC so far: 0.9719
+
+  Progress: 222/435 (51.0%)
+  Elapsed: 122.9m | Remaining: 117.9m
+  Avg: 33.21s/combo | Best AUC so far: 0.9719
+
+  Progress: 228/435 (52.4%)
+  Elapsed: 126.3m | Remaining: 114.7m
+  Avg: 33.24s/combo | Best AUC so far: 0.9719
+
+  Progress: 234/435 (53.8%)
+  Elapsed: 129.7m | Remaining: 111.4m
+  Avg: 33.25s/combo | Best AUC so far: 0.9719
+
+  Progress: 240/435 (55.2%)
+  Elapsed: 133.0m | Remaining: 108.1m
+  Avg: 33.26s/combo | Best AUC so far: 0.9719
+
+  Progress: 246/435 (56.6%)
+  Elapsed: 136.5m | Remaining: 104.9m
+  Avg: 33.30s/combo | Best AUC so far: 0.9719
+
+  Progress: 252/435 (57.9%)
+  Elapsed: 140.0m | Remaining: 101.7m
+  Avg: 33.33s/combo | Best AUC so far: 0.9719
+
+  Progress: 258/435 (59.3%)
+  Elapsed: 143.5m | Remaining: 98.4m
+  Avg: 33.36s/combo | Best AUC so far: 0.9719
+
+  Progress: 264/435 (60.7%)
+  Elapsed: 146.9m | Remaining: 95.1m
+  Avg: 33.38s/combo | Best AUC so far: 0.9719
+
+  Progress: 270/435 (62.1%)
+  Elapsed: 150.3m | Remaining: 91.8m
+  Avg: 33.39s/combo | Best AUC so far: 0.9719
+
+  Progress: 276/435 (63.4%)
+  Elapsed: 153.6m | Remaining: 88.5m
+  Avg: 33.39s/combo | Best AUC so far: 0.9719
+
+  Progress: 282/435 (64.8%)
+  Elapsed: 157.0m | Remaining: 85.2m
+  Avg: 33.40s/combo | Best AUC so far: 0.9719
+
+  Progress: 288/435 (66.2%)
+  Elapsed: 160.4m | Remaining: 81.9m
+  Avg: 33.42s/combo | Best AUC so far: 0.9719
+
+  Progress: 294/435 (67.6%)
+  Elapsed: 163.7m | Remaining: 78.5m
+  Avg: 33.40s/combo | Best AUC so far: 0.9719
+
+  Progress: 300/435 (69.0%)
+  Elapsed: 167.1m | Remaining: 75.2m
+  Avg: 33.42s/combo | Best AUC so far: 0.9719
+
+  Progress: 306/435 (70.3%)
+  Elapsed: 170.5m | Remaining: 71.9m
+  Avg: 33.43s/combo | Best AUC so far: 0.9719
+
+  Progress: 312/435 (71.7%)
+  Elapsed: 173.9m | Remaining: 68.6m
+  Avg: 33.44s/combo | Best AUC so far: 0.9719
+
+  Progress: 318/435 (73.1%)
+  Elapsed: 177.4m | Remaining: 65.3m
+  Avg: 33.47s/combo | Best AUC so far: 0.9719
+
+  Progress: 324/435 (74.5%)
+  Elapsed: 180.9m | Remaining: 62.0m
+  Avg: 33.50s/combo | Best AUC so far: 0.9719
+
+  Progress: 330/435 (75.9%)
+  Elapsed: 184.3m | Remaining: 58.6m
+  Avg: 33.51s/combo | Best AUC so far: 0.9719
+
+  Progress: 336/435 (77.2%)
+  Elapsed: 187.1m | Remaining: 55.1m
+  Avg: 33.41s/combo | Best AUC so far: 0.9719
+
+  Progress: 342/435 (78.6%)
+  Elapsed: 189.9m | Remaining: 51.6m
+  Avg: 33.31s/combo | Best AUC so far: 0.9719
+
+  Progress: 348/435 (80.0%)
+  Elapsed: 193.3m | Remaining: 48.3m
+  Avg: 33.33s/combo | Best AUC so far: 0.9719
+
+  Progress: 354/435 (81.4%)
+  Elapsed: 196.8m | Remaining: 45.0m
+  Avg: 33.35s/combo | Best AUC so far: 0.9719
+
+  Progress: 360/435 (82.8%)
+  Elapsed: 200.1m | Remaining: 41.7m
+  Avg: 33.35s/combo | Best AUC so far: 0.9719
+
+  Progress: 366/435 (84.1%)
+  Elapsed: 203.6m | Remaining: 38.4m
+  Avg: 33.38s/combo | Best AUC so far: 0.9719
+
+  Progress: 372/435 (85.5%)
+  Elapsed: 207.1m | Remaining: 35.1m
+  Avg: 33.40s/combo | Best AUC so far: 0.9719
+
+  Progress: 378/435 (86.9%)
+  Elapsed: 210.4m | Remaining: 31.7m
+  Avg: 33.40s/combo | Best AUC so far: 0.9719
+
+  Progress: 384/435 (88.3%)
+  Elapsed: 213.8m | Remaining: 28.4m
+  Avg: 33.41s/combo | Best AUC so far: 0.9719
+
+  Progress: 390/435 (89.7%)
+  Elapsed: 217.3m | Remaining: 25.1m
+  Avg: 33.43s/combo | Best AUC so far: 0.9719
+
+  Progress: 396/435 (91.0%)
+  Elapsed: 220.6m | Remaining: 21.7m
+  Avg: 33.43s/combo | Best AUC so far: 0.9719
+
+  Progress: 402/435 (92.4%)
+  Elapsed: 224.0m | Remaining: 18.4m
+  Avg: 33.44s/combo | Best AUC so far: 0.9719
+
+  Progress: 408/435 (93.8%)
+  Elapsed: 227.5m | Remaining: 15.1m
+  Avg: 33.45s/combo | Best AUC so far: 0.9719
+
+  Progress: 414/435 (95.2%)
+  Elapsed: 230.9m | Remaining: 11.7m
+  Avg: 33.47s/combo | Best AUC so far: 0.9719
+
+  Progress: 420/435 (96.6%)
+  Elapsed: 234.4m | Remaining: 8.4m
+  Avg: 33.49s/combo | Best AUC so far: 0.9719
+
+  Progress: 426/435 (97.9%)
+  Elapsed: 237.8m | Remaining: 5.0m
+  Avg: 33.49s/combo | Best AUC so far: 0.9719
+
+  Progress: 432/435 (99.3%)
+  Elapsed: 241.1m | Remaining: 1.7m
+  Avg: 33.49s/combo | Best AUC so far: 0.9719
+
+────────────────────────────────────────────────────────────────────────────────
+[+] BEST 2-FEATURE PAIR FOUND:
+    Features: ['V14', 'V7']
+    AUC: 0.9719 | Acc: 0.9200 | HR: 0.8500 | FAR: 0.0118
+    Time: 242.4 minutes (14546.0s)
+    Avg: 33.44s per combination
+────────────────────────────────────────────────────────────────────────────────
+
+================================================================================
+STEP 2: ADDING FEATURE #3 (GREEDY)
+================================================================================
+[*] Current selection: ['V14', 'V7']
+    Testing 28 candidates in parallel...
+
+[>>>] Evaluating candidates...
+  [ 1/28] Feature V17     : AUC=0.9685, Acc=0.9250, HR=0.8700, FAR=0.0230
+       ★ NEW BEST for this step! ★
+  [ 2/28] Feature V12     : AUC=0.9676, Acc=0.9150, HR=0.8500, FAR=0.0235
+  [ 3/28] Feature V20     : AUC=0.9755, Acc=0.9300, HR=0.8600, FAR=0.0000
+       ★ NEW BEST for this step! ★
+  [ 4/28] Feature V4      : AUC=0.9813, Acc=0.9300, HR=0.8600, FAR=0.0000
+       ★ NEW BEST for this step! ★
+  [ 5/28] Feature V10     : AUC=0.9752, Acc=0.9150, HR=0.8400, FAR=0.0119
+  [ 6/28] Feature V5      : AUC=0.9752, Acc=0.9250, HR=0.8600, FAR=0.0116
+  [ 7/28] Feature V16     : AUC=0.9706, Acc=0.9250, HR=0.8600, FAR=0.0116
+  [ 8/28] Feature V3      : AUC=0.9661, Acc=0.9200, HR=0.8500, FAR=0.0118
+  [ 9/28] Feature V9      : AUC=0.9742, Acc=0.9150, HR=0.8400, FAR=0.0119
+  [10/28] Feature V27     : AUC=0.9739, Acc=0.9300, HR=0.8700, FAR=0.0115
+  [11/28] Feature V11     : AUC=0.9701, Acc=0.9250, HR=0.8700, FAR=0.0230
+  [12/28] Feature V22     : AUC=0.9723, Acc=0.9250, HR=0.8600, FAR=0.0116
+  [13/28] Feature V6      : AUC=0.9748, Acc=0.9150, HR=0.8400, FAR=0.0119
+  [14/28] Feature V18     : AUC=0.9651, Acc=0.9200, HR=0.8500, FAR=0.0118
+  [15/28] Feature V8      : AUC=0.9752, Acc=0.9300, HR=0.8700, FAR=0.0115
+  [16/28] Feature V21     : AUC=0.9759, Acc=0.9300, HR=0.8700, FAR=0.0115
+  [17/28] Feature V26     : AUC=0.9703, Acc=0.9150, HR=0.8400, FAR=0.0119
+  [18/28] Feature V1      : AUC=0.9732, Acc=0.9250, HR=0.8500, FAR=0.0000
+  [19/28] Feature V23     : AUC=0.9681, Acc=0.9250, HR=0.8600, FAR=0.0116
+  [20/28] Feature V28     : AUC=0.9740, Acc=0.9250, HR=0.8500, FAR=0.0000
+  [21/28] Feature V13     : AUC=0.9681, Acc=0.9150, HR=0.8400, FAR=0.0119
+  [22/28] Feature V15     : AUC=0.9539, Acc=0.9150, HR=0.8500, FAR=0.0235
+  [23/28] Feature V19     : AUC=0.9758, Acc=0.9150, HR=0.8600, FAR=0.0349
+  [24/28] Feature V2      : AUC=0.9788, Acc=0.9250, HR=0.8600, FAR=0.0116
+  [25/28] Feature V24     : AUC=0.9634, Acc=0.9200, HR=0.8500, FAR=0.0118
+  [26/28] Feature V25     : AUC=0.9659, Acc=0.9250, HR=0.8600, FAR=0.0116
+  [27/28] Feature Time    : AUC=0.9559, Acc=0.9100, HR=0.8400, FAR=0.0238
+  [28/28] Feature Amount  : AUC=0.9750, Acc=0.9150, HR=0.8400, FAR=0.0119
+
+────────────────────────────────────────────────────────────────────────────────
+[+] BEST FEATURE FOR STEP 2: V4
+    Selected features: ['V14', 'V7', 'V4']
+    AUC: 0.9813 | Acc: 0.9300 | HR: 0.8600 | FAR: 0.0000
+    Step time: 1791.4s
+────────────────────────────────────────────────────────────────────────────────
+
+================================================================================
+STEP 3: ADDING FEATURE #4 (GREEDY)
+================================================================================
+[*] Current selection: ['V14', 'V7', 'V4']
+    Testing 27 candidates in parallel...
+
+[>>>] Evaluating candidates...
+  [ 1/27] Feature V17     : AUC=0.9852, Acc=0.9500, HR=0.9000, FAR=0.0000
+       ★ NEW BEST for this step! ★
+  [ 2/27] Feature V5      : AUC=0.9842, Acc=0.9500, HR=0.9000, FAR=0.0000
+  [ 3/27] Feature V10     : AUC=0.9763, Acc=0.9400, HR=0.8900, FAR=0.0112
+  [ 4/27] Feature V12     : AUC=0.9773, Acc=0.9450, HR=0.9000, FAR=0.0111
+  [ 5/27] Feature V20     : AUC=0.9845, Acc=0.9450, HR=0.8900, FAR=0.0000
+  [ 6/27] Feature V27     : AUC=0.9780, Acc=0.9400, HR=0.8900, FAR=0.0112
+  [ 7/27] Feature V16     : AUC=0.9733, Acc=0.9450, HR=0.8900, FAR=0.0000
+  [ 8/27] Feature V22     : AUC=0.9804, Acc=0.9350, HR=0.8700, FAR=0.0000
+  [ 9/27] Feature V11     : AUC=0.9844, Acc=0.9400, HR=0.8800, FAR=0.0000
+  [10/27] Feature V3      : AUC=0.9764, Acc=0.9350, HR=0.8800, FAR=0.0114
+  [11/27] Feature V9      : AUC=0.9853, Acc=0.9500, HR=0.9000, FAR=0.0000
+       ★ NEW BEST for this step! ★
+  [12/27] Feature V26     : AUC=0.9788, Acc=0.9400, HR=0.8900, FAR=0.0112
+  [13/27] Feature V21     : AUC=0.9821, Acc=0.9450, HR=0.8900, FAR=0.0000
+  [14/27] Feature V18     : AUC=0.9759, Acc=0.9400, HR=0.8800, FAR=0.0000
+  [15/27] Feature V8      : AUC=0.9801, Acc=0.9450, HR=0.8900, FAR=0.0000
+  [16/27] Feature V1      : AUC=0.9747, Acc=0.9500, HR=0.9000, FAR=0.0000
+  [17/27] Feature V6      : AUC=0.9790, Acc=0.9350, HR=0.8800, FAR=0.0114
+  [18/27] Feature V19     : AUC=0.9876, Acc=0.9450, HR=0.8900, FAR=0.0000
+       ★ NEW BEST for this step! ★
+  [19/27] Feature V28     : AUC=0.9837, Acc=0.9400, HR=0.8800, FAR=0.0000
+  [20/27] Feature V2      : AUC=0.9787, Acc=0.9450, HR=0.8900, FAR=0.0000
+  [21/27] Feature V13     : AUC=0.9797, Acc=0.9400, HR=0.8800, FAR=0.0000
+  [22/27] Feature V15     : AUC=0.9766, Acc=0.9350, HR=0.8700, FAR=0.0000
+  [23/27] Feature V23     : AUC=0.9776, Acc=0.9500, HR=0.9000, FAR=0.0000
+  [24/27] Feature V24     : AUC=0.9823, Acc=0.9250, HR=0.8500, FAR=0.0000
+  [25/27] Feature V25     : AUC=0.9753, Acc=0.9350, HR=0.8900, FAR=0.0225
+  [26/27] Feature Amount  : AUC=0.9807, Acc=0.9550, HR=0.9100, FAR=0.0000
+  [27/27] Feature Time    : AUC=0.9806, Acc=0.9200, HR=0.8400, FAR=0.0000
+
+────────────────────────────────────────────────────────────────────────────────
+[+] BEST FEATURE FOR STEP 3: V19
+    Selected features: ['V14', 'V7', 'V4', 'V19']
+    AUC: 0.9876 | Acc: 0.9450 | HR: 0.8900 | FAR: 0.0000
+    Step time: 4059.6s
+────────────────────────────────────────────────────────────────────────────────
+
+================================================================================
+STEP 4: ADDING FEATURE #5 (GREEDY)
+================================================================================
+[*] Current selection: ['V14', 'V7', 'V4', 'V19']
+    Testing 26 candidates in parallel...
+
+[>>>] Evaluating candidates...
+  [ 1/26] Feature V10     : AUC=0.9837, Acc=0.9350, HR=0.9100, FAR=0.0440
+       ★ NEW BEST for this step! ★
+  [ 2/26] Feature V17     : AUC=0.9843, Acc=0.9500, HR=0.9200, FAR=0.0217
+       ★ NEW BEST for this step! ★
+  [ 3/26] Feature V12     : AUC=0.9855, Acc=0.9300, HR=0.9000, FAR=0.0444
+       ★ NEW BEST for this step! ★
+  [ 4/26] Feature V5      : AUC=0.9821, Acc=0.9550, HR=0.9300, FAR=0.0215
+  [ 5/26] Feature V20     : AUC=0.9913, Acc=0.9600, HR=0.9400, FAR=0.0213
+       ★ NEW BEST for this step! ★
+  [ 6/26] Feature V27     : AUC=0.9835, Acc=0.9500, HR=0.9400, FAR=0.0426
+  [ 7/26] Feature V3      : AUC=0.9872, Acc=0.9500, HR=0.9200, FAR=0.0217
+  [ 8/26] Feature V11     : AUC=0.9827, Acc=0.9350, HR=0.8900, FAR=0.0225
+  [ 9/26] Feature V16     : AUC=0.9870, Acc=0.9450, HR=0.9000, FAR=0.0111
+  [10/26] Feature V22     : AUC=0.9836, Acc=0.9500, HR=0.9200, FAR=0.0217
+  [11/26] Feature V9      : AUC=0.9856, Acc=0.9450, HR=0.9000, FAR=0.0111
+  [12/26] Feature V26     : AUC=0.9838, Acc=0.9350, HR=0.8800, FAR=0.0114
+  [13/26] Feature V1      : AUC=0.9857, Acc=0.9450, HR=0.9200, FAR=0.0326
+  [14/26] Feature V21     : AUC=0.9849, Acc=0.9500, HR=0.9200, FAR=0.0217
+  [15/26] Feature V8      : AUC=0.9847, Acc=0.9550, HR=0.9300, FAR=0.0215
+  [16/26] Feature V6      : AUC=0.9843, Acc=0.9500, HR=0.9300, FAR=0.0323
+  [17/26] Feature V2      : AUC=0.9903, Acc=0.9650, HR=0.9300, FAR=0.0000
+  [18/26] Feature V18     : AUC=0.9827, Acc=0.9550, HR=0.9300, FAR=0.0215
+  [19/26] Feature V23     : AUC=0.9849, Acc=0.9500, HR=0.9300, FAR=0.0323
+  [20/26] Feature V28     : AUC=0.9835, Acc=0.9450, HR=0.9100, FAR=0.0220
+  [21/26] Feature V24     : AUC=0.9749, Acc=0.9100, HR=0.8500, FAR=0.0353
+  [22/26] Feature V15     : AUC=0.9774, Acc=0.9400, HR=0.8900, FAR=0.0112
+  [23/26] Feature V13     : AUC=0.9862, Acc=0.9100, HR=0.8500, FAR=0.0353
+  [24/26] Feature V25     : AUC=0.9769, Acc=0.9350, HR=0.9100, FAR=0.0440
+  [25/26] Feature Amount  : AUC=0.9864, Acc=0.9600, HR=0.9400, FAR=0.0213
+  [26/26] Feature Time    : AUC=0.9760, Acc=0.9200, HR=0.8800, FAR=0.0455
+
+────────────────────────────────────────────────────────────────────────────────
+[+] BEST FEATURE FOR STEP 4: V20
+    Selected features: ['V14', 'V7', 'V4', 'V19', 'V20']
+    AUC: 0.9913 | Acc: 0.9600 | HR: 0.9400 | FAR: 0.0213
+    Step time: 5604.4s
+────────────────────────────────────────────────────────────────────────────────
+
+================================================================================
+STEP 5: ADDING FEATURE #6 (GREEDY)
+================================================================================
+[*] Current selection: ['V14', 'V7', 'V4', 'V19', 'V20']
+    Testing 25 candidates in parallel...
+
+[>>>] Evaluating candidates...
+  [ 1/25] Feature V5      : AUC=0.9857, Acc=0.9600, HR=0.9400, FAR=0.0213
+       ★ NEW BEST for this step! ★
+  [ 2/25] Feature V12     : AUC=0.9870, Acc=0.9550, HR=0.9500, FAR=0.0421
+       ★ NEW BEST for this step! ★
+  [ 3/25] Feature V27     : AUC=0.9889, Acc=0.9600, HR=0.9400, FAR=0.0213
+       ★ NEW BEST for this step! ★
+  [ 4/25] Feature V17     : AUC=0.9920, Acc=0.9650, HR=0.9500, FAR=0.0211
+       ★ NEW BEST for this step! ★
+  [ 5/25] Feature V10     : AUC=0.9886, Acc=0.9550, HR=0.9300, FAR=0.0215
+  [ 6/25] Feature V22     : AUC=0.9841, Acc=0.9650, HR=0.9600, FAR=0.0312
+  [ 7/25] Feature V11     : AUC=0.9863, Acc=0.9450, HR=0.9200, FAR=0.0326
+  [ 8/25] Feature V16     : AUC=0.9898, Acc=0.9650, HR=0.9500, FAR=0.0211
+  [ 9/25] Feature V3      : AUC=0.9884, Acc=0.9450, HR=0.9100, FAR=0.0220
+  [10/25] Feature V9      : AUC=0.9889, Acc=0.9550, HR=0.9300, FAR=0.0215
+  [11/25] Feature V26     : AUC=0.9870, Acc=0.9600, HR=0.9500, FAR=0.0316
+  [12/25] Feature V21     : AUC=0.9866, Acc=0.9550, HR=0.9400, FAR=0.0319
+  [13/25] Feature V8      : AUC=0.9873, Acc=0.9600, HR=0.9400, FAR=0.0213
+  [14/25] Feature V18     : AUC=0.9854, Acc=0.9550, HR=0.9400, FAR=0.0319
+  [15/25] Feature V2      : AUC=0.9888, Acc=0.9600, HR=0.9400, FAR=0.0213
+  [16/25] Feature V6      : AUC=0.9853, Acc=0.9500, HR=0.9300, FAR=0.0323
+  [17/25] Feature V1      : AUC=0.9866, Acc=0.9450, HR=0.9100, FAR=0.0220
+  [18/25] Feature V28     : AUC=0.9862, Acc=0.9650, HR=0.9500, FAR=0.0211
+  [19/25] Feature V15     : AUC=0.9836, Acc=0.9550, HR=0.9300, FAR=0.0215
+  [20/25] Feature V13     : AUC=0.9821, Acc=0.9350, HR=0.9100, FAR=0.0440
+  [21/25] Feature V24     : AUC=0.9866, Acc=0.9500, HR=0.9400, FAR=0.0426
+  [22/25] Feature V23     : AUC=0.9889, Acc=0.9550, HR=0.9400, FAR=0.0319
+  [23/25] Feature V25     : AUC=0.9847, Acc=0.9500, HR=0.9200, FAR=0.0217
+  [24/25] Feature Amount  : AUC=0.9860, Acc=0.9600, HR=0.9400, FAR=0.0213
+  [25/25] Feature Time    : AUC=0.9825, Acc=0.9400, HR=0.9000, FAR=0.0222
+
+────────────────────────────────────────────────────────────────────────────────
+[+] BEST FEATURE FOR STEP 5: V17
+    Selected features: ['V14', 'V7', 'V4', 'V19', 'V20', 'V17']
+    AUC: 0.9920 | Acc: 0.9650 | HR: 0.9500 | FAR: 0.0211
+    Step time: 3341.8s
+────────────────────────────────────────────────────────────────────────────────
+
+================================================================================
+STEP 6: ADDING FEATURE #7 (GREEDY)
+================================================================================
+[*] Current selection: ['V14', 'V7', 'V4', 'V19', 'V20', 'V17']
+    Testing 24 candidates in parallel...
+
+[>>>] Evaluating candidates...

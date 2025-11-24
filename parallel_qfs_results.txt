@@ -1,0 +1,277 @@
+================================================================================
+PARALLEL QUANTUM FEATURE SELECTION - EXHAUSTIVE SEARCH
+WINDOWS COMPATIBLE VERSION
+================================================================================
+
+Starting: 2025-11-22 19:34:38
+Available CPU cores: 16
+Platform: Windows (using 'spawn' multiprocessing)
+
+[*] Configuration:
+  Training size: 400
+  Test size: 200
+  Feature map depth: 1
+  Entanglement: linear
+  Shots: 1024
+  Parallel workers: 5
+  Results file: parallel_qfs_results.txt
+
+[+] Feature Pre-filter: Active
+     Selecting from: ['V10', 'V14', 'V12', 'V4', 'V17', 'V5', 'V20', 'V27', 'V22', 'V11']
+     Range to test: 7 to 7 features
+
+[*] MEMORY OPTIMIZATION:
+   Single balanced dataset created ONCE
+   On Windows: Each worker gets a copy (spawn method)
+   Still efficient: Workers initialized once, not per task
+
+================================================================================
+LOADING DATA
+================================================================================
+[+] Loaded: 284807 rows, 31 columns
+  Fraud: 492
+  Genuine: 284315
+
+================================================================================
+STARTING PARALLEL QUANTUM FEATURE SELECTION
+================================================================================
+
+? STEP 1: Creating balanced dataset (ONE TIME ONLY)
+
+================================================================================
+PREPARING DATA - Trial 1
+================================================================================
+[+] Balanced: 600 samples (300 fraud, 300 genuine)
+[+] Split: Train=400, Test=200
+[+] Normalized to [-1.00, 1.00]
+
+[*] Dataset size: 0.14 MB
+   On Windows: Each of 5 workers gets a copy
+   Memory per worker: 0.14 MB
+   Total memory: ~0.71 MB
+   But: Workers initialized ONCE (not per task!)
+   Efficiency: 5 copies for 120 tasks (not 120 copies!)
+
+[*] STEP 2: Running exhaustive feature selection
+
+================================================================================
+PARALLEL QUANTUM FEATURE SELECTION ALGORITHM
+================================================================================
+Device: CPU
+Workers: 5
+Algorithm: EXHAUSTIVE SEARCH (all combinations)
+Full feature list: 30 features
+Selection range: 7-7
+Dataset: 0.14 MB per worker
+
+Using pre-filter list: ['V10', 'V14', 'V12', 'V4', 'V17', 'V5', 'V20', 'V27', 'V22', 'V11']
+Indices to test: [10, 14, 12, 4, 17, 5, 20, 27, 22, 11]
+Total features in selection pool: 10
+================================================================================
+
+================================================================================
+SELECTING BEST 7 FEATURES (PARALLEL)
+================================================================================
+
+[*] Total combinations to test: 120
+   Using 5 parallel workers
+   Expected speedup: ~5x
+
+[>>>] Starting parallel processing...
+   Progress updates every 5 combinations
+   Dataset copied to each of 5 workers (Windows spawn method)
+
+  [*][*][*] NEW BEST! AUC: 0.9611 [*][*][*]
+      Features: ['V10', 'V14', 'V12', 'V4', 'V17', 'V5', 'V20']
+      (Acc: 0.9100, HR: 0.8500, FAR: 0.0353)
+
+  [*][*][*] NEW BEST! AUC: 0.9614 [*][*][*]
+      Features: ['V10', 'V14', 'V12', 'V4', 'V17', 'V5', 'V22']
+      (Acc: 0.9100, HR: 0.8500, FAR: 0.0353)
+
+  Progress: 5/120 (4.2%)
+  Elapsed: 10.0m | Remaining: 230.1m
+  Avg time per combo: 120.07s
+  Total kernel time: 2931.2s
+
+  [*][*][*] NEW BEST! AUC: 0.9621 [*][*][*]
+      Features: ['V10', 'V14', 'V12', 'V4', 'V17', 'V27', 'V22']
+      (Acc: 0.9200, HR: 0.8600, FAR: 0.0233)
+
+  Progress: 10/120 (8.3%)
+  Elapsed: 21.7m | Remaining: 238.4m
+  Avg time per combo: 130.03s
+  Total kernel time: 6388.0s
+
+  [*][*][*] NEW BEST! AUC: 0.9622 [*][*][*]
+      Features: ['V10', 'V14', 'V12', 'V4', 'V5', 'V20', 'V22']
+      (Acc: 0.9150, HR: 0.8700, FAR: 0.0460)
+
+  [*][*][*] NEW BEST! AUC: 0.9663 [*][*][*]
+      Features: ['V10', 'V14', 'V12', 'V4', 'V5', 'V27', 'V22']
+      (Acc: 0.9100, HR: 0.8600, FAR: 0.0465)
+
+  Progress: 15/120 (12.5%)
+  Elapsed: 34.3m | Remaining: 240.0m
+  Avg time per combo: 137.15s
+  Total kernel time: 10141.0s
+
+  [*][*][*] NEW BEST! AUC: 0.9685 [*][*][*]
+      Features: ['V10', 'V14', 'V12', 'V4', 'V27', 'V22', 'V11']
+      (Acc: 0.9200, HR: 0.8700, FAR: 0.0345)
+
+  Progress: 20/120 (16.7%)
+  Elapsed: 49.2m | Remaining: 245.8m
+  Avg time per combo: 147.49s
+  Total kernel time: 14511.0s
+
+  Progress: 25/120 (20.8%)
+  Elapsed: 63.4m | Remaining: 241.1m
+  Avg time per combo: 152.26s
+  Total kernel time: 18767.9s
+
+  Progress: 30/120 (25.0%)
+  Elapsed: 77.1m | Remaining: 231.3m
+  Avg time per combo: 154.22s
+  Total kernel time: 22790.9s
+
+  Progress: 35/120 (29.2%)
+  Elapsed: 90.5m | Remaining: 219.9m
+  Avg time per combo: 155.19s
+  Total kernel time: 26793.6s
+
+  [*][*][*] NEW BEST! AUC: 0.9701 [*][*][*]
+      Features: ['V10', 'V14', 'V4', 'V17', 'V5', 'V20', 'V22']
+      (Acc: 0.9150, HR: 0.8600, FAR: 0.0349)
+
+  Progress: 40/120 (33.3%)
+  Elapsed: 104.3m | Remaining: 208.6m
+  Avg time per combo: 156.43s
+  Total kernel time: 30965.5s
+
+  Progress: 45/120 (37.5%)
+  Elapsed: 117.3m | Remaining: 195.6m
+  Avg time per combo: 156.44s
+  Total kernel time: 34771.9s
+
+  [*][*][*] NEW BEST! AUC: 0.9737 [*][*][*]
+      Features: ['V10', 'V14', 'V4', 'V5', 'V20', 'V22', 'V11']
+      (Acc: 0.9200, HR: 0.8600, FAR: 0.0233)
+
+  Progress: 50/120 (41.7%)
+  Elapsed: 132.6m | Remaining: 185.6m
+  Avg time per combo: 159.12s
+  Total kernel time: 39204.4s
+
+  Progress: 55/120 (45.8%)
+  Elapsed: 147.6m | Remaining: 174.4m
+  Avg time per combo: 161.02s
+  Total kernel time: 43596.3s
+
+  Progress: 60/120 (50.0%)
+  Elapsed: 163.1m | Remaining: 163.1m
+  Avg time per combo: 163.07s
+  Total kernel time: 48100.9s
+
+  Progress: 65/120 (54.2%)
+  Elapsed: 174.2m | Remaining: 147.4m
+  Avg time per combo: 160.83s
+  Total kernel time: 51721.8s
+
+  Progress: 70/120 (58.3%)
+  Elapsed: 187.9m | Remaining: 134.2m
+  Avg time per combo: 161.07s
+  Total kernel time: 55578.0s
+
+  Progress: 75/120 (62.5%)
+  Elapsed: 203.1m | Remaining: 121.9m
+  Avg time per combo: 162.50s
+  Total kernel time: 60129.9s
+
+  Progress: 80/120 (66.7%)
+  Elapsed: 218.5m | Remaining: 109.2m
+  Avg time per combo: 163.85s
+  Total kernel time: 64719.0s
+
+  Progress: 85/120 (70.8%)
+  Elapsed: 238.1m | Remaining: 98.0m
+  Avg time per combo: 168.07s
+  Total kernel time: 70654.2s
+
+  Progress: 90/120 (75.0%)
+  Elapsed: 253.8m | Remaining: 84.6m
+  Avg time per combo: 169.19s
+  Total kernel time: 75269.9s
+
+  Progress: 95/120 (79.2%)
+  Elapsed: 268.9m | Remaining: 70.8m
+  Avg time per combo: 169.84s
+  Total kernel time: 79766.3s
+
+  Progress: 100/120 (83.3%)
+  Elapsed: 282.5m | Remaining: 56.5m
+  Avg time per combo: 169.48s
+  Total kernel time: 83906.3s
+
+  Progress: 105/120 (87.5%)
+  Elapsed: 298.1m | Remaining: 42.6m
+  Avg time per combo: 170.36s
+  Total kernel time: 88373.7s
+
+  Progress: 110/120 (91.7%)
+  Elapsed: 312.2m | Remaining: 28.4m
+  Avg time per combo: 170.31s
+  Total kernel time: 92624.3s
+
+  Progress: 115/120 (95.8%)
+  Elapsed: 328.0m | Remaining: 14.3m
+  Avg time per combo: 171.13s
+  Total kernel time: 97130.6s
+
+  Progress: 120/120 (100.0%)
+  Elapsed: 341.1m | Remaining: 0.0m
+  Avg time per combo: 170.57s
+  Total kernel time: 101296.7s
+
+  [+] Completed all 120 combinations in 341.2 minutes
+  [+] Average time per combo: 170.58s
+  [+] Effective speedup: ~0.1x (vs sequential)
+
+================================================================================
+BEST 7 FEATURES:
+  ['V10', 'V14', 'V4', 'V5', 'V20', 'V22', 'V11']
+  AUC: 0.9737
+  Accuracy: 0.9200
+  Hit Rate: 0.8600
+  False Alarm Ratio: 0.0233
+================================================================================
+
+################################################################################
+FINAL RESULTS
+################################################################################
+
+================================================================================
+BEST 7 FEATURES:
+================================================================================
+  Features: ['V10', 'V14', 'V4', 'V5', 'V20', 'V22', 'V11']
+  Feature indices: [10, 14, 4, 5, 20, 22, 11]
+  AUC: 0.9737
+  Accuracy: 0.9200
+  Hit Rate (Recall): 0.8600
+  False Alarm Ratio (FP/TP): 0.0233
+================================================================================
+
+================================================================================
+EXECUTION SUMMARY
+================================================================================
+  Algorithm: Exhaustive Search
+  Dataset created: 1 time
+  Dataset size: 0.14 MB
+  Workers used: 5
+  Platform: Windows (spawn method)
+  Total execution time: 341.16 minutes (20469.5 seconds)
+  End time: 2025-11-23 01:15:48
+
+================================================================================
+RESULTS SAVED TO: parallel_qfs_results.txt
+================================================================================

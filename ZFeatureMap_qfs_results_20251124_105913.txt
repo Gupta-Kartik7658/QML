@@ -1,0 +1,99 @@
+================================================================================
+HYBRID QUANTUM FEATURE SELECTION - SESSION LOG
+================================================================================
+Start time: 2025-11-24 10:59:13
+Results file: ZFeatureMap_qfs_results_20251124_105913.txt
+================================================================================
+
+================================================================================
+HYBRID QUANTUM FEATURE SELECTION
+Exhaustive 2-Features + Greedy 3-7
+================================================================================
+
+Starting: 2025-11-24 10:59:13
+Available CPU cores: 16
+
+[*] Configuration:
+    Training size: 400
+    Test size: 200
+    Feature map: ZZ, reps=1
+    Entanglement: linear
+    Shots: 1024
+    Workers: 6
+    Results file: ZFeatureMap_qfs_results_20251124_105913.txt
+    Use noise: True
+    T1 time: 1.0 μs
+    T2 time: 2.0 μs
+    Gate time (1Q): 50.0 ns
+    Gate time (2Q): 100.0 ns
+
+[*] Feature Pre-filter: 30 features
+    Selection range: 2 to 6
+
+[*] Complexity Comparison:
+    Pure exhaustive C(30,7): 2,035,800 evaluations
+    Hybrid approach: ~585 evaluations
+    Speedup: ~3480x faster!
+================================================================================
+LOADING DATA
+================================================================================
+[+] Loaded: 284807 rows, 31 columns
+  Fraud: 492
+  Genuine: 284315
+
+================================================================================
+PREPARING DATASET
+================================================================================
+
+================================================================================
+PREPARING DATA - Trial 1
+================================================================================
+[+] Balanced: 600 samples (300 fraud, 300 genuine)
+[+] Split: Train=400, Test=200
+[+] Normalized to [-1.00, 1.00]
+
+[*] Dataset: 0.14 MB per worker
+    Total memory: ~0.85 MB
+
+================================================================================
+HYBRID QUANTUM FEATURE SELECTION ALGORITHM
+================================================================================
+Device: CPU
+Workers: 6
+Algorithm: HYBRID (Exhaustive 2-features + Greedy 3-7)
+
+[+] Using pre-filter list (30 features):
+    ['V14', 'V7', 'V4', 'V19', 'V20', 'V17', 'V10', 'V12', 'V5', 'V27', 'V22', 'V11', 'V16', 'V3', 'V9', 'V26', 'V21', 'V8', 'V18', 'V1', 'V6', 'V2', 'V28', 'V13', 'V15', 'V23', 'V24', 'V25', 'Amount', 'Time']
+    Indices: [14, 7, 4, 19, 20, 17, 10, 12, 5, 27, 22, 11, 16, 3, 9, 26, 21, 8, 18, 1, 6, 2, 28, 13, 15, 23, 24, 25, 29, 0]
+
+[*] Algorithm Plan:
+    Step 1: Exhaustive 2-feature pairs = C(30,2) = 435 combinations
+    Steps 2-7: Greedy selection = ~150 additional evaluations
+    Total evaluations: ~585 (vs 2,035,800 for pure exhaustive!)
+    Dataset: 0.14 MB per worker
+================================================================================
+
+================================================================================
+STEP 1: EXHAUSTIVE 2-FEATURE PAIR SEARCH
+================================================================================
+
+[*] Testing all 435 pairs in parallel...
+    Using 6 workers
+    Estimated time: ~18.1 minutes
+
+[>>>] Starting parallel evaluation...
+      Progress updates every 6 combinations
+
+  [*][*][*] NEW BEST! AUC: 0.9657 [*][*][*]
+      Pair: ['V14', 'V20']
+      (Acc: 0.9300, HR: 0.8800, FAR: 0.0227)
+  [*][*][*] NEW BEST! AUC: 0.9691 [*][*][*]
+      Pair: ['V14', 'V4']
+      (Acc: 0.9300, HR: 0.8700, FAR: 0.0115)
+  [*][*][*] NEW BEST! AUC: 0.9719 [*][*][*]
+      Pair: ['V14', 'V7']
+      (Acc: 0.9200, HR: 0.8500, FAR: 0.0118)
+
+  Progress: 6/435 (1.4%)
+  Elapsed: 3.2m | Remaining: 227.8m
+  Avg: 31.87s/combo | Best AUC so far: 0.9719

@@ -1,0 +1,38 @@
+================================================================================
+HYBRID QUANTUM FEATURE SELECTION - SESSION LOG
+================================================================================
+Start time: 2025-11-23 13:22:21
+Results file: hybrid_qfs_results_20251123_132221.txt
+================================================================================
+
+================================================================================
+HYBRID QUANTUM FEATURE SELECTION
+Exhaustive 2-Features + Greedy 3-7
+================================================================================
+
+Starting: 2025-11-23 13:22:21
+Available CPU cores: 16
+
+[*] Configuration:
+    Training size: 400
+    Test size: 200
+    Feature map: Z, reps=1
+    Entanglement: linear
+    Shots: 1024
+    Workers: 6
+    Results file: hybrid_qfs_results_20251123_132221.txt
+
+[*] Feature Pre-filter: 24 features
+    Selection range: 2 to 7
+
+[*] Complexity Comparison:
+    Pure exhaustive C(24,7): 346,104 evaluations
+    Hybrid approach: ~396 evaluations
+    Speedup: ~874x faster!
+================================================================================
+LOADING DATA
+================================================================================
+
+================================================================================
+Session end time: 2025-11-23 13:22:21
+================================================================================
