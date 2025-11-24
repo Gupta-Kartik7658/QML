@@ -1,0 +1,68 @@
+2025-11-24 20:47:21,880 - INFO - Logging to C:\Users\Lenovo\Desktop\programming\design\NEW\QML\logs\training_20251124_204721.log
+2025-11-24 20:47:21,880 - INFO - Starting DQN training...
+2025-11-24 20:47:21,881 - INFO - Using features: ['V14', 'V7', 'V4', 'V19', 'V20', 'V17']
+2025-11-24 20:47:23,351 - INFO - Loaded dataset with shape: (284807, 31)
+2025-11-24 20:47:23,370 - INFO - Training set: 688 samples, Test set: 296 samples
+2025-11-24 20:47:23,371 - INFO - Fraud samples in train: 344, Test: 148
+2025-11-24 20:47:25,840 - INFO - Model saved to best_dqn_model.pth
+2025-11-24 20:47:25,847 - INFO - New best model saved with AUC: 0.9782
+2025-11-24 20:47:25,856 - INFO - Episode 1/200 - Train Acc: 0.9026, Test Acc: 0.9257, Test AUC: 0.9782, Test FAR: 0.1081, Epsilon: 0.044
+2025-11-24 20:47:27,302 - INFO - Model saved to best_dqn_model.pth
+2025-11-24 20:47:27,304 - INFO - New best model saved with AUC: 0.9821
+2025-11-24 20:47:28,515 - INFO - Model saved to best_dqn_model.pth
+2025-11-24 20:47:28,515 - INFO - New best model saved with AUC: 0.9843
+2025-11-24 20:47:29,494 - INFO - Model saved to best_dqn_model.pth
+2025-11-24 20:47:29,494 - INFO - New best model saved with AUC: 0.9864
+2025-11-24 20:47:30,428 - INFO - Model saved to best_dqn_model.pth
+2025-11-24 20:47:30,428 - INFO - New best model saved with AUC: 0.9871
+2025-11-24 20:47:30,436 - INFO - Episode 5/200 - Train Acc: 0.9186, Test Acc: 0.9189, Test AUC: 0.9871, Test FAR: 0.1081, Epsilon: 0.010
+2025-11-24 20:47:31,364 - INFO - Model saved to best_dqn_model.pth
+2025-11-24 20:47:31,364 - INFO - New best model saved with AUC: 0.9879
+2025-11-24 20:47:32,294 - INFO - Model saved to best_dqn_model.pth
+2025-11-24 20:47:32,295 - INFO - New best model saved with AUC: 0.9888
+2025-11-24 20:47:33,361 - INFO - Model saved to best_dqn_model.pth
+2025-11-24 20:47:33,362 - INFO - New best model saved with AUC: 0.9891
+2025-11-24 20:47:35,213 - INFO - Episode 10/200 - Train Acc: 0.9230, Test Acc: 0.9189, Test AUC: 0.9890, Test FAR: 0.1081, Epsilon: 0.010
+2025-11-24 20:47:38,127 - INFO - Model saved to best_dqn_model.pth
+2025-11-24 20:47:38,128 - INFO - New best model saved with AUC: 0.9898
+2025-11-24 20:47:40,006 - INFO - Episode 15/200 - Train Acc: 0.9186, Test Acc: 0.9257, Test AUC: 0.9894, Test FAR: 0.1081, Epsilon: 0.010
+2025-11-24 20:47:44,807 - INFO - Episode 20/200 - Train Acc: 0.9157, Test Acc: 0.9257, Test AUC: 0.9895, Test FAR: 0.1081, Epsilon: 0.010
+2025-11-24 20:47:46,687 - INFO - Model saved to best_dqn_model.pth
+2025-11-24 20:47:46,688 - INFO - New best model saved with AUC: 0.9900
+2025-11-24 20:47:48,648 - INFO - Model saved to best_dqn_model.pth
+2025-11-24 20:47:48,649 - INFO - New best model saved with AUC: 0.9902
+2025-11-24 20:47:49,604 - INFO - Episode 25/200 - Train Acc: 0.9172, Test Acc: 0.9291, Test AUC: 0.9899, Test FAR: 0.1014, Epsilon: 0.010
+2025-11-24 20:47:54,406 - INFO - Episode 30/200 - Train Acc: 0.9128, Test Acc: 0.9324, Test AUC: 0.9900, Test FAR: 0.1014, Epsilon: 0.010
+2025-11-24 20:47:56,296 - INFO - Model saved to best_dqn_model.pth
+2025-11-24 20:47:56,297 - INFO - New best model saved with AUC: 0.9902
+2025-11-24 20:47:59,205 - INFO - Episode 35/200 - Train Acc: 0.9172, Test Acc: 0.9324, Test AUC: 0.9895, Test FAR: 0.1081, Epsilon: 0.010
+2025-11-24 20:48:03,907 - INFO - Episode 40/200 - Train Acc: 0.9186, Test Acc: 0.9291, Test AUC: 0.9891, Test FAR: 0.1081, Epsilon: 0.010
+2025-11-24 20:48:08,622 - INFO - Episode 45/200 - Train Acc: 0.9157, Test Acc: 0.9257, Test AUC: 0.9889, Test FAR: 0.1081, Epsilon: 0.010
+2025-11-24 20:48:10,508 - INFO - Early stopping triggered at episode 47
+2025-11-24 20:48:10,509 - INFO - 
+=== Training Complete ===
+2025-11-24 20:48:10,539 - INFO - 
+=== Best Model Evaluation ===
+2025-11-24 20:48:10,547 - INFO - 
+Training Set Metrics:
+2025-11-24 20:48:10,547 - INFO - accuracy: 0.9186
+2025-11-24 20:48:10,548 - INFO - precision: 0.8913
+2025-11-24 20:48:10,548 - INFO - recall: 0.9535
+2025-11-24 20:48:10,548 - INFO - f1: 0.9213
+2025-11-24 20:48:10,549 - INFO - auc: 0.9834
+2025-11-24 20:48:10,549 - INFO - far: 0.1163
+2025-11-24 20:48:10,556 - INFO - 
+Test Set Metrics:
+2025-11-24 20:48:10,556 - INFO - accuracy: 0.9257
+2025-11-24 20:48:10,556 - INFO - precision: 0.9038
+2025-11-24 20:48:10,556 - INFO - recall: 0.9527
+2025-11-24 20:48:10,556 - INFO - f1: 0.9276
+2025-11-24 20:48:10,558 - INFO - auc: 0.9902
+2025-11-24 20:48:10,558 - INFO - far: 0.1014
+2025-11-24 20:48:10,835 - INFO - 
+Training plots saved to C:\Users\Lenovo\Desktop\programming\design\NEW\QML\training_metrics.png
+2025-11-24 20:48:10,846 - INFO - 
+=== Example Predictions ===
+2025-11-24 20:48:10,847 - INFO - Sample 1: Features: [ 0.81  0.43 -1.   -0.37 -0.48  0.46], True: 0, Pred: 0, Prob(Fraud): 0.1194
+2025-11-24 20:48:10,848 - INFO - Sample 2: Features: [ 0.77  0.56 -0.75  0.02 -0.02  0.45], True: 0, Pred: 0, Prob(Fraud): 0.1250
+2025-11-24 20:48:10,849 - INFO - Sample 3: Features: [ 1.38 -0.96  0.85 -1.07  5.09  0.54], True: 0, Pred: 1, Prob(Fraud): 0.8692
