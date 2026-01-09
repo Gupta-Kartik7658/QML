@@ -29,11 +29,13 @@ N_SAMPLES = 600  # 200 fraud + 200 genuine
 TEST_SIZE = 0.33
 
 # EXHAUSTIVE FEATURE LIST (10 features)
-FEATURE_POOL = ['V14', 'V12','V4' ,'V20', 'Amount', 'V10', 'V8', 'V22', 'V13', 'V7']
+FEATURE_POOL = ['V14', 'V7', 'V4', 'V19', 'V20', 'V17', 'V10', 'V12', 'V5', 'V27', 'V22', 'V11',
+        'V16', 'V3', 'V9', 'V26', 'V21', 'V8', 'V18', 'V1', 'V6',
+        'V2', 'V28', 'V13', 'V15', 'V23', 'V24', 'V25', 'Amount', 'Time']
 
 # Feature selection range
-MIN_FEATURES = 7
-MAX_FEATURES = 7
+MIN_FEATURES = 30
+MAX_FEATURES = 30
 
 PLOT_DIR = "./feature_selection_results/"
 os.makedirs(PLOT_DIR, exist_ok=True)

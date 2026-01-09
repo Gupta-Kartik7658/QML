@@ -1,0 +1,15 @@
+2026-01-09 01:28:30,164 | INFO     | MainProcess     | ======================================================================
+2026-01-09 01:28:30,166 | INFO     | MainProcess     | DEBUG TEST SCRIPT - NOISE SENSITIVITY ANALYSIS
+2026-01-09 01:28:30,166 | INFO     | MainProcess     | ======================================================================
+2026-01-09 01:28:30,167 | INFO     | MainProcess     | Log file: debug_logs\debug_test_20260109_012830.log
+2026-01-09 01:28:30,169 | INFO     | MainProcess     | 
+2026-01-09 01:28:30,171 | INFO     | MainProcess     | BASELINE PARAMETERS:
+2026-01-09 01:28:30,173 | INFO     | MainProcess     | Superconducting: {'T1': 5e-05, 'T2': 7e-05, 'GATE_TIME_1Q': 3.5e-08, 'GATE_TIME_2Q': 3e-07, 'P_DEP_1Q': 0.001, 'P_DEP_2Q': 0.01, 'P_READOUT': 0.02}
+2026-01-09 01:28:30,175 | INFO     | MainProcess     | Trapped-Ion: {'SINGLE_QUBIT_ERROR': 0.0006, 'TWO_QUBIT_ERROR': 0.005, 'AMPLITUDE_DAMPING_PROB': 5e-05, 'PHASE_DAMPING_PROB': 0.0003, 'READOUT_ERROR': 0.003}
+2026-01-09 01:28:30,176 | INFO     | MainProcess     | 
+2026-01-09 01:28:30,177 | INFO     | MainProcess     | Loading test dataset...
+2026-01-09 01:28:31,876 | INFO     | MainProcess     | Loaded: 50 train, 30 test samples
+2026-01-09 01:28:31,882 | INFO     | MainProcess     | Configured 6 test workers
+2026-01-09 01:28:31,883 | INFO     | MainProcess     | ======================================================================
+2026-01-09 01:28:31,885 | INFO     | MainProcess     | LAUNCHING 6 TEST WORKERS
+2026-01-09 01:28:31,886 | INFO     | MainProcess     | ======================================================================

@@ -24,7 +24,7 @@ warnings.filterwarnings('ignore')
 
 # Qiskit imports
 from qiskit import QuantumCircuit
-from qiskit.circuit.library import ZZFeatureMap, ZFeatureMap
+from qiskit.circuit.library import ZZFeatureMap, ZFeatureMap, PauliFeatureMap
 from qiskit_aer import AerSimulator
 from qiskit_machine_learning.kernels import FidelityQuantumKernel
 
@@ -55,14 +55,15 @@ class Config:
     RANDOM_STATE = 42
     
     # Quantum parameters
-    FEATURE_MAP_TYPE = 'ZZ'
+    FEATURE_MAP_TYPE = 'Pauli'
     FEATURE_MAP_REPS = 1
     ENTANGLEMENT = 'full'
-    
+    PAULI_STRINGS = ['X', 'ZZ']
     # GPU parameters
     USE_GPU = False
     GPU_DEVICE = 'CPU'
     SHOTS = 1024
+    ALPHA = 2.0  # Rotation parameter (standard is 2.0)
     
     # Parallel processing parameters
     N_WORKERS = 6  # Adjust based on your system
@@ -72,7 +73,7 @@ class Config:
     N_TRIALS = 1
     
     # Results output
-    RESULTS_FILE = f'Full_ZZFeatureMap_qfs_results_{datetime.now().strftime("%Y%m%d_%H%M%S")}.txt'
+    RESULTS_FILE = f'Full_PauliFeatureMap_qfs_results_{datetime.now().strftime("%Y%m%d_%H%M%S")}.txt'
     
 config = Config()
 
@@ -182,23 +183,35 @@ def prepare_data(X, y, trial=0):
 # ============================================================================
 
 def compute_quantum_kernel_matrix(X_train, X_test, feature_indices, feature_names, verbose=False):
-    """Compute quantum kernel matrix"""
+    """Compute quantum kernel matrix with PauliFeatureMap support"""
     n_features = len(feature_indices)
     
     X_train_subset = X_train[:, feature_indices]
     X_test_subset = X_test[:, feature_indices]
     
+    # Initialize Feature Map
     if config.FEATURE_MAP_TYPE == 'ZZ':
         feature_map = ZZFeatureMap(
             feature_dimension=n_features,
             reps=config.FEATURE_MAP_REPS,
             entanglement=config.ENTANGLEMENT
         )
-    else:
+    elif config.FEATURE_MAP_TYPE == 'Z':
         feature_map = ZFeatureMap(
             feature_dimension=n_features,
             reps=config.FEATURE_MAP_REPS
         )
+    elif config.FEATURE_MAP_TYPE == 'Pauli':
+        # NEW IMPLEMENTATION
+        feature_map = PauliFeatureMap(
+            feature_dimension=n_features,
+            reps=config.FEATURE_MAP_REPS,
+            paulis=config.PAULI_STRINGS,
+            entanglement=config.ENTANGLEMENT,
+            alpha=config.ALPHA
+        )
+    else:
+        raise ValueError(f"Unknown Feature Map: {config.FEATURE_MAP_TYPE}")
     
     if config.USE_GPU:
         simulator = AerSimulator(method='statevector', device='GPU')
@@ -208,8 +221,14 @@ def compute_quantum_kernel_matrix(X_train, X_test, feature_indices, feature_name
     quantum_kernel = FidelityQuantumKernel(feature_map=feature_map)
     
     kernel_start = time.time()
-    K_train = quantum_kernel.evaluate(X_train_subset, X_train_subset)
-    K_test = quantum_kernel.evaluate(X_test_subset, X_train_subset)
+    try:
+        K_train = quantum_kernel.evaluate(X_train_subset, X_train_subset)
+        K_test = quantum_kernel.evaluate(X_test_subset, X_train_subset)
+    except Exception as e:
+        # Catch dimension mismatches if entanglement settings conflict with feature count
+        print(f"Kernel Error: {e}")
+        return None, None, 0.0
+
     kernel_time = time.time() - kernel_start
     
     return K_train, K_test, kernel_time
@@ -254,6 +273,7 @@ def evaluate_single_combination(combo_idx_pair):
     """Evaluate a single feature combination"""
     combo, idx = combo_idx_pair
     
+    # ... (Keep the data retrieval lines the same) ...
     X_train = _worker_data['X_train']
     X_test = _worker_data['X_test']
     y_train = _worker_data['y_train']
@@ -265,6 +285,10 @@ def evaluate_single_combination(combo_idx_pair):
             X_train, X_test, list(combo), feature_names, verbose=False
         )
         
+        # Check if kernel computation failed (returned None)
+        if K_train is None:
+            raise ValueError("Kernel computation returned None")
+
         acc, auc, hr, far = train_qsvm_with_kernel(
             K_train, K_test, y_train, y_test, verbose=False
         )
@@ -272,8 +296,11 @@ def evaluate_single_combination(combo_idx_pair):
         return (combo, idx, auc, acc, hr, far, True, kernel_time)
         
     except Exception as e:
+        # !!! CRITICAL CHANGE: PRINT THE ERROR !!!
+        import traceback
+        print(f"\n[!!!] Error in worker for pair {combo}: {e}")
+        # print(traceback.format_exc()) # Uncomment for full details
         return (combo, idx, 0.0, 0.0, 0.0, np.inf, False, 0.0)
-
 # ============================================================================
 # HYBRID FEATURE SELECTION ALGORITHM
 # ============================================================================
