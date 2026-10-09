@@ -1,0 +1,22 @@
+{
+  "architecture": "trapped_ion",
+  "total_feature_maps": 3,
+  "completed_successfully": 3,
+  "feature_maps": [
+    "Z",
+    "Pauli_X_ZZ",
+    "ZZ"
+  ],
+  "files_generated": [
+    "noise_sensitivity_ion_Z.json",
+    "noise_sensitivity_ion_Pauli_X_ZZ.json",
+    "noise_sensitivity_ion_ZZ.json"
+  ],
+  "baseline_noise": {
+    "SINGLE_QUBIT_ERROR": 0.0006,
+    "TWO_QUBIT_ERROR": 0.005,
+    "AMPLITUDE_DAMPING_PROB": 5e-05,
+    "PHASE_DAMPING_PROB": 0.0003,
+    "READOUT_ERROR": 0.003
+  }
+}

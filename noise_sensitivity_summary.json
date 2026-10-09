@@ -1,0 +1,14 @@
+{
+  "total_feature_maps": 3,
+  "completed_successfully": 3,
+  "feature_maps": [
+    "Z",
+    "ZZ",
+    "Pauli_X_ZZ"
+  ],
+  "files_generated": [
+    "noise_sensitivity_Z.json",
+    "noise_sensitivity_ZZ.json",
+    "noise_sensitivity_Pauli_X_ZZ.json"
+  ]
+}

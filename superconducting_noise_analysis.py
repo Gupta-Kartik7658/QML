@@ -2,6 +2,7 @@
 """
 QUANTUM KERNEL NOISE SENSITIVITY ANALYSIS
 Systematically varies each noise parameter across 10 values for 3 feature maps
+Uses multiprocessing to run all 3 feature maps in parallel
 Saves results to JSON for each feature map
 """
 
@@ -13,6 +14,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import accuracy_score, roc_auc_score, confusion_matrix
 from sklearn.svm import SVC
+from multiprocessing import Process, Queue
+import os
 
 # Qiskit Imports
 from qiskit import transpile
@@ -32,19 +35,18 @@ TEST_SIZE = 200
 REPS = 1
 
 # --- Feature Maps Configuration ---
-# --- Feature Maps Configuration ---
 FEATURE_MAP_CONFIGS = {
     'Z': {
         'type': 'Z',
-        'features': ['V4', 'V11', 'V19', 'V13', 'V20']
+        'features': ['V14', 'V12', 'V4', 'V17', 'V8']
     },
     'ZZ': {
         'type': 'ZZ',
-        'features': ['V14', 'V7', 'V4', 'V19', 'V20', 'V17']
+        'features': ['V14', 'V12', 'V4', 'V17', 'V8']
     },
     'Pauli_X_ZZ': {
         'type': 'Pauli_X_ZZ',
-        'features': ['V14', 'V12', 'V4', 'V17', 'V8'] 
+        'features': ['V14', 'V12', 'V4', 'V17', 'V8']
     }
 }
 
@@ -191,9 +193,9 @@ def get_feature_map(n_features, map_type):
 # ==============================================================================
 # 5. KERNEL COMPUTATION
 # ==============================================================================
-def compute_kernel_matrix(X1, X2, map_type, noise_model, matrix_type=""):
+def compute_kernel_matrix(X1, X2, map_type, noise_model, matrix_type="", worker_id="MAIN"):
     """Compute kernel matrix with noise"""
-    print(f"    [DEBUG] Starting {matrix_type} kernel computation: {len(X1)}x{len(X2)}")
+    print(f"[WORKER-{worker_id}]     [DEBUG] Starting {matrix_type} kernel computation: {len(X1)}x{len(X2)}")
     n_features = X1.shape[1]
     feature_map = get_feature_map(n_features, map_type)
     
@@ -201,24 +203,24 @@ def compute_kernel_matrix(X1, X2, map_type, noise_model, matrix_type=""):
     simulator = AerSimulator(method='density_matrix', noise_model=noise_model)
     
     def get_density_matrices(data, label=""):
-        print(f"      [DEBUG] Creating {len(data)} quantum circuits for {label}...")
+        print(f"[WORKER-{worker_id}]       [DEBUG] Creating {len(data)} quantum circuits for {label}...")
         circuits = []
         for idx, x in enumerate(data):
             if idx % 50 == 0:
-                print(f"        [DEBUG] Building circuit {idx}/{len(data)}")
+                print(f"[WORKER-{worker_id}]         [DEBUG] Building circuit {idx}/{len(data)}")
             qc = feature_map.assign_parameters(x)
             qc.save_density_matrix()
             circuits.append(qc)
         
-        print(f"      [DEBUG] Transpiling {len(circuits)} circuits...")
+        print(f"[WORKER-{worker_id}]       [DEBUG] Transpiling {len(circuits)} circuits...")
         transpiled = transpile(circuits, simulator)
         
-        print(f"      [DEBUG] Running simulation for {len(circuits)} circuits...")
+        print(f"[WORKER-{worker_id}]       [DEBUG] Running simulation for {len(circuits)} circuits...")
         sim_start = time.time()
         result = simulator.run(transpiled, shots=None).result()
-        print(f"      [DEBUG] Simulation completed in {time.time()-sim_start:.2f}s")
+        print(f"[WORKER-{worker_id}]       [DEBUG] Simulation completed in {time.time()-sim_start:.2f}s")
         
-        print(f"      [DEBUG] Extracting density matrices...")
+        print(f"[WORKER-{worker_id}]       [DEBUG] Extracting density matrices...")
         return [DensityMatrix(result.data(i)['density_matrix']) for i in range(len(data))]
 
     # Compute states
@@ -229,7 +231,7 @@ def compute_kernel_matrix(X1, X2, map_type, noise_model, matrix_type=""):
     n1, n2 = len(X1), len(X2)
     K = np.zeros((n1, n2))
     
-    print(f"      [DEBUG] Computing {n1}x{n2} fidelity matrix...")
+    print(f"[WORKER-{worker_id}]       [DEBUG] Computing {n1}x{n2} fidelity matrix...")
     fid_start = time.time()
     total_calcs = n1 * n2
     for i in range(n1):
@@ -237,40 +239,40 @@ def compute_kernel_matrix(X1, X2, map_type, noise_model, matrix_type=""):
             elapsed = time.time() - fid_start
             progress = (i * n2) / total_calcs
             eta = (elapsed / progress) * (1 - progress) if progress > 0 else 0
-            print(f"        [DEBUG] Fidelity progress: {i}/{n1} rows ({progress*100:.1f}%) - ETA: {eta:.1f}s")
+            print(f"[WORKER-{worker_id}]         [DEBUG] Fidelity progress: {i}/{n1} rows ({progress*100:.1f}%) - ETA: {eta:.1f}s")
         for j in range(n2):
             K[i, j] = state_fidelity(states1[i], states2[j])
     
-    print(f"      [DEBUG] Fidelity matrix computed in {time.time()-fid_start:.2f}s")
+    print(f"[WORKER-{worker_id}]       [DEBUG] Fidelity matrix computed in {time.time()-fid_start:.2f}s")
     return K
 
 # ==============================================================================
 # 6. SINGLE EVALUATION
 # ==============================================================================
-def evaluate_qsvm(X_train, X_test, y_train, y_test, map_type, noise_params):
+def evaluate_qsvm(X_train, X_test, y_train, y_test, map_type, noise_params, worker_id="MAIN"):
     """Run single QSVM evaluation with given noise parameters"""
     
-    print(f"    [DEBUG] Creating noise model...")
+    print(f"[WORKER-{worker_id}]     [DEBUG] Creating noise model...")
     # Create noise model
     noise_model = create_noise_model(noise_params)
     
-    print(f"    [DEBUG] Computing TRAIN kernel matrix...")
+    print(f"[WORKER-{worker_id}]     [DEBUG] Computing TRAIN kernel matrix...")
     # Compute kernels
-    K_train = compute_kernel_matrix(X_train, X_train, map_type, noise_model, "TRAIN")
+    K_train = compute_kernel_matrix(X_train, X_train, map_type, noise_model, "TRAIN", worker_id)
     
-    print(f"    [DEBUG] Computing TEST kernel matrix...")
-    K_test = compute_kernel_matrix(X_test, X_train, map_type, noise_model, "TEST")
+    print(f"[WORKER-{worker_id}]     [DEBUG] Computing TEST kernel matrix...")
+    K_test = compute_kernel_matrix(X_test, X_train, map_type, noise_model, "TEST", worker_id)
     
-    print(f"    [DEBUG] Training SVM...")
+    print(f"[WORKER-{worker_id}]     [DEBUG] Training SVM...")
     # Train SVM
     svc = SVC(kernel='precomputed')
     svc.fit(K_train, y_train)
     
-    print(f"    [DEBUG] Predicting...")
+    print(f"[WORKER-{worker_id}]     [DEBUG] Predicting...")
     # Predict
     y_pred = svc.predict(K_test)
     
-    print(f"    [DEBUG] Computing metrics...")
+    print(f"[WORKER-{worker_id}]     [DEBUG] Computing metrics...")
     # Metrics
     try:
         y_score = svc.decision_function(K_test)
@@ -287,7 +289,7 @@ def evaluate_qsvm(X_train, X_test, y_train, y_test, map_type, noise_params):
     recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
     far = fp / (fp + tn) if (fp + tn) > 0 else 0.0
     
-    print(f"    [DEBUG] Evaluation complete - Acc:{acc:.4f} AUC:{auc:.4f}")
+    print(f"[WORKER-{worker_id}]     [DEBUG] Evaluation complete - Acc:{acc:.4f} AUC:{auc:.4f}")
     
     return {
         'accuracy': float(acc),
@@ -299,104 +301,178 @@ def evaluate_qsvm(X_train, X_test, y_train, y_test, map_type, noise_params):
 # ==============================================================================
 # 7. NOISE SENSITIVITY SWEEP
 # ==============================================================================
+# ==============================================================================
+# 7. NOISE SENSITIVITY SWEEP (WORKER FUNCTION)
+# ==============================================================================
+def run_noise_sensitivity_worker(feature_map_name, config, result_queue):
+    """Worker function to run complete noise sensitivity analysis for one feature map"""
+    
+    try:
+        print(f"\n{'='*70}")
+        print(f"[WORKER-{feature_map_name}] ANALYZING: {feature_map_name} Feature Map")
+        print(f"[WORKER-{feature_map_name}] Features: {config['features']}")
+        print(f"[WORKER-{feature_map_name}] Process ID: {os.getpid()}")
+        print(f"{'='*70}\n")
+        
+        # Prepare data
+        print(f"[WORKER-{feature_map_name}] [DEBUG] Preparing data with features: {config['features']}")
+        X_train, X_test, y_train, y_test = prepare_data(config['features'])
+        print(f"[WORKER-{feature_map_name}] [DEBUG] Data prepared - Train: {X_train.shape}, Test: {X_test.shape}")
+        
+        results = {
+            'feature_map': feature_map_name,
+            'features': config['features'],
+            'baseline_noise': BASELINE_NOISE.copy(),
+            'sweeps': {}
+        }
+        
+        # Sweep each parameter
+        for param_name, param_values in NOISE_SWEEPS.items():
+            print(f"\n[WORKER-{feature_map_name}] --- Sweeping {param_name} ---")
+            print(f"[WORKER-{feature_map_name}] Range: {param_values[0]:.2e} to {param_values[-1]:.2e}")
+            print(f"[WORKER-{feature_map_name}] [DEBUG] {len(param_values)} values to test")
+            
+            sweep_results = []
+            
+            for i, param_value in enumerate(param_values):
+                # Create noise config with this parameter varied
+                noise_params = BASELINE_NOISE.copy()
+                noise_params[param_name] = param_value
+                
+                print(f"\n[WORKER-{feature_map_name}]   [{i+1}/10] {param_name} = {param_value:.2e}")
+                print(f"[WORKER-{feature_map_name}]   [DEBUG] Full noise config: T1={noise_params['T1']:.2e}, T2={noise_params['T2']:.2e}, "
+                      f"GT1Q={noise_params['GATE_TIME_1Q']:.2e}, GT2Q={noise_params['GATE_TIME_2Q']:.2e}")
+                print(f"[WORKER-{feature_map_name}]   [DEBUG] P_DEP_1Q={noise_params['P_DEP_1Q']:.2e}, P_DEP_2Q={noise_params['P_DEP_2Q']:.2e}, "
+                      f"P_RO={noise_params['P_READOUT']:.2e}")
+                
+                # Evaluate
+                start_time = time.time()
+                
+                metrics = evaluate_qsvm(
+                    X_train, X_test, y_train, y_test,
+                    config['type'], noise_params, feature_map_name
+                )
+                
+                elapsed = time.time() - start_time
+                print(f"[WORKER-{feature_map_name}]   ✓ Completed in {elapsed:.1f}s | Acc={metrics['accuracy']:.4f} AUC={metrics['auc']:.4f} "
+                      f"Recall={metrics['recall']:.4f} FAR={metrics['far']:.4f}")
+                
+                sweep_results.append({
+                    'parameter_value': float(param_value),
+                    'metrics': metrics
+                })
+            
+            results['sweeps'][param_name] = sweep_results
+            print(f"\n[WORKER-{feature_map_name}] [DEBUG] Completed sweep for {param_name}")
+        
+        # Save to JSON
+        filename = f"noise_sensitivity_{feature_map_name}.json"
+        print(f"\n[WORKER-{feature_map_name}] [DEBUG] Saving results to {filename}...")
+        with open(filename, 'w') as f:
+            json.dump(results, f, indent=2)
+        
+        print(f"[WORKER-{feature_map_name}] ✓ Results saved to: {filename}")
+        
+        # Send completion signal via queue
+        result_queue.put({
+            'feature_map': feature_map_name,
+            'status': 'success',
+            'filename': filename
+        })
+        
+    except Exception as e:
+        print(f"[WORKER-{feature_map_name}] ERROR: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        result_queue.put({
+            'feature_map': feature_map_name,
+            'status': 'error',
+            'error': str(e)
+        })
+
 def run_noise_sensitivity(feature_map_name, config):
-    """Run complete noise sensitivity analysis for one feature map"""
-    
-    print(f"\n{'='*70}")
-    print(f"ANALYZING: {feature_map_name} Feature Map")
-    print(f"Features: {config['features']}")
-    print(f"{'='*70}\n")
-    
-    # Prepare data
-    print(f"[DEBUG] Preparing data with features: {config['features']}")
-    X_train, X_test, y_train, y_test = prepare_data(config['features'])
-    print(f"[DEBUG] Data prepared - Train: {X_train.shape}, Test: {X_test.shape}")
-    
-    results = {
-        'feature_map': feature_map_name,
-        'features': config['features'],
-        'baseline_noise': BASELINE_NOISE.copy(),
-        'sweeps': {}
-    }
-    
-    # Sweep each parameter
-    for param_name, param_values in NOISE_SWEEPS.items():
-        print(f"\n--- Sweeping {param_name} ---")
-        print(f"Range: {param_values[0]:.2e} to {param_values[-1]:.2e}")
-        print(f"[DEBUG] {len(param_values)} values to test")
-        
-        sweep_results = []
-        
-        for i, param_value in enumerate(param_values):
-            # Create noise config with this parameter varied
-            noise_params = BASELINE_NOISE.copy()
-            noise_params[param_name] = param_value
-            
-            print(f"\n  [{i+1}/10] {param_name} = {param_value:.2e}")
-            print(f"  [DEBUG] Full noise config: T1={noise_params['T1']:.2e}, T2={noise_params['T2']:.2e}, "
-                  f"GT1Q={noise_params['GATE_TIME_1Q']:.2e}, GT2Q={noise_params['GATE_TIME_2Q']:.2e}")
-            print(f"  [DEBUG] P_DEP_1Q={noise_params['P_DEP_1Q']:.2e}, P_DEP_2Q={noise_params['P_DEP_2Q']:.2e}, "
-                  f"P_RO={noise_params['P_READOUT']:.2e}")
-            
-            # Evaluate
-            start_time = time.time()
-            
-            metrics = evaluate_qsvm(
-                X_train, X_test, y_train, y_test,
-                config['type'], noise_params
-            )
-            
-            elapsed = time.time() - start_time
-            print(f"  ✓ Completed in {elapsed:.1f}s | Acc={metrics['accuracy']:.4f} AUC={metrics['auc']:.4f} "
-                  f"Recall={metrics['recall']:.4f} FAR={metrics['far']:.4f}")
-            
-            sweep_results.append({
-                'parameter_value': float(param_value),
-                'metrics': metrics
-            })
-        
-        results['sweeps'][param_name] = sweep_results
-        print(f"\n[DEBUG] Completed sweep for {param_name}")
-    
-    # Save to JSON
-    filename = f"noise_sensitivity_{feature_map_name}.json"
-    print(f"\n[DEBUG] Saving results to {filename}...")
-    with open(filename, 'w') as f:
-        json.dump(results, f, indent=2)
-    
-    print(f"✓ Results saved to: {filename}")
-    
-    return results
+    """Legacy function kept for compatibility - now calls worker directly"""
+    from multiprocessing import Queue
+    q = Queue()
+    run_noise_sensitivity_worker(feature_map_name, config, q)
+    return q.get()
 
 # ==============================================================================
-# 8. MAIN EXECUTION
+# 8. MAIN EXECUTION WITH MULTIPROCESSING
 # ==============================================================================
 if __name__ == "__main__":
     overall_start = time.time()
     
+    print(f"\n{'='*70}")
+    print(f"STARTING PARALLEL NOISE SENSITIVITY ANALYSIS")
+    print(f"{'='*70}")
+    print(f"Number of Feature Maps: {len(FEATURE_MAP_CONFIGS)}")
+    print(f"Running in parallel using multiprocessing...")
+    print(f"{'='*70}\n")
+    
+    # Create a queue for collecting results
+    result_queue = Queue()
+    
+    # Create and start worker processes for each feature map
+    processes = []
+    for fm_name, fm_config in FEATURE_MAP_CONFIGS.items():
+        print(f"[MAIN] Launching worker for {fm_name}...")
+        p = Process(
+            target=run_noise_sensitivity_worker,
+            args=(fm_name, fm_config, result_queue)
+        )
+        p.start()
+        processes.append(p)
+        print(f"[MAIN] Worker for {fm_name} started (PID: {p.pid})")
+    
+    print(f"\n[MAIN] All {len(processes)} workers launched. Waiting for completion...\n")
+    
+    # Wait for all processes to complete and collect results
+    completed = 0
     all_results = {}
     
-    for fm_name, fm_config in FEATURE_MAP_CONFIGS.items():
-        fm_start = time.time()
+    while completed < len(FEATURE_MAP_CONFIGS):
+        result = result_queue.get()  # Block until a result is available
+        completed += 1
         
-        results = run_noise_sensitivity(fm_name, fm_config)
-        all_results[fm_name] = results
+        fm_name = result['feature_map']
+        if result['status'] == 'success':
+            print(f"\n[MAIN] ✓ Worker {fm_name} completed successfully")
+            print(f"[MAIN]   Results saved to: {result['filename']}")
+            all_results[fm_name] = result
+        else:
+            print(f"\n[MAIN] ✗ Worker {fm_name} failed with error:")
+            print(f"[MAIN]   {result['error']}")
         
-        fm_elapsed = time.time() - fm_start
-        print(f"\n{fm_name} completed in {fm_elapsed/60:.1f} minutes")
+        print(f"[MAIN] Progress: {completed}/{len(FEATURE_MAP_CONFIGS)} workers completed\n")
     
-    # Save combined results
-    with open('noise_sensitivity_all.json', 'w') as f:
-        json.dump(all_results, f, indent=2)
+    # Join all processes
+    print(f"[MAIN] Waiting for all worker processes to terminate...")
+    for p in processes:
+        p.join()
+    
+    print(f"[MAIN] All workers terminated.")
+    
+    # Create summary of all results
+    summary = {
+        'total_feature_maps': len(FEATURE_MAP_CONFIGS),
+        'completed_successfully': sum(1 for r in all_results.values() if r['status'] == 'success'),
+        'feature_maps': list(all_results.keys()),
+        'files_generated': [r['filename'] for r in all_results.values() if r['status'] == 'success']
+    }
+    
+    with open('noise_sensitivity_summary.json', 'w') as f:
+        json.dump(summary, f, indent=2)
     
     overall_elapsed = time.time() - overall_start
     
     print(f"\n{'='*70}")
-    print(f"ANALYSIS COMPLETE")
+    print(f"PARALLEL ANALYSIS COMPLETE")
     print(f"{'='*70}")
-    print(f"Total Time: {overall_elapsed/60:.1f} minutes")
-    print(f"Files Generated:")
-    for fm_name in FEATURE_MAP_CONFIGS.keys():
-        print(f"  - noise_sensitivity_{fm_name}.json")
-    print(f"  - noise_sensitivity_all.json")
+    print(f"Total Time: {overall_elapsed/60:.1f} minutes ({overall_elapsed:.1f} seconds)")
+    print(f"Successful Completions: {summary['completed_successfully']}/{summary['total_feature_maps']}")
+    print(f"\nFiles Generated:")
+    for filename in summary['files_generated']:
+        print(f"  - {filename}")
+    print(f"  - noise_sensitivity_summary.json")
     print(f"{'='*70}\n")
