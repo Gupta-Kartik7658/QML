@@ -1,0 +1,2 @@
+backend,fmap,beta_mean,r2_min,r2_mean,max_abs_residual,resid_sd_over_shot_sd
+ibm_fez,Z,0.9562074240890254,0.8946273096022558,0.9796392243096467,1.0933784740000267,2.161662144259616

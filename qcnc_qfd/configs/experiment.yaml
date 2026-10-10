@@ -1,0 +1,140 @@
+# =============================================================================
+# QCNC revision — experiment configuration (all scripts read this file)
+# Every value can be overridden from the command line; see `python run_xgb_superconducting.py -h`.
+# Changing anything that affects data/quantum features changes the cache keys automatically.
+# =============================================================================
+
+paths:
+  data_dir: data            # put creditcard.csv, PaySim and BankSim CSVs here
+  cache_dir: cache          # prepared splits, SFS results, quantum features (safe to delete)
+  results_dir: results      # everything for the paper
+
+run:
+  seeds: [0, 1, 2]          # repeated splits -> mean +- std in the paper
+  workers: 6                # max simultaneous worker processes
+  threads_per_worker: 1     # BLAS/OpenMP/XGBoost threads inside each worker
+  datasets: [creditcard, paysim, banksim]
+  feature_maps: [Z, ZZ, Pauli]
+  log_level: INFO
+  task_plots: true          # ROC/PR/confusion/score plots for every model run
+  save_predictions: true    # test + validation scores (needed for ROC/PR overlays)
+
+datasets:
+  creditcard:
+    file: creditcard.csv                          # Kaggle mlg-ulb/creditcardfraud
+    drop_duplicates: true
+    expected_rows: 284807
+    expected_positives: 492
+  paysim:
+    file: PS_20174392719_1491204439457_log.csv    # Kaggle ealaxi/paysim1
+    drop_duplicates: true
+    engineered_balance_errors: false              # see METHODOLOGY.md (leak-prone simulator artefact)
+    expected_rows: 6362620
+    expected_positives: 8213
+  banksim:
+    file: bs140513_032310.csv                     # Kaggle ealaxi/banksim1
+    drop_duplicates: true
+    expected_rows: 594643
+    expected_positives: 7200
+
+split:
+  mode: stratified          # stratified | temporal  (temporal = chronological 60/20/20 on time column)
+  fractions: [0.6, 0.2, 0.2]
+
+sampling:                   # all subsampling happens AFTER the split; test keeps the original prevalence
+  train_cap: 30000          # classifier training rows (all train frauds up to max_pos_frac, rest genuine)
+  train_max_pos_frac: 0.5
+  val_neg_cap: 50000        # validation = all val frauds + <= this many genuine (inverse-probability weighted)
+  test_neg_cap: 400000      # only binds for PaySim (1.27M test rows): genuine rows subsampled, IPW-weighted -> unbiased
+  sfs_train_cap: 10000      # rows used to fit the SFS evaluator (subset of the training rows)
+  noisy_train_cap: 6000     # noisy (density-matrix) simulation is ~100 ms/sample -> smaller, paired subsets
+  noisy_train_max_pos: 3000
+  noisy_val_neg: 4000
+  noisy_test_neg: 8000
+
+preprocessing:
+  angle_scaling: quantile   # train-fitted map to [0,1]: quantile (robust to heavy tails) | minmax (original paper)
+  target_encode: true       # BankSim merchant: out-of-fold target encoding fitted on train only
+
+feature_maps:
+  reps: 2                   # reps=1 makes every <Z_i> identically 0 for all three maps (verified)
+  # input_range: [0,1]-scaled features are mapped affinely to this angle interval.
+  #   no_wrap = [pi - sqrt(2*pi/alpha), pi]: every Qiskit phase term (alpha*x_i and
+  #   alpha*(pi-x_i)(pi-x_j)) then spans <= 2*pi, i.e. no phase wrap-around. [-1,1] already
+  #   satisfies this for the Z map (and is the original paper's range).
+  Z: {input_range: [-1.0, 1.0]}
+  ZZ: {entanglement: full, input_range: no_wrap}
+  # NOTE: paulis [X, ZZ] (original paper) gives <Z>/<ZZ> statistics IDENTICAL to ZZFeatureMap
+  # at any reps (X-rotations cancel against the Hadamard layers); [Z, Y, ZZ] is genuinely different.
+  Pauli: {entanglement: full, paulis: [Z, Y, ZZ], alpha: 2.0, input_range: no_wrap}
+
+observables:
+  extended: true            # also evaluate [Z_i, Z_iZ_j] representation (ablation, same simulation)
+
+sfs:
+  max_features: 7
+  evaluator: logreg         # fixed evaluator: logreg | xgb_small (predefined, never tuned during SFS)
+  metric: roc_auc           # primary objective (average precision recorded as secondary)
+  tol: 0.0001               # best subset = smallest k whose val ROC-AUC >= (best - tol)
+  stop_on_no_improvement: false  # run the full path to max_features (<= 189 evals for p=30, k=7), then
+                                 # pick the best intermediate subset. Early stopping was tested and stops
+                                 # at transient dips (ZZ, credit card: 0.948 -> 0.946 at k=2, 0.979 at k=7).
+
+noise:
+  enabled: true
+  shots: 1024               # finite-shot representations (ideal+shots, noisy+shots); null = skip them
+  transpile_seed: 1234
+  optimization_level: 1
+  batch_size: 256
+
+architectures:
+  superconducting:
+    coupling: falcon7_h     # 7-qubit IBM Falcon-style H topology: 0-1,1-2,1-3,3-5,4-5,5-6
+    basis_gates: [rz, sx, x, cx]
+    T1_us: 60.0
+    T2_us: 30.0
+    gate_time_1q_ns: 60.0
+    gate_time_2q_ns: 550.0
+    p_dep_1q: 0.0004
+    p_dep_2q: 0.02
+    p_readout: 0.04
+  trapped_ion:
+    coupling: all_to_all
+    basis_gates: [rx, ry, rz, rxx]
+    p_dep_1q: 0.0006
+    p_dep_2q: 0.005
+    p_amp_damp: 0.00005
+    p_phase_damp: 0.0003
+    p_readout: 0.003
+
+classifiers:
+  mlp:
+    grid:
+      hidden_layer_sizes: [[32], [64, 32], [128, 64]]
+      alpha: [0.0001, 0.01]
+    # early_stopping=false on purpose: sklearn's early stopping monitors ACCURACY, which on fraud data
+    # stalls at the majority-class rate and stops training prematurely. Stop on training loss instead.
+    fixed: {activation: relu, learning_rate_init: 0.001, max_iter: 500, early_stopping: false,
+            n_iter_no_change: 20, tol: 0.00001, batch_size: 256}
+  xgb:
+    grid:
+      max_depth: [3, 6]
+      learning_rate: [0.05, 0.1]
+      scale_pos_weight: [1.0, balanced]
+    fixed: {n_estimators: 1000, subsample: 0.8, colsample_bytree: 1.0, tree_method: hist,
+            early_stopping_rounds: 50, eval_metric: aucpr}
+  svm:
+    grid:
+      C: [0.3, 1.0, 3.0, 10.0]
+      class_weight: [null, balanced]
+    fixed: {kernel: rbf, gamma: scale, cache_size: 500}
+
+evaluation:
+  hp_metric: roc_auc        # validation metric for hyper-parameter selection
+  threshold: max_f1_val     # decision threshold chosen on validation only
+  n_bootstrap: 200          # Poisson bootstrap CIs on test ROC-AUC / AP
+
+baselines:
+  classical_all: auto       # auto = only in *_superconducting scripts (architecture-independent)
+  classical_selected: true
+  mi_fixed_subset: true     # "predefined common feature set" comparison (top-k mutual information)

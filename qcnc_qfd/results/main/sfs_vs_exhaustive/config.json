@@ -1,0 +1,5 @@
+{
+  "evaluator": "logreg",
+  "kmax": 4,
+  "pool": 10
+}

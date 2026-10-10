@@ -1,0 +1,42 @@
+2026-10-10 22:49:24 | MainProcess | INFO | [prepare] loading creditcard ...
+2026-10-10 22:49:27 | MainProcess | INFO | [prepare] creditcard: 283726 rows, 473 positives (0.167%), 30 candidate features, schema check: True
+2026-10-10 22:49:27 | MainProcess | INFO | [prepare] cache hit creditcard seed=0 (seed0_aebffa6828302393)
+2026-10-10 22:49:27 | MainProcess | INFO | [SFS] resuming from stage 7 (ZZ_seed0_d4539e6c59eb1e0e.json)
+2026-10-10 22:49:28 | MainProcess | INFO | ZZ: simulated superconducting noise for the bundle rows
+2026-10-10 22:49:29 | MainProcess | INFO | ZZ: simulated trapped_ion noise for the bundle rows
+2026-10-10 22:49:29 | MainProcess | INFO | ZZ: k=3 selected=['V11', 'V3', 'V4'] logical ops {'p': 12, 'cx': 12, 'h': 6}
+2026-10-10 22:49:29 | MainProcess | INFO | bundle written to D:\QCNC\qcnc_qfd\results\main\ibm_hardware\creditcard_ZZ_k3\bundle: rows {'train': 800, 'val': 394, 'test': 495}, frauds {'train': 250, 'val': 94, 'test': 95} -> copy nothing, the IBM script reads it in place
+2026-10-10 23:00:55 | MainProcess | INFO | ibm_marrakesh ZZ    ideal (exact)                            xgb: AUC 0.9366 [0.899,0.971] AP 0.1040
+2026-10-10 23:00:55 | MainProcess | INFO | ibm_marrakesh ZZ    ideal (exact)                            svm: AUC 0.9190 [0.872,0.953] AP 0.1227
+2026-10-10 23:01:00 | MainProcess | INFO | ibm_marrakesh ZZ    ideal (exact)                            mlp: AUC 0.9393 [0.901,0.971] AP 0.5786
+2026-10-10 23:01:00 | MainProcess | INFO | ibm_marrakesh ZZ    ideal + 1024 shots (sim)                 xgb: AUC 0.9333 [0.893,0.963] AP 0.2027
+2026-10-10 23:01:00 | MainProcess | INFO | ibm_marrakesh ZZ    ideal + 1024 shots (sim)                 svm: AUC 0.9221 [0.879,0.958] AP 0.1519
+2026-10-10 23:01:04 | MainProcess | INFO | ibm_marrakesh ZZ    ideal + 1024 shots (sim)                 mlp: AUC 0.9450 [0.912,0.974] AP 0.5085
+2026-10-10 23:01:04 | MainProcess | INFO | ibm_marrakesh ZZ    superconducting sim + 1024 shots         xgb: AUC 0.9350 [0.893,0.969] AP 0.5150
+2026-10-10 23:01:04 | MainProcess | INFO | ibm_marrakesh ZZ    superconducting sim + 1024 shots         svm: AUC 0.9348 [0.898,0.970] AP 0.2465
+2026-10-10 23:01:09 | MainProcess | INFO | ibm_marrakesh ZZ    superconducting sim + 1024 shots         mlp: AUC 0.9503 [0.915,0.978] AP 0.5587
+2026-10-10 23:01:09 | MainProcess | INFO | ibm_marrakesh ZZ    trapped_ion sim + 1024 shots             xgb: AUC 0.9396 [0.906,0.969] AP 0.2155
+2026-10-10 23:01:09 | MainProcess | INFO | ibm_marrakesh ZZ    trapped_ion sim + 1024 shots             svm: AUC 0.9178 [0.875,0.956] AP 0.0593
+2026-10-10 23:01:14 | MainProcess | INFO | ibm_marrakesh ZZ    trapped_ion sim + 1024 shots             mlp: AUC 0.9488 [0.914,0.977] AP 0.5796
+2026-10-10 23:01:14 | MainProcess | INFO | ibm_marrakesh ZZ    hardware ibm_marrakesh                   xgb: AUC 0.9154 [0.877,0.954] AP 0.1789
+2026-10-10 23:01:14 | MainProcess | INFO | ibm_marrakesh ZZ    hardware ibm_marrakesh                   svm: AUC 0.9040 [0.857,0.943] AP 0.0882
+2026-10-10 23:01:19 | MainProcess | INFO | ibm_marrakesh ZZ    hardware ibm_marrakesh                   mlp: AUC 0.9219 [0.884,0.955] AP 0.3413
+2026-10-10 23:01:19 | MainProcess | INFO | ibm_marrakesh ZZ    transfer: ideal-trained, hw calibrated   xgb: AUC 0.9027 [0.855,0.943] AP 0.0891
+2026-10-10 23:01:19 | MainProcess | INFO | ibm_marrakesh ZZ    transfer: ideal-trained, hw calibrated   svm: AUC 0.8989 [0.849,0.940] AP 0.1235
+2026-10-10 23:01:24 | MainProcess | INFO | ibm_marrakesh ZZ    transfer: ideal-trained, hw calibrated   mlp: AUC 0.9174 [0.873,0.954] AP 0.3045
+2026-10-10 23:01:24 | MainProcess | INFO | hardware shot budget (xgb test AUC):
+source      hardware  ideal sim
+fmap shots                     
+ZZ   16       0.9084     0.9278
+     32       0.8986     0.9295
+     64       0.9063     0.9289
+     128      0.9064     0.9282
+     256      0.9133     0.9348
+     512      0.9214     0.9306
+     1024     0.9154     0.9270
+2026-10-10 23:01:24 | MainProcess | INFO | per-physical-qubit affine law:
+      backend fmap  n_qubits  beta_median  beta_min  beta_max  alpha_min  alpha_max  r2_median   r2_min  resid_over_shot_median  resid_over_shot_p90  resid_over_shot_max
+ibm_marrakesh   ZZ        75     0.858919 -0.008191  0.939703  -0.802427   0.143513   0.992057 0.004003                1.543167             2.405601             3.353616
+2026-10-10 23:01:25 | MainProcess | INFO | 
+      backend fmap  beta_mean   r2_min  r2_mean  max_abs_residual  resid_sd_over_shot_sd
+ibm_marrakesh   ZZ   0.792687 0.753744 0.858648          1.472562               6.468909

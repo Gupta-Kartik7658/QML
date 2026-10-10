@@ -1,0 +1,32 @@
+# The repository root ignores *.csv; re-include the result tables of this folder, but never the datasets.
+!*.csv
+data/*.csv
+data/*.zip
+
+# environments, caches, large or per-run outputs
+.venv/
+venv/
+ibm-venv/
+cache/
+__pycache__/
+*.pyc
+.pytest_cache/
+results/pilot/
+results/*/*/tasks/
+results/*/hybrid/mlp/
+results/*/hybrid/xgb/
+results/*/hybrid/svm/
+results/*/ibm_hardware/**/bundle/bundle.npz
+*.zip
+
+# LaTeX build files
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.synctex.gz
+
+# never commit credentials (IBM Quantum accounts live in ~/.qiskit/, outside the repository)
+qiskit-ibm.json
+*.env

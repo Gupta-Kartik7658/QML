@@ -1,0 +1,40 @@
+2026-10-10 22:49:17 | MainProcess | INFO | [prepare] loading creditcard ...
+2026-10-10 22:49:20 | MainProcess | INFO | [prepare] creditcard: 283726 rows, 473 positives (0.167%), 30 candidate features, schema check: True
+2026-10-10 22:49:20 | MainProcess | INFO | [prepare] cache hit creditcard seed=0 (seed0_aebffa6828302393)
+2026-10-10 22:49:20 | MainProcess | INFO | [SFS] resuming from stage 7 (Z_seed0_cea1530f5b7ce34c.json)
+2026-10-10 22:49:22 | MainProcess | INFO | Z: k=7 selected=['V14', 'V10', 'V12', 'Amount', 'V16', 'V1', 'V18'] logical ops {'h': 14, 'p': 14}
+2026-10-10 22:49:22 | MainProcess | INFO | bundle written to D:\QCNC\qcnc_qfd\results\main\ibm_hardware\creditcard_Z_fez\bundle: rows {'train': 800, 'val': 394, 'test': 495}, frauds {'train': 250, 'val': 94, 'test': 95} -> copy nothing, the IBM script reads it in place
+2026-10-10 23:00:16 | MainProcess | INFO | ibm_fez Z     ideal (exact)                            xgb: AUC 0.9308 [0.890,0.965] AP 0.2129
+2026-10-10 23:00:16 | MainProcess | INFO | ibm_fez Z     ideal (exact)                            svm: AUC 0.9365 [0.900,0.965] AP 0.1449
+2026-10-10 23:00:21 | MainProcess | INFO | ibm_fez Z     ideal (exact)                            mlp: AUC 0.9331 [0.896,0.967] AP 0.1456
+2026-10-10 23:00:21 | MainProcess | INFO | ibm_fez Z     ideal + 1024 shots (sim)                 xgb: AUC 0.9371 [0.897,0.971] AP 0.4222
+2026-10-10 23:00:21 | MainProcess | INFO | ibm_fez Z     ideal + 1024 shots (sim)                 svm: AUC 0.9378 [0.903,0.968] AP 0.1297
+2026-10-10 23:00:27 | MainProcess | INFO | ibm_fez Z     ideal + 1024 shots (sim)                 mlp: AUC 0.9343 [0.899,0.967] AP 0.1461
+2026-10-10 23:00:27 | MainProcess | INFO | ibm_fez Z     superconducting sim + 1024 shots         xgb: AUC 0.9396 [0.899,0.970] AP 0.1518
+2026-10-10 23:00:27 | MainProcess | INFO | ibm_fez Z     superconducting sim + 1024 shots         svm: AUC 0.9394 [0.906,0.967] AP 0.1303
+2026-10-10 23:00:32 | MainProcess | INFO | ibm_fez Z     superconducting sim + 1024 shots         mlp: AUC 0.9304 [0.891,0.966] AP 0.1344
+2026-10-10 23:00:33 | MainProcess | INFO | ibm_fez Z     trapped_ion sim + 1024 shots             xgb: AUC 0.9431 [0.909,0.975] AP 0.1830
+2026-10-10 23:00:33 | MainProcess | INFO | ibm_fez Z     trapped_ion sim + 1024 shots             svm: AUC 0.9403 [0.906,0.968] AP 0.2074
+2026-10-10 23:00:38 | MainProcess | INFO | ibm_fez Z     trapped_ion sim + 1024 shots             mlp: AUC 0.9336 [0.892,0.966] AP 0.2741
+2026-10-10 23:00:38 | MainProcess | INFO | ibm_fez Z     hardware ibm_fez                         xgb: AUC 0.9398 [0.902,0.971] AP 0.6573
+2026-10-10 23:00:38 | MainProcess | INFO | ibm_fez Z     hardware ibm_fez                         svm: AUC 0.9413 [0.907,0.969] AP 0.6301
+2026-10-10 23:00:43 | MainProcess | INFO | ibm_fez Z     hardware ibm_fez                         mlp: AUC 0.9371 [0.901,0.968] AP 0.4604
+2026-10-10 23:00:44 | MainProcess | INFO | ibm_fez Z     transfer: ideal-trained, hw calibrated   xgb: AUC 0.9373 [0.897,0.968] AP 0.7052
+2026-10-10 23:00:44 | MainProcess | INFO | ibm_fez Z     transfer: ideal-trained, hw calibrated   svm: AUC 0.9428 [0.910,0.970] AP 0.2780
+2026-10-10 23:00:49 | MainProcess | INFO | ibm_fez Z     transfer: ideal-trained, hw calibrated   mlp: AUC 0.9404 [0.905,0.971] AP 0.4863
+2026-10-10 23:00:49 | MainProcess | INFO | hardware shot budget (xgb test AUC):
+source      hardware  ideal sim
+fmap shots                     
+Z    16       0.9263     0.9279
+     32       0.9341     0.9326
+     64       0.9382     0.9397
+     128      0.9388     0.9343
+     256      0.9396     0.9295
+     512      0.9394     0.9357
+     1024     0.9398     0.9292
+2026-10-10 23:00:49 | MainProcess | INFO | per-physical-qubit affine law:
+backend fmap  n_qubits  beta_median  beta_min  beta_max  alpha_min  alpha_max  r2_median   r2_min  resid_over_shot_median  resid_over_shot_p90  resid_over_shot_max
+ibm_fez    Z        98     0.975669 -0.052874  1.008098  -0.023643   0.075818   0.996842 0.013484                1.079033             1.378645              7.47148
+2026-10-10 23:00:50 | MainProcess | INFO | 
+backend fmap  beta_mean   r2_min  r2_mean  max_abs_residual  resid_sd_over_shot_sd
+ibm_fez    Z   0.956207 0.894627 0.979639          1.093378               2.161662

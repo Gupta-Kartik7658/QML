@@ -1,0 +1,176 @@
+{
+  "affine": [
+    {
+      "backend": "ibm_marrakesh",
+      "beta_mean": 0.7926874377630605,
+      "fmap": "ZZ",
+      "max_abs_residual": 1.472561596151589,
+      "r2_mean": 0.8586476037402898,
+      "r2_min": 0.7537438042846762,
+      "resid_sd_over_shot_sd": 6.468908899275575
+    }
+  ],
+  "affine_per_qubit": [
+    {
+      "alpha_max": 0.14351308365585067,
+      "alpha_min": -0.8024270204283306,
+      "backend": "ibm_marrakesh",
+      "beta_max": 0.9397027148874791,
+      "beta_median": 0.8589186498886934,
+      "beta_min": -0.00819131084841191,
+      "fmap": "ZZ",
+      "n_qubits": 75,
+      "r2_median": 0.9920566418925368,
+      "r2_min": 0.004002750817134415,
+      "resid_over_shot_max": 3.353616159541035,
+      "resid_over_shot_median": 1.5431670851372874,
+      "resid_over_shot_p90": 2.405600827266636
+    }
+  ],
+  "classifiers": [
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "xgb",
+      "fmap": "ZZ",
+      "representation": "ideal (exact)",
+      "test_avg_precision": 0.10403246298526643,
+      "test_roc_auc": 0.9366447368421057
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "svm",
+      "fmap": "ZZ",
+      "representation": "ideal (exact)",
+      "test_avg_precision": 0.1227397860234702,
+      "test_roc_auc": 0.9190000000000004
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "mlp",
+      "fmap": "ZZ",
+      "representation": "ideal (exact)",
+      "test_avg_precision": 0.578616249821042,
+      "test_roc_auc": 0.9392894736842109
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "xgb",
+      "fmap": "ZZ",
+      "representation": "ideal + 1024 shots (sim)",
+      "test_avg_precision": 0.20270585997841162,
+      "test_roc_auc": 0.9333157894736844
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "svm",
+      "fmap": "ZZ",
+      "representation": "ideal + 1024 shots (sim)",
+      "test_avg_precision": 0.15190974390265033,
+      "test_roc_auc": 0.9220789473684214
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "mlp",
+      "fmap": "ZZ",
+      "representation": "ideal + 1024 shots (sim)",
+      "test_avg_precision": 0.5084932506538141,
+      "test_roc_auc": 0.9450263157894739
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "xgb",
+      "fmap": "ZZ",
+      "representation": "superconducting sim + 1024 shots",
+      "test_avg_precision": 0.5150102131897378,
+      "test_roc_auc": 0.9349736842105266
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "svm",
+      "fmap": "ZZ",
+      "representation": "superconducting sim + 1024 shots",
+      "test_avg_precision": 0.2464640495043291,
+      "test_roc_auc": 0.9348157894736845
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "mlp",
+      "fmap": "ZZ",
+      "representation": "superconducting sim + 1024 shots",
+      "test_avg_precision": 0.5587351849342717,
+      "test_roc_auc": 0.9502894736842107
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "xgb",
+      "fmap": "ZZ",
+      "representation": "trapped_ion sim + 1024 shots",
+      "test_avg_precision": 0.21549739558664327,
+      "test_roc_auc": 0.9396447368421057
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "svm",
+      "fmap": "ZZ",
+      "representation": "trapped_ion sim + 1024 shots",
+      "test_avg_precision": 0.05926159068173253,
+      "test_roc_auc": 0.9177894736842109
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "mlp",
+      "fmap": "ZZ",
+      "representation": "trapped_ion sim + 1024 shots",
+      "test_avg_precision": 0.5795548654642403,
+      "test_roc_auc": 0.9488421052631582
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "xgb",
+      "fmap": "ZZ",
+      "representation": "hardware ibm_marrakesh",
+      "test_avg_precision": 0.17888158710687957,
+      "test_roc_auc": 0.9154473684210531
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "svm",
+      "fmap": "ZZ",
+      "representation": "hardware ibm_marrakesh",
+      "test_avg_precision": 0.08816187472367182,
+      "test_roc_auc": 0.9039736842105266
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "mlp",
+      "fmap": "ZZ",
+      "representation": "hardware ibm_marrakesh",
+      "test_avg_precision": 0.3412718203484195,
+      "test_roc_auc": 0.9219473684210531
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "xgb",
+      "fmap": "ZZ",
+      "representation": "transfer: ideal-trained, hw calibrated",
+      "test_avg_precision": 0.08908189455183273,
+      "test_roc_auc": 0.9027368421052636
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "svm",
+      "fmap": "ZZ",
+      "representation": "transfer: ideal-trained, hw calibrated",
+      "test_avg_precision": 0.12353013145720237,
+      "test_roc_auc": 0.8988947368421057
+    },
+    {
+      "backend": "ibm_marrakesh",
+      "classifier": "mlp",
+      "fmap": "ZZ",
+      "representation": "transfer: ideal-trained, hw calibrated",
+      "test_avg_precision": 0.3044669671143847,
+      "test_roc_auc": 0.9173684210526318
+    }
+  ]
+}

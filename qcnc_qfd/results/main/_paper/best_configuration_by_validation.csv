@@ -1,0 +1,7 @@
+dataset,representation,feature_map,classifier,val_auc,test_auc,test_auc_sd,test_ap,test_f1,test_recall,test_fpr,test_mcc,scope
+banksim,c_all,classical,xgb,0.99781,0.99776,0.00018,0.89426,0.8167,0.79792,0.00191,0.81518,overall
+creditcard,c_selected,Z,xgb,0.98232,0.9638,0.00293,0.7109,0.75693,0.68421,0.00021,0.76253,overall
+paysim,c_all,classical,mlp,0.99962,0.99966,0.0002,0.94062,0.86154,0.8563,0.00017,0.86138,overall
+banksim,q_ideal_mi_z,ZZ,xgb,0.99767,0.99756,0.00028,0.88761,0.81027,0.78356,0.00184,0.80887,quantum only
+creditcard,q_ideal_z,Z,xgb,0.97962,0.94038,0.01312,0.62772,0.64896,0.6386,0.00061,0.65189,quantum only
+paysim,q_ideal_zzz,Pauli,mlp,0.99877,0.99841,0.00076,0.79142,0.6906,0.73188,0.0005,0.69236,quantum only

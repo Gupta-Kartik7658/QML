@@ -1,0 +1,91 @@
+2026-10-10 06:49:34 | MainProcess | INFO | #### xgb x superconducting | workers=6 threads/worker=1 | datasets=['creditcard', 'paysim', 'banksim'] fmaps=['Z', 'ZZ', 'Pauli'] seeds=[0, 1, 2] | noise=True | out=C:\Users\LENOVO\Desktop\programming\QCNC\qcnc_qfd\results\main\xgb_superconducting
+2026-10-10 06:49:34 | MainProcess | INFO | [prepare] loading creditcard ...
+2026-10-10 06:49:36 | MainProcess | INFO | [prepare] creditcard: 283726 rows, 473 positives (0.167%), 30 candidate features, schema check: True
+2026-10-10 06:49:46 | MainProcess | INFO | [prepare] creditcard seed=0: train {'rows': 170235, 'positives': 284, 'prevalence': 0.0016682820806532147} val {'rows': 56745, 'positives': 94, 'prevalence': 0.0016565336152965019} test {'rows': 56746, 'positives': 95, 'prevalence': 0.0016741268107003137}
+2026-10-10 06:49:57 | MainProcess | INFO | [prepare] creditcard seed=1: train {'rows': 170235, 'positives': 284, 'prevalence': 0.0016682820806532147} val {'rows': 56745, 'positives': 94, 'prevalence': 0.0016565336152965019} test {'rows': 56746, 'positives': 95, 'prevalence': 0.0016741268107003137}
+2026-10-10 06:50:02 | MainProcess | INFO | [prepare] creditcard seed=2: train {'rows': 170235, 'positives': 284, 'prevalence': 0.0016682820806532147} val {'rows': 56745, 'positives': 94, 'prevalence': 0.0016565336152965019} test {'rows': 56746, 'positives': 95, 'prevalence': 0.0016741268107003137}
+2026-10-10 06:50:02 | MainProcess | INFO | [prepare] loading paysim ...
+2026-10-10 06:50:59 | MainProcess | INFO | [prepare] paysim: 6362620 rows, 8213 positives (0.129%), 12 candidate features, schema check: True
+2026-10-10 06:52:00 | MainProcess | INFO | [prepare] paysim seed=0: train {'rows': 3817572, 'positives': 4928, 'prevalence': 0.001290872837499856} val {'rows': 1272524, 'positives': 1642, 'prevalence': 0.0012903489443028186} test {'rows': 1272524, 'positives': 1643, 'prevalence': 0.0012911347840983745}
+2026-10-10 06:52:47 | MainProcess | INFO | [prepare] paysim seed=1: train {'rows': 3817572, 'positives': 4928, 'prevalence': 0.001290872837499856} val {'rows': 1272524, 'positives': 1643, 'prevalence': 0.0012911347840983745} test {'rows': 1272524, 'positives': 1642, 'prevalence': 0.0012903489443028186}
+2026-10-10 06:53:32 | MainProcess | INFO | [prepare] paysim seed=2: train {'rows': 3817572, 'positives': 4928, 'prevalence': 0.001290872837499856} val {'rows': 1272524, 'positives': 1643, 'prevalence': 0.0012911347840983745} test {'rows': 1272524, 'positives': 1642, 'prevalence': 0.0012903489443028186}
+2026-10-10 06:53:33 | MainProcess | INFO | [prepare] loading banksim ...
+2026-10-10 06:53:40 | MainProcess | INFO | [prepare] banksim: 594643 rows, 7200 positives (1.211%), 24 candidate features, schema check: True
+2026-10-10 06:53:50 | MainProcess | INFO | [prepare] banksim seed=0: train {'rows': 356785, 'positives': 4320, 'prevalence': 0.01210813234861331} val {'rows': 118929, 'positives': 1440, 'prevalence': 0.012108064475443332} test {'rows': 118929, 'positives': 1440, 'prevalence': 0.012108064475443332}
+2026-10-10 06:53:59 | MainProcess | INFO | [prepare] banksim seed=1: train {'rows': 356785, 'positives': 4320, 'prevalence': 0.01210813234861331} val {'rows': 118929, 'positives': 1440, 'prevalence': 0.012108064475443332} test {'rows': 118929, 'positives': 1440, 'prevalence': 0.012108064475443332}
+2026-10-10 06:54:09 | MainProcess | INFO | [prepare] banksim seed=2: train {'rows': 356785, 'positives': 4320, 'prevalence': 0.01210813234861331} val {'rows': 118929, 'positives': 1440, 'prevalence': 0.012108064475443332} test {'rows': 118929, 'positives': 1440, 'prevalence': 0.012108064475443332}
+2026-10-10 06:54:09 | MainProcess | INFO | 36 tasks, 0 already done, 36 to run
+2026-10-10 06:57:50 | MainProcess | INFO | [1/36] paysim__classical__seed0: OK (8.3 min elapsed)
+2026-10-10 07:07:38 | MainProcess | INFO | [2/36] paysim__Z__seed1: OK (18.1 min elapsed)
+2026-10-10 07:09:07 | MainProcess | INFO | [3/36] paysim__classical__seed1: OK (19.6 min elapsed)
+2026-10-10 07:09:29 | MainProcess | INFO | [4/36] paysim__Pauli__seed0: OK (19.9 min elapsed)
+2026-10-10 07:09:42 | MainProcess | INFO | [5/36] paysim__Z__seed0: OK (20.1 min elapsed)
+2026-10-10 07:18:31 | MainProcess | INFO | [6/36] paysim__Z__seed2: OK (29.0 min elapsed)
+2026-10-10 07:19:51 | MainProcess | INFO | [7/36] paysim__classical__seed2: OK (30.3 min elapsed)
+2026-10-10 07:19:53 | MainProcess | INFO | [8/36] paysim__Pauli__seed1: OK (30.3 min elapsed)
+2026-10-10 07:24:18 | MainProcess | INFO | [9/36] banksim__Z__seed0: OK (34.7 min elapsed)
+2026-10-10 07:27:59 | MainProcess | INFO | [10/36] paysim__Pauli__seed2: OK (38.4 min elapsed)
+2026-10-10 07:28:33 | MainProcess | INFO | [11/36] banksim__classical__seed0: OK (39.0 min elapsed)
+2026-10-10 07:28:56 | MainProcess | INFO | [12/36] banksim__ZZ__seed0: OK (39.4 min elapsed)
+2026-10-10 07:31:50 | MainProcess | INFO | [13/36] paysim__ZZ__seed0: OK (42.3 min elapsed)
+2026-10-10 07:33:25 | MainProcess | INFO | [14/36] banksim__Z__seed1: OK (43.9 min elapsed)
+2026-10-10 07:33:54 | MainProcess | INFO | [15/36] paysim__ZZ__seed1: OK (44.3 min elapsed)
+2026-10-10 07:34:06 | MainProcess | INFO | [16/36] banksim__classical__seed1: OK (44.5 min elapsed)
+2026-10-10 07:40:31 | MainProcess | INFO | [17/36] banksim__Z__seed2: OK (51.0 min elapsed)
+2026-10-10 07:41:59 | MainProcess | INFO | [18/36] paysim__ZZ__seed2: OK (52.4 min elapsed)
+2026-10-10 07:42:53 | MainProcess | INFO | [19/36] banksim__classical__seed2: OK (53.3 min elapsed)
+2026-10-10 07:43:21 | MainProcess | WARNING | Interrupted: cancelling pending tasks; completed results are saved. Re-run the same command to resume.
+2026-10-10 07:54:31 | MainProcess | INFO | #### xgb x superconducting | workers=8 threads/worker=1 | datasets=['creditcard', 'paysim', 'banksim'] fmaps=['Z', 'ZZ', 'Pauli'] seeds=[0, 1, 2] | noise=True | out=D:\QCNC\qcnc_qfd\results\main\xgb_superconducting
+2026-10-10 07:54:31 | MainProcess | INFO | [prepare] loading creditcard ...
+2026-10-10 07:54:33 | MainProcess | INFO | [prepare] creditcard: 283726 rows, 473 positives (0.167%), 30 candidate features, schema check: True
+2026-10-10 07:54:33 | MainProcess | INFO | [prepare] cache hit creditcard seed=0 (seed0_aebffa6828302393)
+2026-10-10 07:54:33 | MainProcess | INFO | [prepare] cache hit creditcard seed=1 (seed1_889f24e876d2f83d)
+2026-10-10 07:54:33 | MainProcess | INFO | [prepare] cache hit creditcard seed=2 (seed2_dac7919ddc89e03e)
+2026-10-10 07:54:33 | MainProcess | INFO | [prepare] loading paysim ...
+2026-10-10 07:54:59 | MainProcess | INFO | [prepare] paysim: 6362620 rows, 8213 positives (0.129%), 12 candidate features, schema check: True
+2026-10-10 07:55:10 | MainProcess | INFO | [prepare] cache hit paysim seed=0 (seed0_50308f779fe19646)
+2026-10-10 07:55:10 | MainProcess | INFO | [prepare] cache hit paysim seed=1 (seed1_21f5fc9ac392e1de)
+2026-10-10 07:55:10 | MainProcess | INFO | [prepare] cache hit paysim seed=2 (seed2_ae7cbe1f0601e9b0)
+2026-10-10 07:55:10 | MainProcess | INFO | [prepare] loading banksim ...
+2026-10-10 07:55:15 | MainProcess | INFO | [prepare] banksim: 594643 rows, 7200 positives (1.211%), 24 candidate features, schema check: True
+2026-10-10 07:55:15 | MainProcess | INFO | [prepare] cache hit banksim seed=0 (seed0_06eacb574bad76a1)
+2026-10-10 07:55:15 | MainProcess | INFO | [prepare] cache hit banksim seed=1 (seed1_5288ff4bb235609c)
+2026-10-10 07:55:15 | MainProcess | INFO | [prepare] cache hit banksim seed=2 (seed2_b041547b37076192)
+2026-10-10 07:55:15 | MainProcess | INFO | 36 tasks, 0 already done, 36 to run
+2026-10-10 07:58:03 | MainProcess | INFO | [1/36] paysim__classical__seed0: OK (3.5 min elapsed)
+2026-10-10 07:58:05 | MainProcess | INFO | [2/36] paysim__classical__seed1: OK (3.6 min elapsed)
+2026-10-10 08:00:46 | MainProcess | INFO | [3/36] paysim__Pauli__seed0: OK (6.2 min elapsed)
+2026-10-10 08:02:53 | MainProcess | INFO | [4/36] paysim__Pauli__seed1: OK (8.4 min elapsed)
+2026-10-10 08:03:01 | MainProcess | INFO | [5/36] paysim__ZZ__seed0: OK (8.5 min elapsed)
+2026-10-10 08:03:20 | MainProcess | INFO | [6/36] paysim__Z__seed1: OK (8.8 min elapsed)
+2026-10-10 08:04:18 | MainProcess | INFO | [7/36] paysim__classical__seed2: OK (9.8 min elapsed)
+2026-10-10 08:04:27 | MainProcess | INFO | [8/36] banksim__Z__seed0: OK (9.9 min elapsed)
+2026-10-10 08:04:43 | MainProcess | INFO | [9/36] paysim__Z__seed0: OK (10.2 min elapsed)
+2026-10-10 08:04:52 | MainProcess | INFO | [10/36] paysim__ZZ__seed2: OK (10.3 min elapsed)
+2026-10-10 08:04:54 | MainProcess | INFO | [11/36] banksim__ZZ__seed0: OK (10.4 min elapsed)
+2026-10-10 08:04:59 | MainProcess | INFO | [12/36] paysim__ZZ__seed1: OK (10.5 min elapsed)
+2026-10-10 08:05:01 | MainProcess | INFO | [13/36] paysim__Z__seed2: OK (10.5 min elapsed)
+2026-10-10 08:05:04 | MainProcess | INFO | [14/36] banksim__classical__seed0: OK (10.5 min elapsed)
+2026-10-10 08:05:38 | MainProcess | INFO | [15/36] banksim__Z__seed1: OK (11.1 min elapsed)
+2026-10-10 08:05:40 | MainProcess | INFO | [16/36] banksim__classical__seed1: OK (11.2 min elapsed)
+2026-10-10 08:06:07 | MainProcess | INFO | [17/36] banksim__classical__seed2: OK (11.6 min elapsed)
+2026-10-10 08:06:26 | MainProcess | INFO | [18/36] banksim__Z__seed2: OK (11.9 min elapsed)
+2026-10-10 08:07:03 | MainProcess | INFO | [19/36] banksim__ZZ__seed1: OK (12.5 min elapsed)
+2026-10-10 08:07:35 | MainProcess | INFO | [20/36] paysim__Pauli__seed2: OK (13.1 min elapsed)
+2026-10-10 08:08:24 | MainProcess | INFO | [21/36] creditcard__classical__seed0: OK (13.9 min elapsed)
+2026-10-10 08:12:48 | MainProcess | INFO | [22/36] banksim__Pauli__seed0: OK (18.3 min elapsed)
+2026-10-10 08:20:19 | MainProcess | INFO | [23/36] creditcard__Z__seed0: OK (25.8 min elapsed)
+2026-10-10 08:22:40 | MainProcess | INFO | [24/36] creditcard__Z__seed1: OK (28.1 min elapsed)
+2026-10-10 08:22:51 | MainProcess | INFO | [25/36] banksim__Pauli__seed1: OK (28.3 min elapsed)
+2026-10-10 08:23:07 | MainProcess | INFO | [26/36] banksim__ZZ__seed2: OK (28.6 min elapsed)
+2026-10-10 08:23:45 | MainProcess | INFO | [27/36] creditcard__classical__seed1: OK (29.2 min elapsed)
+2026-10-10 08:34:55 | MainProcess | INFO | [28/36] banksim__Pauli__seed2: OK (40.4 min elapsed)
+2026-10-10 08:35:48 | MainProcess | INFO | [29/36] creditcard__classical__seed2: OK (41.3 min elapsed)
+2026-10-10 08:37:36 | MainProcess | INFO | [30/36] creditcard__Z__seed2: OK (43.1 min elapsed)
+2026-10-10 08:37:45 | MainProcess | INFO | [31/36] creditcard__ZZ__seed1: OK (43.2 min elapsed)
+2026-10-10 08:46:39 | MainProcess | INFO | [32/36] creditcard__Pauli__seed0: OK (52.1 min elapsed)
+2026-10-10 08:47:19 | MainProcess | INFO | [33/36] creditcard__ZZ__seed0: OK (52.8 min elapsed)
+2026-10-10 08:51:23 | MainProcess | INFO | [34/36] creditcard__Pauli__seed1: OK (56.9 min elapsed)
+2026-10-10 08:58:11 | MainProcess | INFO | [35/36] creditcard__ZZ__seed2: OK (63.7 min elapsed)
+2026-10-10 09:19:42 | MainProcess | INFO | [36/36] creditcard__Pauli__seed2: OK (85.2 min elapsed)
+2026-10-10 09:19:45 | MainProcess | INFO | #### finished xgb x superconducting in 1.42 h; 224 result rows, 0 failed. Results: D:\QCNC\qcnc_qfd\results\main\xgb_superconducting\results.csv

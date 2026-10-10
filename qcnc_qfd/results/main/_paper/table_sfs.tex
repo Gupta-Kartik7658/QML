@@ -1,0 +1,40 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Sequential forward selection results (validation data only).}
+\label{tab:sfs}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lllllllll}
+\hline
+dataset & feature\_map & seed & selected & k & val\_roc\_auc & evaluations & stopping & runtime\_s \\
+\hline
+banksim & Pauli & 0 & merchant\_te;cat\_contents;cat\_health;amount;cat\_barsandrestaurants;cat\_tech & 6 & 0.9952 & 147 & max\_features & 925.2 \\
+banksim & Pauli & 1 & merchant\_te;gender\_U;cat\_barsandrestaurants;amount & 4 & 0.9953 & 147 & max\_features & 880.1 \\
+banksim & Pauli & 2 & merchant\_te;cat\_leisure;gender\_U;amount & 4 & 0.995 & 147 & max\_features & 1560 \\
+banksim & Z & 0 & amount;merchant\_te & 2 & 0.944 & 147 & max\_features & 175 \\
+banksim & Z & 1 & amount & 1 & 0.9335 & 147 & max\_features & 230.1 \\
+banksim & Z & 2 & amount;merchant\_te & 2 & 0.9374 & 147 & max\_features & 306.7 \\
+banksim & ZZ & 0 & merchant\_te;cat\_contents;amount;cat\_barsandrestaurants;cat\_tech & 5 & 0.9956 & 147 & max\_features & 368.1 \\
+banksim & ZZ & 1 & merchant\_te;gender\_U;amount;cat\_barsandrestaurants;cat\_health & 5 & 0.9956 & 147 & max\_features & 628.9 \\
+banksim & ZZ & 2 & merchant\_te;amount;gender\_U;cat\_transportation;cat\_barsandrestaurants;cat\_wellnessandbeauty & 6 & 0.9955 & 147 & max\_features & 518.6 \\
+creditcard & Pauli & 0 & V11;V4;V19;V20;V21;Amount & 6 & 0.9739 & 189 & max\_features & 1992 \\
+creditcard & Pauli & 1 & V11;V4;V2;V19;Time;V20 & 6 & 0.9558 & 189 & max\_features & 1575 \\
+creditcard & Pauli & 2 & V11;V4;V20;V21;Amount;V17;V18 & 7 & 0.9498 & 189 & max\_features & 1445 \\
+creditcard & Z & 0 & V14;V10;V12;Amount;V16;V1;V18 & 7 & 0.9893 & 189 & max\_features & 507.5 \\
+creditcard & Z & 1 & V14;V13;Time;V26;V21;V19;V11 & 7 & 0.9607 & 189 & max\_features & 535.8 \\
+creditcard & Z & 2 & V14;V17;V12;V19;V3;V7;V8 & 7 & 0.9801 & 189 & max\_features & 567.5 \\
+creditcard & ZZ & 0 & V11;V3;V4;V13;V21;V20;V27 & 7 & 0.9791 & 189 & max\_features & 1242 \\
+creditcard & ZZ & 1 & V11;V2;V10;V5;V19 & 5 & 0.9474 & 189 & max\_features & 1269 \\
+creditcard & ZZ & 2 & V4;V2;V11;V21;V24;V17;V3 & 7 & 0.9498 & 189 & max\_features & 1093 \\
+paysim & Pauli & 0 & amount;oldbalanceOrg;newbalanceOrig & 3 & 0.9387 & 63 & max\_features & 630.5 \\
+paysim & Pauli & 1 & amount;oldbalanceOrg;newbalanceOrig;type\_TRANSFER;type\_CASH\_OUT;type\_CASH\_IN & 6 & 0.9343 & 63 & max\_features & 524.4 \\
+paysim & Pauli & 2 & amount;oldbalanceOrg;newbalanceOrig;type\_TRANSFER;dest\_is\_merchant;type\_CASH\_OUT & 6 & 0.9388 & 63 & max\_features & 284.7 \\
+paysim & Z & 0 & newbalanceOrig;step;amount;oldbalanceOrg;newbalanceDest;oldbalanceDest & 6 & 0.8747 & 63 & max\_features & 191.3 \\
+paysim & Z & 1 & newbalanceOrig;step;amount;oldbalanceOrg;newbalanceDest & 5 & 0.8753 & 63 & max\_features & 191.5 \\
+paysim & Z & 2 & newbalanceOrig;step;amount;oldbalanceOrg;newbalanceDest;oldbalanceDest & 6 & 0.8732 & 63 & max\_features & 65.72 \\
+paysim & ZZ & 0 & oldbalanceOrg;amount;type\_CASH\_IN;dest\_is\_merchant;type\_TRANSFER;type\_CASH\_OUT;newbalanceDest & 7 & 0.9353 & 63 & max\_features & 404.6 \\
+paysim & ZZ & 1 & oldbalanceOrg;amount;type\_CASH\_IN;dest\_is\_merchant;type\_TRANSFER;type\_CASH\_OUT;newbalanceDest & 7 & 0.9338 & 63 & max\_features & 405.4 \\
+paysim & ZZ & 2 & oldbalanceOrg;amount;type\_CASH\_IN;dest\_is\_merchant;type\_TRANSFER;type\_CASH\_OUT;newbalanceOrig & 7 & 0.9343 & 63 & max\_features & 158 \\
+\hline
+\end{tabular}}
+\end{table}

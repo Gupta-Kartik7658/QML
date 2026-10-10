@@ -1,0 +1,42 @@
+2026-10-10 19:40:57 | MainProcess | INFO | [prepare] loading creditcard ...
+2026-10-10 19:40:59 | MainProcess | INFO | [prepare] creditcard: 283726 rows, 473 positives (0.167%), 30 candidate features, schema check: True
+2026-10-10 19:40:59 | MainProcess | INFO | [prepare] cache hit creditcard seed=0 (seed0_aebffa6828302393)
+2026-10-10 19:40:59 | MainProcess | INFO | [prepare] cache hit creditcard seed=1 (seed1_889f24e876d2f83d)
+2026-10-10 19:40:59 | MainProcess | INFO | [prepare] cache hit creditcard seed=2 (seed2_dac7919ddc89e03e)
+2026-10-10 19:40:59 | MainProcess | INFO | [prepare] loading paysim ...
+2026-10-10 19:41:22 | MainProcess | INFO | [prepare] paysim: 6362620 rows, 8213 positives (0.129%), 12 candidate features, schema check: True
+2026-10-10 19:41:22 | MainProcess | INFO | [prepare] cache hit paysim seed=0 (seed0_50308f779fe19646)
+2026-10-10 19:41:22 | MainProcess | INFO | [prepare] cache hit paysim seed=1 (seed1_21f5fc9ac392e1de)
+2026-10-10 19:41:22 | MainProcess | INFO | [prepare] cache hit paysim seed=2 (seed2_ae7cbe1f0601e9b0)
+2026-10-10 19:41:23 | MainProcess | INFO | [prepare] loading banksim ...
+2026-10-10 19:41:26 | MainProcess | INFO | [prepare] banksim: 594643 rows, 7200 positives (1.211%), 24 candidate features, schema check: True
+2026-10-10 19:41:26 | MainProcess | INFO | [prepare] cache hit banksim seed=0 (seed0_06eacb574bad76a1)
+2026-10-10 19:41:26 | MainProcess | INFO | [prepare] cache hit banksim seed=1 (seed1_5288ff4bb235609c)
+2026-10-10 19:41:26 | MainProcess | INFO | [prepare] cache hit banksim seed=2 (seed2_b041547b37076192)
+2026-10-10 19:43:24 | MainProcess | INFO | [1/27] done
+2026-10-10 19:43:57 | MainProcess | INFO | [2/27] done
+2026-10-10 19:43:58 | MainProcess | INFO | [3/27] done
+2026-10-10 19:44:06 | MainProcess | INFO | [4/27] done
+2026-10-10 19:44:20 | MainProcess | INFO | [5/27] done
+2026-10-10 19:44:20 | MainProcess | INFO | [6/27] done
+2026-10-10 19:45:02 | MainProcess | INFO | [7/27] done
+2026-10-10 19:45:08 | MainProcess | INFO | [8/27] done
+2026-10-10 19:47:30 | MainProcess | INFO | [9/27] done
+2026-10-10 19:48:00 | MainProcess | INFO | [10/27] done
+2026-10-10 19:48:25 | MainProcess | INFO | [11/27] done
+2026-10-10 19:48:59 | MainProcess | INFO | [12/27] done
+2026-10-10 19:49:50 | MainProcess | INFO | [13/27] done
+2026-10-10 19:50:14 | MainProcess | INFO | [14/27] done
+2026-10-10 19:50:53 | MainProcess | INFO | [15/27] done
+2026-10-10 19:51:57 | MainProcess | INFO | [16/27] done
+2026-10-10 19:52:52 | MainProcess | INFO | [17/27] done
+2026-10-10 19:53:39 | MainProcess | INFO | [18/27] done
+2026-10-10 19:53:45 | MainProcess | INFO | [19/27] done
+2026-10-10 19:54:42 | MainProcess | INFO | [20/27] done
+2026-10-10 19:55:17 | MainProcess | INFO | [21/27] done
+2026-10-10 19:56:22 | MainProcess | INFO | [22/27] done
+2026-10-10 19:57:24 | MainProcess | INFO | [23/27] done
+2026-10-10 19:58:06 | MainProcess | INFO | [24/27] done
+2026-10-10 19:58:21 | MainProcess | INFO | [25/27] done
+2026-10-10 19:58:21 | MainProcess | INFO | [26/27] done
+2026-10-10 19:59:07 | MainProcess | INFO | [27/27] done

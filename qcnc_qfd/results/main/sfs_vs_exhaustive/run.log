@@ -1,0 +1,28 @@
+2026-10-10 13:31:58 | MainProcess | INFO | [prepare] loading creditcard ...
+2026-10-10 13:32:00 | MainProcess | INFO | [prepare] creditcard: 283726 rows, 473 positives (0.167%), 30 candidate features, schema check: True
+2026-10-10 13:32:00 | MainProcess | INFO | [prepare] cache hit creditcard seed=0 (seed0_aebffa6828302393)
+2026-10-10 13:32:00 | MainProcess | INFO | [prepare] cache hit creditcard seed=1 (seed1_889f24e876d2f83d)
+2026-10-10 13:32:00 | MainProcess | INFO | [prepare] cache hit creditcard seed=2 (seed2_dac7919ddc89e03e)
+2026-10-10 13:32:00 | MainProcess | INFO | [prepare] loading banksim ...
+2026-10-10 13:32:03 | MainProcess | INFO | [prepare] banksim: 594643 rows, 7200 positives (1.211%), 24 candidate features, schema check: True
+2026-10-10 13:32:03 | MainProcess | INFO | [prepare] cache hit banksim seed=0 (seed0_06eacb574bad76a1)
+2026-10-10 13:32:03 | MainProcess | INFO | [prepare] cache hit banksim seed=1 (seed1_5288ff4bb235609c)
+2026-10-10 13:32:03 | MainProcess | INFO | [prepare] cache hit banksim seed=2 (seed2_b041547b37076192)
+2026-10-10 13:32:47 | MainProcess | INFO | creditcard Z seed 0: SFS 34 evals 4s | exhaustive 385 evals 40s | matches optimum at k=1,2,4
+2026-10-10 13:33:47 | MainProcess | INFO | creditcard ZZ seed 0: SFS 34 evals 5s | exhaustive 385 evals 55s | matches optimum at k=1,3,4
+2026-10-10 13:35:53 | MainProcess | INFO | creditcard Pauli seed 0: SFS 34 evals 10s | exhaustive 385 evals 116s | matches optimum at k=1,2,3,4
+2026-10-10 13:36:37 | MainProcess | INFO | creditcard Z seed 1: SFS 34 evals 4s | exhaustive 385 evals 40s | matches optimum at k=1,2,3,4
+2026-10-10 13:37:37 | MainProcess | INFO | creditcard ZZ seed 1: SFS 34 evals 5s | exhaustive 385 evals 55s | matches optimum at k=1
+2026-10-10 13:39:43 | MainProcess | INFO | creditcard Pauli seed 1: SFS 34 evals 10s | exhaustive 385 evals 116s | matches optimum at k=1,2
+2026-10-10 13:40:27 | MainProcess | INFO | creditcard Z seed 2: SFS 34 evals 4s | exhaustive 385 evals 41s | matches optimum at k=1,2,3,4
+2026-10-10 13:41:27 | MainProcess | INFO | creditcard ZZ seed 2: SFS 34 evals 5s | exhaustive 385 evals 55s | matches optimum at k=1,3
+2026-10-10 13:43:34 | MainProcess | INFO | creditcard Pauli seed 2: SFS 34 evals 10s | exhaustive 385 evals 116s | matches optimum at k=1,2,4
+2026-10-10 13:44:17 | MainProcess | INFO | banksim Z seed 0: SFS 34 evals 4s | exhaustive 385 evals 39s | matches optimum at k=1,2,3,4
+2026-10-10 13:45:16 | MainProcess | INFO | banksim ZZ seed 0: SFS 34 evals 5s | exhaustive 385 evals 55s | matches optimum at k=1,2,4
+2026-10-10 13:47:23 | MainProcess | INFO | banksim Pauli seed 0: SFS 34 evals 10s | exhaustive 385 evals 116s | matches optimum at k=1,2
+2026-10-10 13:48:06 | MainProcess | INFO | banksim Z seed 1: SFS 34 evals 4s | exhaustive 385 evals 39s | matches optimum at k=1
+2026-10-10 13:49:06 | MainProcess | INFO | banksim ZZ seed 1: SFS 34 evals 5s | exhaustive 385 evals 56s | matches optimum at k=1,2,3,4
+2026-10-10 13:51:13 | MainProcess | INFO | banksim Pauli seed 1: SFS 34 evals 10s | exhaustive 385 evals 116s | matches optimum at k=1,2,4
+2026-10-10 13:51:56 | MainProcess | INFO | banksim Z seed 2: SFS 34 evals 4s | exhaustive 385 evals 40s | matches optimum at k=1,2,3,4
+2026-10-10 13:52:56 | MainProcess | INFO | banksim ZZ seed 2: SFS 34 evals 5s | exhaustive 385 evals 55s | matches optimum at k=1,2,3,4
+2026-10-10 13:55:02 | MainProcess | INFO | banksim Pauli seed 2: SFS 34 evals 10s | exhaustive 385 evals 116s | matches optimum at k=1,2,3

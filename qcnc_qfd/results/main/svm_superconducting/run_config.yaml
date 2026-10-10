@@ -1,0 +1,181 @@
+paths:
+  data_dir: D:\QCNC\qcnc_qfd\data
+  cache_dir: D:\QCNC\qcnc_qfd\cache
+  results_dir: D:\QCNC\qcnc_qfd\results
+run:
+  seeds:
+  - 0
+  - 1
+  - 2
+  workers: 8
+  threads_per_worker: 1
+  datasets:
+  - creditcard
+  - paysim
+  - banksim
+  feature_maps:
+  - Z
+  - ZZ
+  - Pauli
+  log_level: INFO
+  task_plots: true
+  save_predictions: true
+  sample_limit: null
+  run_tag: main
+  retry_failed: false
+  resume: true
+datasets:
+  creditcard:
+    file: creditcard.csv
+    drop_duplicates: true
+    expected_rows: 284807
+    expected_positives: 492
+  paysim:
+    file: PS_20174392719_1491204439457_log.csv
+    drop_duplicates: true
+    engineered_balance_errors: false
+    expected_rows: 6362620
+    expected_positives: 8213
+  banksim:
+    file: bs140513_032310.csv
+    drop_duplicates: true
+    expected_rows: 594643
+    expected_positives: 7200
+split:
+  mode: stratified
+  fractions:
+  - 0.6
+  - 0.2
+  - 0.2
+sampling:
+  train_cap: 30000
+  train_max_pos_frac: 0.5
+  val_neg_cap: 50000
+  test_neg_cap: 400000
+  sfs_train_cap: 10000
+  noisy_train_cap: 6000
+  noisy_train_max_pos: 3000
+  noisy_val_neg: 4000
+  noisy_test_neg: 8000
+preprocessing:
+  angle_scaling: quantile
+  target_encode: true
+feature_maps:
+  reps: 2
+  Z:
+    input_range:
+    - -1.0
+    - 1.0
+  ZZ:
+    entanglement: full
+    input_range: no_wrap
+  Pauli:
+    entanglement: full
+    paulis:
+    - Z
+    - Y
+    - ZZ
+    alpha: 2.0
+    input_range: no_wrap
+observables:
+  extended: true
+sfs:
+  max_features: 7
+  evaluator: logreg
+  metric: roc_auc
+  tol: 0.0001
+  stop_on_no_improvement: false
+noise:
+  enabled: true
+  shots: 1024
+  transpile_seed: 1234
+  optimization_level: 1
+  batch_size: 256
+architectures:
+  superconducting:
+    coupling: falcon7_h
+    basis_gates:
+    - rz
+    - sx
+    - x
+    - cx
+    T1_us: 60.0
+    T2_us: 30.0
+    gate_time_1q_ns: 60.0
+    gate_time_2q_ns: 550.0
+    p_dep_1q: 0.0004
+    p_dep_2q: 0.02
+    p_readout: 0.04
+  trapped_ion:
+    coupling: all_to_all
+    basis_gates:
+    - rx
+    - ry
+    - rz
+    - rxx
+    p_dep_1q: 0.0006
+    p_dep_2q: 0.005
+    p_amp_damp: 5.0e-05
+    p_phase_damp: 0.0003
+    p_readout: 0.003
+classifiers:
+  mlp:
+    grid:
+      hidden_layer_sizes:
+      - - 32
+      - - 64
+        - 32
+      - - 128
+        - 64
+      alpha:
+      - 0.0001
+      - 0.01
+    fixed:
+      activation: relu
+      learning_rate_init: 0.001
+      max_iter: 500
+      early_stopping: false
+      n_iter_no_change: 20
+      tol: 1.0e-05
+      batch_size: 256
+  xgb:
+    grid:
+      max_depth:
+      - 3
+      - 6
+      learning_rate:
+      - 0.05
+      - 0.1
+      scale_pos_weight:
+      - 1.0
+      - balanced
+    fixed:
+      n_estimators: 1000
+      subsample: 0.8
+      colsample_bytree: 1.0
+      tree_method: hist
+      early_stopping_rounds: 50
+      eval_metric: aucpr
+  svm:
+    grid:
+      C:
+      - 0.3
+      - 1.0
+      - 3.0
+      - 10.0
+      class_weight:
+      - null
+      - balanced
+    fixed:
+      kernel: rbf
+      gamma: scale
+      cache_size: 500
+evaluation:
+  hp_metric: roc_auc
+  threshold: max_f1_val
+  n_bootstrap: 200
+baselines:
+  classical_all: auto
+  classical_selected: true
+  mi_fixed_subset: true
+_config_file: D:\QCNC\qcnc_qfd\configs\experiment.yaml

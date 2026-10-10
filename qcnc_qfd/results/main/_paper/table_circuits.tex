@@ -1,0 +1,37 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Feature-map circuits before (logical, \{u,cx\}) and after compilation to each architecture configuration.}
+\label{tab:circuits}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llllllll}
+\hline
+feature\_map & qubits & architecture & logical\_depth & logical\_2q & compiled\_depth & compiled\_2q & swap\_overhead\_2q \\
+\hline
+Pauli & 3 & superconducting & 28 & 12 & 45 & 21 & 9 \\
+Pauli & 3 & trapped\_ion & 28 & 12 & 42 & 12 & 0 \\
+Pauli & 4 & superconducting & 37 & 24 & 69 & 39 & 15 \\
+Pauli & 4 & trapped\_ion & 37 & 24 & 57 & 24 & 0 \\
+Pauli & 6 & superconducting & 55 & 60 & 165 & 124 & 64 \\
+Pauli & 6 & trapped\_ion & 55 & 60 & 87 & 60 & 0 \\
+Pauli & 7 & superconducting & 64 & 84 & 193 & 174 & 90 \\
+Pauli & 7 & trapped\_ion & 64 & 84 & 102 & 84 & 0 \\
+Z & 1 & superconducting & 4 & 0 & 8 & 0 & 0 \\
+Z & 1 & trapped\_ion & 4 & 0 & 6 & 0 & 0 \\
+Z & 2 & superconducting & 4 & 0 & 8 & 0 & 0 \\
+Z & 2 & trapped\_ion & 4 & 0 & 6 & 0 & 0 \\
+Z & 5 & superconducting & 4 & 0 & 8 & 0 & 0 \\
+Z & 5 & trapped\_ion & 4 & 0 & 6 & 0 & 0 \\
+Z & 6 & superconducting & 4 & 0 & 8 & 0 & 0 \\
+Z & 6 & trapped\_ion & 4 & 0 & 6 & 0 & 0 \\
+Z & 7 & superconducting & 4 & 0 & 8 & 0 & 0 \\
+Z & 7 & trapped\_ion & 4 & 0 & 6 & 0 & 0 \\
+ZZ & 5 & superconducting & 40 & 40 & 96 & 72 & 32 \\
+ZZ & 5 & trapped\_ion & 40 & 40 & 66 & 40 & 0 \\
+ZZ & 6 & superconducting & 49 & 60 & 137 & 124 & 64 \\
+ZZ & 6 & trapped\_ion & 49 & 60 & 81 & 60 & 0 \\
+ZZ & 7 & superconducting & 58 & 84 & 158 & 174 & 90 \\
+ZZ & 7 & trapped\_ion & 58 & 84 & 96 & 84 & 0 \\
+\hline
+\end{tabular}}
+\end{table}

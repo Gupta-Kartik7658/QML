@@ -1,0 +1,40 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Ideal vs architecture-specific noisy simulation (test ROC-AUC, paired rows: identical training/validation/test samples in every column). Shots = finite-shot estimation of $\langle Z_i\rangle$.}
+\label{tab:noise}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lllllllll}
+\hline
+Dataset & Map & Classifier & Ideal (exact) & Ideal + shots & Noisy (exact) (SC) & Noisy + shots (SC) & Noisy (exact) (TI) & Noisy + shots (TI) \\
+\hline
+creditcard & Z & MLP & 0.943 $\pm$ 0.012 & 0.940 $\pm$ 0.016 & 0.943 $\pm$ 0.012 & 0.941 $\pm$ 0.015 & 0.943 $\pm$ 0.012 & 0.946 $\pm$ 0.006 \\
+creditcard & Z & XGBoost & 0.943 $\pm$ 0.010 & 0.944 $\pm$ 0.008 & 0.943 $\pm$ 0.009 & 0.947 $\pm$ 0.003 & 0.943 $\pm$ 0.010 & 0.943 $\pm$ 0.005 \\
+creditcard & Z & SVM (RBF) & 0.938 $\pm$ 0.009 & 0.939 $\pm$ 0.010 & 0.938 $\pm$ 0.009 & 0.938 $\pm$ 0.009 & 0.938 $\pm$ 0.009 & 0.938 $\pm$ 0.009 \\
+creditcard & ZZ & MLP & 0.917 $\pm$ 0.023 & 0.918 $\pm$ 0.021 & 0.918 $\pm$ 0.019 & 0.907 $\pm$ 0.005 & 0.918 $\pm$ 0.023 & 0.920 $\pm$ 0.022 \\
+creditcard & ZZ & XGBoost & 0.917 $\pm$ 0.016 & 0.927 $\pm$ 0.019 & 0.925 $\pm$ 0.025 & 0.914 $\pm$ 0.014 & 0.923 $\pm$ 0.016 & 0.924 $\pm$ 0.024 \\
+creditcard & ZZ & SVM (RBF) & 0.911 $\pm$ 0.019 & 0.911 $\pm$ 0.020 & 0.909 $\pm$ 0.014 & 0.902 $\pm$ 0.024 & 0.911 $\pm$ 0.019 & 0.911 $\pm$ 0.018 \\
+creditcard & Pauli & MLP & 0.930 $\pm$ 0.006 & 0.932 $\pm$ 0.006 & 0.938 $\pm$ 0.006 & 0.930 $\pm$ 0.011 & 0.931 $\pm$ 0.003 & 0.935 $\pm$ 0.003 \\
+creditcard & Pauli & XGBoost & 0.950 $\pm$ 0.009 & 0.953 $\pm$ 0.010 & 0.954 $\pm$ 0.006 & 0.939 $\pm$ 0.008 & 0.951 $\pm$ 0.014 & 0.953 $\pm$ 0.005 \\
+creditcard & Pauli & SVM (RBF) & 0.946 $\pm$ 0.012 & 0.939 $\pm$ 0.001 & 0.933 $\pm$ 0.014 & 0.933 $\pm$ 0.013 & 0.946 $\pm$ 0.012 & 0.930 $\pm$ 0.015 \\
+paysim & Z & MLP & 0.994 $\pm$ 0.001 & 0.991 $\pm$ 0.002 & 0.994 $\pm$ 0.001 & 0.991 $\pm$ 0.002 & 0.994 $\pm$ 0.001 & 0.991 $\pm$ 0.002 \\
+paysim & Z & XGBoost & 0.996 $\pm$ 0.000 & 0.993 $\pm$ 0.001 & 0.996 $\pm$ 0.001 & 0.992 $\pm$ 0.001 & 0.996 $\pm$ 0.001 & 0.992 $\pm$ 0.001 \\
+paysim & Z & SVM (RBF) & 0.985 $\pm$ 0.002 & 0.985 $\pm$ 0.001 & 0.985 $\pm$ 0.002 & 0.985 $\pm$ 0.002 & 0.985 $\pm$ 0.002 & 0.986 $\pm$ 0.002 \\
+paysim & ZZ & MLP & 0.992 $\pm$ 0.004 & 0.987 $\pm$ 0.004 & 0.992 $\pm$ 0.004 & 0.958 $\pm$ 0.009 & 0.992 $\pm$ 0.004 & 0.985 $\pm$ 0.004 \\
+paysim & ZZ & XGBoost & 0.995 $\pm$ 0.002 & 0.982 $\pm$ 0.010 & 0.995 $\pm$ 0.003 & 0.959 $\pm$ 0.010 & 0.993 $\pm$ 0.005 & 0.981 $\pm$ 0.009 \\
+paysim & ZZ & SVM (RBF) & 0.974 $\pm$ 0.004 & 0.975 $\pm$ 0.003 & 0.975 $\pm$ 0.004 & 0.956 $\pm$ 0.009 & 0.974 $\pm$ 0.004 & 0.975 $\pm$ 0.005 \\
+paysim & Pauli & MLP & 0.996 $\pm$ 0.002 & 0.993 $\pm$ 0.003 & 0.996 $\pm$ 0.003 & 0.978 $\pm$ 0.002 & 0.996 $\pm$ 0.001 & 0.993 $\pm$ 0.003 \\
+paysim & Pauli & XGBoost & 0.997 $\pm$ 0.001 & 0.993 $\pm$ 0.002 & 0.997 $\pm$ 0.001 & 0.978 $\pm$ 0.002 & 0.997 $\pm$ 0.001 & 0.992 $\pm$ 0.002 \\
+paysim & Pauli & SVM (RBF) & 0.976 $\pm$ 0.001 & 0.980 $\pm$ 0.002 & 0.987 $\pm$ 0.008 & 0.974 $\pm$ 0.003 & 0.976 $\pm$ 0.001 & 0.980 $\pm$ 0.002 \\
+banksim & Z & MLP & 0.970 $\pm$ 0.034 & 0.956 $\pm$ 0.025 & 0.970 $\pm$ 0.034 & 0.955 $\pm$ 0.025 & 0.970 $\pm$ 0.034 & 0.957 $\pm$ 0.027 \\
+banksim & Z & XGBoost & 0.971 $\pm$ 0.036 & 0.956 $\pm$ 0.025 & 0.971 $\pm$ 0.036 & 0.955 $\pm$ 0.025 & 0.971 $\pm$ 0.036 & 0.956 $\pm$ 0.028 \\
+banksim & Z & SVM (RBF) & 0.959 $\pm$ 0.030 & 0.952 $\pm$ 0.026 & 0.959 $\pm$ 0.030 & 0.951 $\pm$ 0.026 & 0.959 $\pm$ 0.030 & 0.952 $\pm$ 0.028 \\
+banksim & ZZ & MLP & 0.996 $\pm$ 0.001 & 0.996 $\pm$ 0.001 & 0.996 $\pm$ 0.001 & 0.991 $\pm$ 0.002 & 0.996 $\pm$ 0.001 & 0.996 $\pm$ 0.001 \\
+banksim & ZZ & XGBoost & 0.997 $\pm$ 0.000 & 0.997 $\pm$ 0.001 & 0.997 $\pm$ 0.000 & 0.991 $\pm$ 0.002 & 0.997 $\pm$ 0.000 & 0.996 $\pm$ 0.001 \\
+banksim & ZZ & SVM (RBF) & 0.996 $\pm$ 0.001 & 0.995 $\pm$ 0.001 & 0.996 $\pm$ 0.001 & 0.990 $\pm$ 0.002 & 0.996 $\pm$ 0.001 & 0.995 $\pm$ 0.001 \\
+banksim & Pauli & MLP & 0.996 $\pm$ 0.001 & 0.996 $\pm$ 0.001 & 0.996 $\pm$ 0.000 & 0.989 $\pm$ 0.003 & 0.996 $\pm$ 0.001 & 0.995 $\pm$ 0.001 \\
+banksim & Pauli & XGBoost & 0.997 $\pm$ 0.000 & 0.996 $\pm$ 0.000 & 0.997 $\pm$ 0.000 & 0.988 $\pm$ 0.003 & 0.997 $\pm$ 0.000 & 0.995 $\pm$ 0.001 \\
+banksim & Pauli & SVM (RBF) & 0.994 $\pm$ 0.001 & 0.994 $\pm$ 0.001 & 0.994 $\pm$ 0.002 & 0.987 $\pm$ 0.003 & 0.994 $\pm$ 0.001 & 0.994 $\pm$ 0.001 \\
+\hline
+\end{tabular}}
+\end{table}

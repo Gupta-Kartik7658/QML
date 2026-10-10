@@ -1,0 +1,40 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Hybrid features: change in test ROC-AUC / AP when $k$ features are added to all classical features (mean $\pm$ s.d. over seeds; [b/w] = seeds whose paired 95\% bootstrap CI is entirely above/below 0).}
+\label{tab:hybrid}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lllll}
+\hline
+Dataset & Clf. & Map & $\Delta$AUC (Q$-$C) & $\Delta$AUC (Q$-$RFF) \\
+\hline
+banksim & MLP & Pauli & -0.0000 $\pm$ 0.0000 [0/0] & +0.0000 $\pm$ 0.0000 [0/0] \\
+banksim & MLP & Z & -0.0000 $\pm$ 0.0000 [0/0] & +0.0000 $\pm$ 0.0001 [0/0] \\
+banksim & MLP & ZZ & -0.0001 $\pm$ 0.0001 [0/1] & +0.0000 $\pm$ 0.0001 [0/1] \\
+banksim & SVM & Pauli & +0.0011 $\pm$ 0.0005 [3/0] & +0.0000 $\pm$ 0.0003 [0/0] \\
+banksim & SVM & Z & +0.0004 $\pm$ 0.0002 [1/0] & -0.0006 $\pm$ 0.0010 [0/1] \\
+banksim & SVM & ZZ & +0.0013 $\pm$ 0.0006 [3/0] & +0.0003 $\pm$ 0.0002 [1/0] \\
+banksim & XGB & Pauli & +0.0000 $\pm$ 0.0001 [1/0] & -0.0000 $\pm$ 0.0000 [0/0] \\
+banksim & XGB & Z & +0.0000 $\pm$ 0.0000 [0/0] & -0.0000 $\pm$ 0.0000 [0/1] \\
+banksim & XGB & ZZ & +0.0000 $\pm$ 0.0001 [2/0] & -0.0000 $\pm$ 0.0000 [0/0] \\
+creditcard & MLP & Pauli & +0.0025 $\pm$ 0.0026 [0/0] & -0.0000 $\pm$ 0.0206 [1/1] \\
+creditcard & MLP & Z & +0.0027 $\pm$ 0.0030 [0/0] & -0.0030 $\pm$ 0.0095 [0/0] \\
+creditcard & MLP & ZZ & +0.0075 $\pm$ 0.0084 [0/0] & +0.0000 $\pm$ 0.0063 [0/0] \\
+creditcard & SVM & Pauli & -0.0023 $\pm$ 0.0013 [0/0] & -0.0004 $\pm$ 0.0031 [0/0] \\
+creditcard & SVM & Z & -0.0015 $\pm$ 0.0020 [0/1] & -0.0018 $\pm$ 0.0042 [0/0] \\
+creditcard & SVM & ZZ & -0.0035 $\pm$ 0.0059 [0/0] & +0.0016 $\pm$ 0.0049 [0/0] \\
+creditcard & XGB & Pauli & +0.0059 $\pm$ 0.0017 [1/0] & +0.0010 $\pm$ 0.0025 [0/0] \\
+creditcard & XGB & Z & +0.0018 $\pm$ 0.0063 [0/0] & -0.0020 $\pm$ 0.0101 [0/1] \\
+creditcard & XGB & ZZ & +0.0029 $\pm$ 0.0029 [0/0] & -0.0021 $\pm$ 0.0040 [0/0] \\
+paysim & MLP & Pauli & -0.0002 $\pm$ 0.0000 [0/2] & -0.0001 $\pm$ 0.0001 [0/1] \\
+paysim & MLP & Z & -0.0001 $\pm$ 0.0001 [0/1] & +0.0001 $\pm$ 0.0002 [0/0] \\
+paysim & MLP & ZZ & -0.0002 $\pm$ 0.0001 [0/2] & -0.0000 $\pm$ 0.0000 [0/0] \\
+paysim & SVM & Pauli & -0.0009 $\pm$ 0.0007 [0/2] & -0.0004 $\pm$ 0.0013 [1/1] \\
+paysim & SVM & Z & -0.0001 $\pm$ 0.0004 [0/1] & +0.0001 $\pm$ 0.0001 [0/0] \\
+paysim & SVM & ZZ & -0.0006 $\pm$ 0.0005 [0/2] & -0.0001 $\pm$ 0.0004 [0/0] \\
+paysim & XGB & Pauli & -0.0001 $\pm$ 0.0003 [1/0] & -0.0001 $\pm$ 0.0004 [0/0] \\
+paysim & XGB & Z & -0.0002 $\pm$ 0.0000 [0/0] & -0.0002 $\pm$ 0.0001 [0/0] \\
+paysim & XGB & ZZ & +0.0001 $\pm$ 0.0001 [1/0] & +0.0002 $\pm$ 0.0001 [0/0] \\
+\hline
+\end{tabular}}
+\end{table}

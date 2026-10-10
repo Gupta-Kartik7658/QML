@@ -1,0 +1,21 @@
+{
+  "cpu_count_logical": 12,
+  "cpu_count_physical": 8,
+  "hostname_hash": "55840974",
+  "machine": "AMD64",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+  "python": "3.12.10",
+  "ram_gb": 15.7,
+  "threads_env": "1",
+  "ver_joblib": "1.5.2",
+  "ver_matplotlib": "3.10.7",
+  "ver_numpy": "2.3.5",
+  "ver_pandas": "2.3.3",
+  "ver_qiskit": "1.3.1",
+  "ver_qiskit_aer": "0.15.1",
+  "ver_qiskit_machine_learning": "0.8.0",
+  "ver_scipy": "1.16.3",
+  "ver_sklearn": "1.7.2",
+  "ver_xgboost": "3.1.1"
+}

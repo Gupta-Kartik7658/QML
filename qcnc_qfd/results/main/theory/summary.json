@@ -1,0 +1,236 @@
+{
+  "pilot": false,
+  "real": {
+    "Pauli/superconducting": {
+      "affine_max_abs_residual": 0.06061995221048787,
+      "beta_mean": 0.2931455547011159,
+      "max_abs_auc_diff": 0.019510277101095985,
+      "mean_abs_auc_diff": 0.0033070158331417097,
+      "mean_abs_auc_diff_roundoff_control": 1.154316814812163e-06,
+      "n": 36,
+      "per_classifier": {
+        "logreg": {
+          "max_abs_score_diff": 5.124312122041314,
+          "mean_abs_auc_diff": 0.002929502134839273,
+          "mean_abs_auc_diff_roundoff_control": 9.645061773946553e-09
+        },
+        "mlp": {
+          "max_abs_score_diff": 0.9993480447949693,
+          "mean_abs_auc_diff": 0.0029351326748322405,
+          "mean_abs_auc_diff_roundoff_control": 8.808725621022183e-07
+        },
+        "svm": {
+          "max_abs_score_diff": 5.9585075661856255,
+          "mean_abs_auc_diff": 0.006825275799681335,
+          "mean_abs_auc_diff_roundoff_control": 3.7267496353724874e-06
+        },
+        "xgb": {
+          "max_abs_score_diff": 0.987697396427393,
+          "mean_abs_auc_diff": 0.0005381527232139903,
+          "mean_abs_auc_diff_roundoff_control": 0.0
+        }
+      }
+    },
+    "Pauli/trapped_ion": {
+      "affine_max_abs_residual": 0.037902483511813995,
+      "beta_mean": 0.887729410816667,
+      "max_abs_auc_diff": 0.018830263157894267,
+      "mean_abs_auc_diff": 0.001372023214161821,
+      "mean_abs_auc_diff_roundoff_control": 1.154316814812163e-06,
+      "n": 36,
+      "per_classifier": {
+        "logreg": {
+          "max_abs_score_diff": 1.2663827536888128,
+          "mean_abs_auc_diff": 0.0003345821839186611,
+          "mean_abs_auc_diff_roundoff_control": 9.645061773946553e-09
+        },
+        "mlp": {
+          "max_abs_score_diff": 0.9868951648991137,
+          "mean_abs_auc_diff": 0.0029286419572034494,
+          "mean_abs_auc_diff_roundoff_control": 8.808725621022183e-07
+        },
+        "svm": {
+          "max_abs_score_diff": 1.9016707412216842,
+          "mean_abs_auc_diff": 0.00042486116788820194,
+          "mean_abs_auc_diff_roundoff_control": 3.7267496353724874e-06
+        },
+        "xgb": {
+          "max_abs_score_diff": 0.8279516696929932,
+          "mean_abs_auc_diff": 0.0018000075476369713,
+          "mean_abs_auc_diff_roundoff_control": 0.0
+        }
+      }
+    },
+    "Z/superconducting": {
+      "affine_max_abs_residual": 6.006306563222097e-14,
+      "beta_mean": 0.9165104873134725,
+      "max_abs_auc_diff": 0.01368947368421125,
+      "mean_abs_auc_diff": 0.0004796607402078632,
+      "mean_abs_auc_diff_roundoff_control": 8.549628785739197e-07,
+      "n": 36,
+      "per_classifier": {
+        "logreg": {
+          "max_abs_score_diff": 7.638334409421077e-14,
+          "mean_abs_auc_diff": 9.645061728304051e-08,
+          "mean_abs_auc_diff_roundoff_control": 1.1574074076925456e-07
+        },
+        "mlp": {
+          "max_abs_score_diff": 2.0188339888704832e-10,
+          "mean_abs_auc_diff": 1.0609567900764381e-07,
+          "mean_abs_auc_diff_roundoff_control": 1.3503086421846118e-07
+        },
+        "svm": {
+          "max_abs_score_diff": 0.0007365162790504698,
+          "mean_abs_auc_diff": 4.819992690406771e-07,
+          "mean_abs_auc_diff_roundoff_control": 3.1690799093079627e-06
+        },
+        "xgb": {
+          "max_abs_score_diff": 0.46685798466205597,
+          "mean_abs_auc_diff": 0.0019179584152661214,
+          "mean_abs_auc_diff_roundoff_control": 0.0
+        }
+      }
+    },
+    "Z/trapped_ion": {
+      "affine_max_abs_residual": 6.084022174945858e-14,
+      "beta_mean": 0.9911703707930434,
+      "max_abs_auc_diff": 0.0046144736842110845,
+      "mean_abs_auc_diff": 0.00014089803719472612,
+      "mean_abs_auc_diff_roundoff_control": 8.549628785739197e-07,
+      "n": 36,
+      "per_classifier": {
+        "logreg": {
+          "max_abs_score_diff": 4.440892098500626e-14,
+          "mean_abs_auc_diff": 4.3402777803890224e-08,
+          "mean_abs_auc_diff_roundoff_control": 1.1574074076925456e-07
+        },
+        "mlp": {
+          "max_abs_score_diff": 1.1041184633242551e-10,
+          "mean_abs_auc_diff": 4.822530868469559e-08,
+          "mean_abs_auc_diff_roundoff_control": 1.3503086421846118e-07
+        },
+        "svm": {
+          "max_abs_score_diff": 0.0007365162790722302,
+          "mean_abs_auc_diff": 5.591597628375034e-07,
+          "mean_abs_auc_diff_roundoff_control": 3.1690799093079627e-06
+        },
+        "xgb": {
+          "max_abs_score_diff": 0.27973122149705887,
+          "mean_abs_auc_diff": 0.0005629413609295783,
+          "mean_abs_auc_diff_roundoff_control": 0.0
+        }
+      }
+    },
+    "ZZ/superconducting": {
+      "affine_max_abs_residual": 0.03378413495278326,
+      "beta_mean": 0.21735263137846472,
+      "max_abs_auc_diff": 0.015871052631579285,
+      "mean_abs_auc_diff": 0.002186993032555299,
+      "mean_abs_auc_diff_roundoff_control": 1.8694364921603392e-06,
+      "n": 36,
+      "per_classifier": {
+        "logreg": {
+          "max_abs_score_diff": 1.0977209652185813,
+          "mean_abs_auc_diff": 0.00021282320668953366,
+          "mean_abs_auc_diff_roundoff_control": 9.645061786282364e-09
+        },
+        "mlp": {
+          "max_abs_score_diff": 0.9963982154952467,
+          "mean_abs_auc_diff": 0.002663329142368467,
+          "mean_abs_auc_diff_roundoff_control": 8.470384844515443e-07
+        },
+        "svm": {
+          "max_abs_score_diff": 2.257105575327066,
+          "mean_abs_auc_diff": 0.002428711995860539,
+          "mean_abs_auc_diff_roundoff_control": 6.62106242240353e-06
+        },
+        "xgb": {
+          "max_abs_score_diff": 0.8281294032931328,
+          "mean_abs_auc_diff": 0.003443107785302657,
+          "mean_abs_auc_diff_roundoff_control": 0.0
+        }
+      }
+    },
+    "ZZ/trapped_ion": {
+      "affine_max_abs_residual": 0.0005837582659463658,
+      "beta_mean": 0.8717056171247842,
+      "max_abs_auc_diff": 0.009331578947368246,
+      "mean_abs_auc_diff": 0.0011164909000540876,
+      "mean_abs_auc_diff_roundoff_control": 1.8694364921603392e-06,
+      "n": 36,
+      "per_classifier": {
+        "logreg": {
+          "max_abs_score_diff": 0.01770023472731097,
+          "mean_abs_auc_diff": 4.27789621509294e-06,
+          "mean_abs_auc_diff_roundoff_control": 9.645061786282364e-09
+        },
+        "mlp": {
+          "max_abs_score_diff": 0.7756107635762371,
+          "mean_abs_auc_diff": 0.0018905374875327124,
+          "mean_abs_auc_diff_roundoff_control": 8.470384844515443e-07
+        },
+        "svm": {
+          "max_abs_score_diff": 0.03800728836289213,
+          "mean_abs_auc_diff": 2.1247664876211658e-05,
+          "mean_abs_auc_diff_roundoff_control": 6.62106242240353e-06
+        },
+        "xgb": {
+          "max_abs_score_diff": 0.8018256053328514,
+          "mean_abs_auc_diff": 0.0025499005515923334,
+          "mean_abs_auc_diff_roundoff_control": 0.0
+        }
+      }
+    }
+  },
+  "synthetic": {
+    "Pauli/superconducting": {
+      "beta_at_factor": {
+        "1.0": 0.44585144314455694,
+        "10.0": 6.559427869746595e-05,
+        "3.0": 0.0416363989246053
+      },
+      "max_abs_residual": 0.0769850556767014
+    },
+    "Pauli/trapped_ion": {
+      "beta_at_factor": {
+        "1.0": 0.9170519566660233,
+        "10.0": 0.4271152745274909,
+        "3.0": 0.7720176322862325
+      },
+      "max_abs_residual": 0.0587902063828275
+    },
+    "Z/superconducting": {
+      "beta_at_factor": {
+        "1.0": 0.9165104873134731,
+        "10.0": 0.14698070560155874,
+        "3.0": 0.7379801979004972
+      },
+      "max_abs_beta_minus_closed_form": 1.9984014443252818e-15,
+      "max_abs_residual": 2.220446049250313e-15
+    },
+    "Z/trapped_ion": {
+      "beta_at_factor": {
+        "1.0": 0.9911703707930435,
+        "10.0": 0.9135176544701228,
+        "3.0": 0.9736329470822447
+      },
+      "max_abs_residual": 2.1094237467877974e-15
+    },
+    "ZZ/superconducting": {
+      "beta_at_factor": {
+        "1.0": 0.439120495150063,
+        "10.0": 1.9147836338611696e-09,
+        "3.0": 0.0303396620260466
+      },
+      "max_abs_residual": 0.0343587661250305
+    },
+    "ZZ/trapped_ion": {
+      "beta_at_factor": {
+        "1.0": 0.9208418038408563,
+        "10.0": 0.44377264463579724,
+        "3.0": 0.7814550083815252
+      },
+      "max_abs_residual": 0.0014415502128736
+    }
+  }
+}

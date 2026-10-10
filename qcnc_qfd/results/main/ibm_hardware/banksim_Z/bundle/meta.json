@@ -1,0 +1,43 @@
+{
+  "caps": {
+    "test_neg": 400,
+    "test_pos": 150,
+    "train_neg": 550,
+    "train_pos": 250,
+    "val_neg": 300,
+    "val_pos": 150
+  },
+  "dataset": "banksim",
+  "feature_maps": {
+    "Z": {
+      "fmap_params": {
+        "input_range": [
+          -1.0,
+          1.0
+        ],
+        "name": "Z",
+        "reps": 2
+      },
+      "k": 2,
+      "logical_ops": {
+        "h": 4,
+        "p": 4
+      },
+      "selected": [
+        "amount",
+        "merchant_te"
+      ]
+    }
+  },
+  "frauds": {
+    "test": 150,
+    "train": 250,
+    "val": 150
+  },
+  "rows": {
+    "test": 550,
+    "train": 800,
+    "val": 450
+  },
+  "seed": 0
+}

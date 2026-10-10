@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{Datasets after cleaning (seed-0 split). Test partitions keep the original fraud prevalence.}
+\label{tab:datasets}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llllllllllll}
+\hline
+Dataset & Type & Rows (raw) & Duplicates removed & Rows used & Frauds & Prevalence (\%) & Candidate features & Train / val / test frauds & Test rows & Split & Schema matches expected \\
+\hline
+BankSim (synthetic) & synthetic (agent-based simulation calibrated on aggregated real bank data) & 594643 & 0 & 594643 & 7200 & 1.211 & 24 & 4320 / 1440 / 1440 & 118929 & stratified & True \\
+European credit card (real) & real & 284807 & 1081 & 283726 & 473 & 0.167 & 30 & 284 / 94 / 95 & 56746 & stratified & True \\
+PaySim (synthetic) & synthetic (agent-based simulation calibrated on real mobile-money logs) & 6362620 & 0 & 6362620 & 8213 & 0.129 & 12 & 4928 / 1642 / 1643 & 1272524 & stratified & True \\
+\hline
+\end{tabular}}
+\end{table}

@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\caption{European credit card (real): test ROC-AUC and average precision (mean $\pm$ s.d. over seeds) at the original fraud prevalence. [Z]/[ZZ]/[Pauli] = feature map used for SFS and encoding; classical-selected uses the SFS subset of that map.}
+\label{tab:main_creditcard}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lllllll}
+\hline
+Representation & MLP AUC & MLP AP & XGBoost AUC & XGBoost AP & SVM (RBF) AUC & SVM (RBF) AP \\
+\hline
+Classical, all features & 0.959 $\pm$ 0.001 & 0.734 $\pm$ 0.045 & 0.967 $\pm$ 0.004 & 0.762 $\pm$ 0.039 & 0.971 $\pm$ 0.007 & 0.593 $\pm$ 0.139 \\
+Classical, SFS-selected [Z] & 0.965 $\pm$ 0.013 & 0.739 $\pm$ 0.032 & 0.964 $\pm$ 0.003 & 0.711 $\pm$ 0.019 & 0.955 $\pm$ 0.015 & 0.226 $\pm$ 0.067 \\
+Classical, SFS-selected [ZZ] & 0.940 $\pm$ 0.008 & 0.694 $\pm$ 0.009 & 0.945 $\pm$ 0.008 & 0.657 $\pm$ 0.051 & 0.912 $\pm$ 0.020 & 0.179 $\pm$ 0.040 \\
+Classical, SFS-selected [Pauli] & 0.949 $\pm$ 0.007 & 0.680 $\pm$ 0.023 & 0.958 $\pm$ 0.004 & 0.691 $\pm$ 0.039 & 0.926 $\pm$ 0.014 & 0.194 $\pm$ 0.049 \\
+Quantum <Z> (ideal) [Z] & 0.936 $\pm$ 0.006 & 0.524 $\pm$ 0.092 & 0.940 $\pm$ 0.013 & 0.628 $\pm$ 0.114 & 0.926 $\pm$ 0.013 & 0.312 $\pm$ 0.205 \\
+Quantum <Z> (ideal) [ZZ] & 0.921 $\pm$ 0.026 & 0.540 $\pm$ 0.096 & 0.923 $\pm$ 0.023 & 0.585 $\pm$ 0.057 & 0.891 $\pm$ 0.012 & 0.107 $\pm$ 0.013 \\
+Quantum <Z> (ideal) [Pauli] & 0.924 $\pm$ 0.018 & 0.506 $\pm$ 0.095 & 0.951 $\pm$ 0.010 & 0.602 $\pm$ 0.065 & 0.932 $\pm$ 0.003 & 0.145 $\pm$ 0.027 \\
+Quantum <Z>,<ZZ> (ideal) [Z] & 0.926 $\pm$ 0.005 & 0.487 $\pm$ 0.095 & 0.947 $\pm$ 0.006 & 0.596 $\pm$ 0.145 & 0.932 $\pm$ 0.014 & 0.348 $\pm$ 0.235 \\
+Quantum <Z>,<ZZ> (ideal) [ZZ] & 0.882 $\pm$ 0.009 & 0.440 $\pm$ 0.104 & 0.933 $\pm$ 0.019 & 0.608 $\pm$ 0.072 & 0.903 $\pm$ 0.017 & 0.284 $\pm$ 0.134 \\
+Quantum <Z>,<ZZ> (ideal) [Pauli] & 0.916 $\pm$ 0.007 & 0.459 $\pm$ 0.096 & 0.946 $\pm$ 0.006 & 0.608 $\pm$ 0.063 & 0.925 $\pm$ 0.004 & 0.237 $\pm$ 0.073 \\
+Quantum <Z>, MI top-k [Z] & 0.936 $\pm$ 0.021 & 0.630 $\pm$ 0.008 & 0.944 $\pm$ 0.015 & 0.676 $\pm$ 0.043 & 0.938 $\pm$ 0.018 & 0.379 $\pm$ 0.128 \\
+Quantum <Z>, MI top-k [ZZ] & 0.935 $\pm$ 0.020 & 0.647 $\pm$ 0.029 & 0.930 $\pm$ 0.022 & 0.675 $\pm$ 0.039 & 0.919 $\pm$ 0.007 & 0.161 $\pm$ 0.054 \\
+Quantum <Z>, MI top-k [Pauli] & 0.950 $\pm$ 0.012 & 0.641 $\pm$ 0.037 & 0.940 $\pm$ 0.016 & 0.646 $\pm$ 0.025 & 0.910 $\pm$ 0.012 & 0.496 $\pm$ 0.179 \\
+\hline
+\end{tabular}}
+\end{table}

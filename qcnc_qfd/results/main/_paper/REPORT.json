@@ -1,0 +1,31 @@
+{
+  "datasets": [
+    "banksim",
+    "creditcard",
+    "paysim"
+  ],
+  "max_abs_auc_diff_between_architecture_scripts_for_ideal_rows": 0.0,
+  "optional_experiments": {
+    "noise_sweep": "D:\\QCNC\\qcnc_qfd\\results\\main\\noise_sweep\\results.csv",
+    "qsvm_reference": "D:\\QCNC\\qcnc_qfd\\results\\main\\qsvm_reference\\results.csv",
+    "sfs_vs_exhaustive": "D:\\QCNC\\qcnc_qfd\\results\\main\\sfs_vs_exhaustive\\results.csv"
+  },
+  "pilot_rows_present": false,
+  "rows_completed": 834,
+  "rows_failed": 0,
+  "scripts_missing": [],
+  "scripts_present": [
+    "mlp_superconducting",
+    "mlp_trapped_ion",
+    "svm_superconducting",
+    "svm_trapped_ion",
+    "xgb_superconducting",
+    "xgb_trapped_ion"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "sfs_subsets_identical_across_scripts": true
+}

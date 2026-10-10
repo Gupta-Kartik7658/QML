@@ -1,0 +1,2 @@
+backend,fmap,beta_mean,r2_min,r2_mean,max_abs_residual,resid_sd_over_shot_sd
+ibm_marrakesh,Z,0.9237293726369944,0.9287429361069564,0.9452012888772304,1.5094780489879396,4.735662227583765

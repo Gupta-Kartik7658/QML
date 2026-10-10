@@ -1,0 +1,45 @@
+2026-10-10 16:45:40 | MainProcess | INFO | #### mlp x trapped_ion | workers=8 threads/worker=1 | datasets=['creditcard', 'paysim', 'banksim'] fmaps=['Z', 'ZZ', 'Pauli'] seeds=[0, 1, 2] | noise=True | out=D:\QCNC\qcnc_qfd\results\main\mlp_trapped_ion
+2026-10-10 16:45:40 | MainProcess | INFO | [prepare] loading creditcard ...
+2026-10-10 16:45:43 | MainProcess | INFO | [prepare] creditcard: 283726 rows, 473 positives (0.167%), 30 candidate features, schema check: True
+2026-10-10 16:45:43 | MainProcess | INFO | [prepare] cache hit creditcard seed=0 (seed0_aebffa6828302393)
+2026-10-10 16:45:43 | MainProcess | INFO | [prepare] cache hit creditcard seed=1 (seed1_889f24e876d2f83d)
+2026-10-10 16:45:43 | MainProcess | INFO | [prepare] cache hit creditcard seed=2 (seed2_dac7919ddc89e03e)
+2026-10-10 16:45:43 | MainProcess | INFO | [prepare] loading paysim ...
+2026-10-10 16:46:32 | MainProcess | INFO | [prepare] paysim: 6362620 rows, 8213 positives (0.129%), 12 candidate features, schema check: True
+2026-10-10 16:46:32 | MainProcess | INFO | [prepare] cache hit paysim seed=0 (seed0_50308f779fe19646)
+2026-10-10 16:46:32 | MainProcess | INFO | [prepare] cache hit paysim seed=1 (seed1_21f5fc9ac392e1de)
+2026-10-10 16:46:32 | MainProcess | INFO | [prepare] cache hit paysim seed=2 (seed2_ae7cbe1f0601e9b0)
+2026-10-10 16:46:32 | MainProcess | INFO | [prepare] loading banksim ...
+2026-10-10 16:46:40 | MainProcess | INFO | [prepare] banksim: 594643 rows, 7200 positives (1.211%), 24 candidate features, schema check: True
+2026-10-10 16:46:40 | MainProcess | INFO | [prepare] cache hit banksim seed=0 (seed0_06eacb574bad76a1)
+2026-10-10 16:46:40 | MainProcess | INFO | [prepare] cache hit banksim seed=1 (seed1_5288ff4bb235609c)
+2026-10-10 16:46:40 | MainProcess | INFO | [prepare] cache hit banksim seed=2 (seed2_b041547b37076192)
+2026-10-10 16:46:40 | MainProcess | INFO | 27 tasks, 0 already done, 27 to run
+2026-10-10 16:59:02 | MainProcess | INFO | [1/27] paysim__ZZ__seed0: OK (13.4 min elapsed)
+2026-10-10 17:02:00 | MainProcess | INFO | [2/27] paysim__Pauli__seed1: OK (16.3 min elapsed)
+2026-10-10 17:05:56 | MainProcess | INFO | [3/27] paysim__ZZ__seed2: OK (20.3 min elapsed)
+2026-10-10 17:11:08 | MainProcess | INFO | [4/27] paysim__ZZ__seed1: OK (25.5 min elapsed)
+2026-10-10 17:11:12 | MainProcess | INFO | [5/27] paysim__Z__seed2: OK (25.5 min elapsed)
+2026-10-10 17:16:01 | MainProcess | INFO | [6/27] paysim__Z__seed1: OK (30.4 min elapsed)
+2026-10-10 17:18:49 | MainProcess | INFO | [7/27] paysim__Pauli__seed2: OK (33.1 min elapsed)
+2026-10-10 17:24:51 | MainProcess | INFO | [8/27] banksim__ZZ__seed0: OK (39.2 min elapsed)
+2026-10-10 17:29:36 | MainProcess | INFO | [9/27] paysim__Pauli__seed0: OK (43.9 min elapsed)
+2026-10-10 17:33:41 | MainProcess | INFO | [10/27] paysim__Z__seed0: OK (48.0 min elapsed)
+2026-10-10 17:37:05 | MainProcess | INFO | [11/27] banksim__Z__seed1: OK (51.4 min elapsed)
+2026-10-10 17:38:37 | MainProcess | INFO | [12/27] banksim__Pauli__seed1: OK (52.9 min elapsed)
+2026-10-10 17:40:16 | MainProcess | INFO | [13/27] banksim__ZZ__seed1: OK (54.6 min elapsed)
+2026-10-10 17:46:32 | MainProcess | INFO | [14/27] banksim__Pauli__seed2: OK (60.9 min elapsed)
+2026-10-10 17:50:23 | MainProcess | INFO | [15/27] creditcard__ZZ__seed0: OK (64.7 min elapsed)
+2026-10-10 17:50:35 | MainProcess | INFO | [16/27] creditcard__Z__seed0: OK (64.9 min elapsed)
+2026-10-10 17:54:32 | MainProcess | INFO | [17/27] banksim__ZZ__seed2: OK (68.9 min elapsed)
+2026-10-10 17:59:31 | MainProcess | INFO | [18/27] creditcard__Pauli__seed1: OK (73.9 min elapsed)
+2026-10-10 18:03:59 | MainProcess | INFO | [19/27] creditcard__ZZ__seed1: OK (78.3 min elapsed)
+2026-10-10 18:05:23 | MainProcess | INFO | [20/27] creditcard__Z__seed1: OK (79.7 min elapsed)
+2026-10-10 18:07:54 | MainProcess | INFO | [21/27] creditcard__Pauli__seed0: OK (82.2 min elapsed)
+2026-10-10 18:08:53 | MainProcess | INFO | [22/27] banksim__Pauli__seed0: OK (83.2 min elapsed)
+2026-10-10 18:09:20 | MainProcess | INFO | [23/27] creditcard__Z__seed2: OK (83.7 min elapsed)
+2026-10-10 18:14:36 | MainProcess | INFO | [24/27] creditcard__ZZ__seed2: OK (88.9 min elapsed)
+2026-10-10 18:15:16 | MainProcess | INFO | [25/27] creditcard__Pauli__seed2: OK (89.6 min elapsed)
+2026-10-10 18:23:04 | MainProcess | INFO | [26/27] banksim__Z__seed0: OK (97.4 min elapsed)
+2026-10-10 18:32:27 | MainProcess | INFO | [27/27] banksim__Z__seed2: OK (106.8 min elapsed)
+2026-10-10 18:32:31 | MainProcess | INFO | #### finished mlp x trapped_ion in 1.78 h; 54 result rows, 0 failed. Results: D:\QCNC\qcnc_qfd\results\main\mlp_trapped_ion\results.csv

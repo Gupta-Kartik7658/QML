@@ -1,0 +1,127 @@
+2026-10-10 20:44:32 | MainProcess | INFO | [prepare] loading creditcard ...
+2026-10-10 20:44:34 | MainProcess | INFO | [prepare] creditcard: 283726 rows, 473 positives (0.167%), 30 candidate features, schema check: True
+2026-10-10 20:44:34 | MainProcess | INFO | [prepare] cache hit creditcard seed=0 (seed0_aebffa6828302393)
+2026-10-10 20:44:34 | MainProcess | INFO | [prepare] cache hit creditcard seed=1 (seed1_889f24e876d2f83d)
+2026-10-10 20:44:34 | MainProcess | INFO | [prepare] cache hit creditcard seed=2 (seed2_dac7919ddc89e03e)
+2026-10-10 20:44:34 | MainProcess | INFO | [prepare] loading paysim ...
+2026-10-10 20:44:58 | MainProcess | INFO | [prepare] paysim: 6362620 rows, 8213 positives (0.129%), 12 candidate features, schema check: True
+2026-10-10 20:44:58 | MainProcess | INFO | [prepare] cache hit paysim seed=0 (seed0_50308f779fe19646)
+2026-10-10 20:44:58 | MainProcess | INFO | [prepare] cache hit paysim seed=1 (seed1_21f5fc9ac392e1de)
+2026-10-10 20:44:58 | MainProcess | INFO | [prepare] cache hit paysim seed=2 (seed2_ae7cbe1f0601e9b0)
+2026-10-10 20:44:58 | MainProcess | INFO | [prepare] loading banksim ...
+2026-10-10 20:45:01 | MainProcess | INFO | [prepare] banksim: 594643 rows, 7200 positives (1.211%), 24 candidate features, schema check: True
+2026-10-10 20:45:01 | MainProcess | INFO | [prepare] cache hit banksim seed=0 (seed0_06eacb574bad76a1)
+2026-10-10 20:45:01 | MainProcess | INFO | [prepare] cache hit banksim seed=1 (seed1_5288ff4bb235609c)
+2026-10-10 20:45:01 | MainProcess | INFO | [prepare] cache hit banksim seed=2 (seed2_b041547b37076192)
+2026-10-10 20:45:01 | MainProcess | INFO | 81 jobs x 11 shot levels x 1 draws | classifier xgb
+2026-10-10 20:45:37 | MainProcess | INFO | [1/81] creditcard Pauli seed0 ideal done (0.6 min)
+2026-10-10 20:45:39 | MainProcess | INFO | [2/81] creditcard Z seed0 superconducting done (0.6 min)
+2026-10-10 20:45:40 | MainProcess | INFO | [3/81] creditcard Z seed0 trapped_ion done (0.6 min)
+2026-10-10 20:45:41 | MainProcess | INFO | [4/81] creditcard Pauli seed0 superconducting done (0.7 min)
+2026-10-10 20:45:43 | MainProcess | INFO | [5/81] creditcard Z seed0 ideal done (0.7 min)
+2026-10-10 20:45:45 | MainProcess | INFO | [6/81] creditcard ZZ seed0 superconducting done (0.7 min)
+2026-10-10 20:45:52 | MainProcess | INFO | [7/81] creditcard ZZ seed0 trapped_ion done (0.8 min)
+2026-10-10 20:45:54 | MainProcess | INFO | [8/81] creditcard ZZ seed0 ideal done (0.9 min)
+2026-10-10 20:46:04 | MainProcess | INFO | [9/81] creditcard Z seed1 ideal done (1.1 min)
+2026-10-10 20:46:06 | MainProcess | INFO | [10/81] creditcard Z seed1 trapped_ion done (1.1 min)
+2026-10-10 20:46:07 | MainProcess | INFO | [11/81] creditcard Z seed1 superconducting done (1.1 min)
+2026-10-10 20:46:08 | MainProcess | INFO | [12/81] creditcard ZZ seed1 ideal done (1.1 min)
+2026-10-10 20:46:09 | MainProcess | INFO | [13/81] creditcard Pauli seed0 trapped_ion done (1.1 min)
+2026-10-10 20:46:11 | MainProcess | INFO | [14/81] creditcard ZZ seed1 superconducting done (1.2 min)
+2026-10-10 20:46:19 | MainProcess | INFO | [15/81] creditcard ZZ seed1 trapped_ion done (1.3 min)
+2026-10-10 20:46:25 | MainProcess | INFO | [16/81] creditcard Pauli seed1 ideal done (1.4 min)
+2026-10-10 20:46:32 | MainProcess | INFO | [17/81] creditcard Pauli seed1 superconducting done (1.5 min)
+2026-10-10 20:46:37 | MainProcess | INFO | [18/81] creditcard Pauli seed1 trapped_ion done (1.6 min)
+2026-10-10 20:46:38 | MainProcess | INFO | [19/81] creditcard ZZ seed2 ideal done (1.6 min)
+2026-10-10 20:46:39 | MainProcess | INFO | [20/81] creditcard Z seed2 ideal done (1.6 min)
+2026-10-10 20:46:39 | MainProcess | INFO | [21/81] creditcard Z seed2 superconducting done (1.6 min)
+2026-10-10 20:46:40 | MainProcess | INFO | [22/81] creditcard Z seed2 trapped_ion done (1.7 min)
+2026-10-10 20:46:49 | MainProcess | INFO | [23/81] creditcard ZZ seed2 superconducting done (1.8 min)
+2026-10-10 20:46:57 | MainProcess | INFO | [24/81] creditcard ZZ seed2 trapped_ion done (1.9 min)
+2026-10-10 20:47:15 | MainProcess | INFO | [25/81] creditcard Pauli seed2 ideal done (2.2 min)
+2026-10-10 20:47:19 | MainProcess | INFO | [26/81] creditcard Pauli seed2 superconducting done (2.3 min)
+2026-10-10 20:47:22 | MainProcess | INFO | [27/81] paysim ZZ seed0 ideal done (2.3 min)
+2026-10-10 20:47:24 | MainProcess | INFO | [28/81] paysim Z seed0 superconducting done (2.4 min)
+2026-10-10 20:47:27 | MainProcess | INFO | [29/81] creditcard Pauli seed2 trapped_ion done (2.4 min)
+2026-10-10 20:47:30 | MainProcess | INFO | [30/81] paysim Z seed0 ideal done (2.5 min)
+2026-10-10 20:47:31 | MainProcess | INFO | [31/81] paysim Z seed0 trapped_ion done (2.5 min)
+2026-10-10 20:47:42 | MainProcess | INFO | [32/81] paysim ZZ seed0 superconducting done (2.7 min)
+2026-10-10 20:47:52 | MainProcess | INFO | [33/81] paysim ZZ seed0 trapped_ion done (2.8 min)
+2026-10-10 20:47:55 | MainProcess | INFO | [34/81] paysim Pauli seed0 superconducting done (2.9 min)
+2026-10-10 20:47:58 | MainProcess | INFO | [35/81] paysim Pauli seed0 trapped_ion done (2.9 min)
+2026-10-10 20:48:01 | MainProcess | INFO | [36/81] paysim Pauli seed0 ideal done (3.0 min)
+2026-10-10 20:48:05 | MainProcess | INFO | [37/81] paysim Z seed1 trapped_ion done (3.1 min)
+2026-10-10 20:48:06 | MainProcess | INFO | [38/81] paysim Z seed1 ideal done (3.1 min)
+2026-10-10 20:48:08 | MainProcess | INFO | [39/81] paysim Z seed1 superconducting done (3.1 min)
+2026-10-10 20:48:43 | MainProcess | INFO | [40/81] paysim ZZ seed1 superconducting done (3.7 min)
+2026-10-10 20:48:49 | MainProcess | INFO | [41/81] paysim Pauli seed1 superconducting done (3.8 min)
+2026-10-10 20:48:49 | MainProcess | INFO | [42/81] paysim ZZ seed1 ideal done (3.8 min)
+2026-10-10 20:48:55 | MainProcess | INFO | [43/81] paysim Z seed2 ideal done (3.9 min)
+2026-10-10 20:48:57 | MainProcess | INFO | [44/81] paysim ZZ seed1 trapped_ion done (3.9 min)
+2026-10-10 20:48:58 | MainProcess | INFO | [45/81] paysim Pauli seed1 ideal done (3.9 min)
+2026-10-10 20:49:02 | MainProcess | INFO | [46/81] paysim Z seed2 superconducting done (4.0 min)
+2026-10-10 20:49:05 | MainProcess | INFO | [47/81] paysim Pauli seed1 trapped_ion done (4.1 min)
+2026-10-10 20:49:27 | MainProcess | INFO | [48/81] banksim Z seed0 ideal done (4.4 min)
+2026-10-10 20:49:31 | MainProcess | INFO | [49/81] paysim ZZ seed2 superconducting done (4.5 min)
+2026-10-10 20:49:31 | MainProcess | INFO | [50/81] paysim ZZ seed2 ideal done (4.5 min)
+2026-10-10 20:49:35 | MainProcess | INFO | [51/81] paysim Z seed2 trapped_ion done (4.6 min)
+2026-10-10 20:49:42 | MainProcess | INFO | [52/81] paysim ZZ seed2 trapped_ion done (4.7 min)
+2026-10-10 20:49:43 | MainProcess | INFO | [53/81] paysim Pauli seed2 superconducting done (4.7 min)
+2026-10-10 20:49:49 | MainProcess | INFO | [54/81] banksim Z seed0 superconducting done (4.8 min)
+2026-10-10 20:49:51 | MainProcess | INFO | [55/81] paysim Pauli seed2 ideal done (4.8 min)
+2026-10-10 20:49:52 | MainProcess | INFO | [56/81] banksim Z seed0 trapped_ion done (4.8 min)
+2026-10-10 20:49:55 | MainProcess | INFO | [57/81] paysim Pauli seed2 trapped_ion done (4.9 min)
+2026-10-10 20:49:56 | MainProcess | INFO | [58/81] banksim ZZ seed0 ideal done (4.9 min)
+2026-10-10 20:49:59 | MainProcess | INFO | [59/81] banksim ZZ seed0 superconducting done (5.0 min)
+2026-10-10 20:50:06 | MainProcess | INFO | [60/81] banksim ZZ seed0 trapped_ion done (5.1 min)
+2026-10-10 20:50:08 | MainProcess | INFO | [61/81] banksim Z seed1 ideal done (5.1 min)
+2026-10-10 20:50:13 | MainProcess | INFO | [62/81] banksim Pauli seed0 ideal done (5.2 min)
+2026-10-10 20:50:14 | MainProcess | INFO | [63/81] banksim Z seed1 superconducting done (5.2 min)
+2026-10-10 20:50:15 | MainProcess | INFO | [64/81] banksim Z seed1 trapped_ion done (5.2 min)
+2026-10-10 20:50:20 | MainProcess | INFO | [65/81] banksim Pauli seed0 superconducting done (5.3 min)
+2026-10-10 20:50:20 | MainProcess | INFO | [66/81] banksim Pauli seed0 trapped_ion done (5.3 min)
+2026-10-10 20:50:27 | MainProcess | INFO | [67/81] banksim ZZ seed1 ideal done (5.4 min)
+2026-10-10 20:50:33 | MainProcess | INFO | [68/81] banksim ZZ seed1 superconducting done (5.5 min)
+2026-10-10 20:50:36 | MainProcess | INFO | [69/81] banksim ZZ seed1 trapped_ion done (5.6 min)
+2026-10-10 20:50:40 | MainProcess | INFO | [70/81] banksim Pauli seed1 superconducting done (5.6 min)
+2026-10-10 20:50:40 | MainProcess | INFO | [71/81] banksim Pauli seed1 ideal done (5.6 min)
+2026-10-10 20:50:40 | MainProcess | INFO | [72/81] banksim Pauli seed1 trapped_ion done (5.6 min)
+2026-10-10 20:50:42 | MainProcess | INFO | [73/81] banksim Z seed2 ideal done (5.7 min)
+2026-10-10 20:50:43 | MainProcess | INFO | [74/81] banksim Z seed2 superconducting done (5.7 min)
+2026-10-10 20:50:49 | MainProcess | INFO | [75/81] banksim Z seed2 trapped_ion done (5.8 min)
+2026-10-10 20:51:01 | MainProcess | INFO | [76/81] banksim ZZ seed2 ideal done (6.0 min)
+2026-10-10 20:51:04 | MainProcess | INFO | [77/81] banksim Pauli seed2 ideal done (6.0 min)
+2026-10-10 20:51:04 | MainProcess | INFO | [78/81] banksim ZZ seed2 superconducting done (6.0 min)
+2026-10-10 20:51:06 | MainProcess | INFO | [79/81] banksim ZZ seed2 trapped_ion done (6.1 min)
+2026-10-10 20:51:06 | MainProcess | INFO | [80/81] banksim Pauli seed2 superconducting done (6.1 min)
+2026-10-10 20:51:08 | MainProcess | INFO | [81/81] banksim Pauli seed2 trapped_ion done (6.1 min)
+2026-10-10 20:51:12 | MainProcess | INFO | shots needed to come within 0.005 AUC of the exact limit:
+   dataset  fmap             sim  exact_auc  tolerance  min_shots_within_tol  auc_at_1024  auc_at_64
+   banksim Pauli           ideal   0.996941      0.005                  64.0     0.996410   0.993104
+   banksim Pauli superconducting   0.996807      0.005                4096.0     0.988970   0.956649
+   banksim Pauli     trapped_ion   0.997008      0.005                 256.0     0.995056   0.989053
+   banksim     Z           ideal   0.970634      0.005                   NaN     0.956577   0.933266
+   banksim     Z superconducting   0.970624      0.005                   NaN     0.954817   0.929744
+   banksim     Z     trapped_ion   0.970634      0.005                   NaN     0.956375   0.930991
+   banksim    ZZ           ideal   0.997192      0.005                  32.0     0.996930   0.995142
+   banksim    ZZ superconducting   0.997141      0.005                2048.0     0.990930   0.968729
+   banksim    ZZ     trapped_ion   0.997212      0.005                 128.0     0.995663   0.991248
+creditcard Pauli           ideal   0.949825      0.005                  64.0     0.955699   0.950982
+creditcard Pauli superconducting   0.953790      0.005                   NaN     0.938512   0.847277
+creditcard Pauli     trapped_ion   0.951472      0.005                  64.0     0.952042   0.950608
+creditcard     Z           ideal   0.942831      0.005                  16.0     0.943544   0.942396
+creditcard     Z superconducting   0.943275      0.005                  64.0     0.948298   0.939045
+creditcard     Z     trapped_ion   0.943173      0.005                  32.0     0.945610   0.940295
+creditcard    ZZ           ideal   0.917392      0.005                  16.0     0.920903   0.929864
+creditcard    ZZ superconducting   0.924896      0.005                2048.0     0.914138   0.844873
+creditcard    ZZ     trapped_ion   0.923285      0.005                  32.0     0.932673   0.929261
+    paysim Pauli           ideal   0.997069      0.005                1024.0     0.993332   0.977088
+    paysim Pauli superconducting   0.996911      0.005                   NaN     0.976924   0.853251
+    paysim Pauli     trapped_ion   0.996867      0.005                2048.0     0.991365   0.972919
+    paysim     Z           ideal   0.996462      0.005                1024.0     0.992969   0.976023
+    paysim     Z superconducting   0.996485      0.005                1024.0     0.992227   0.972138
+    paysim     Z     trapped_ion   0.996495      0.005                1024.0     0.993214   0.975872
+    paysim    ZZ           ideal   0.995039      0.005                8192.0     0.983061   0.968393
+    paysim    ZZ superconducting   0.994875      0.005                   NaN     0.958182   0.810382
+    paysim    ZZ     trapped_ion   0.993176      0.005                   NaN     0.983156   0.966593
+2026-10-10 20:51:12 | MainProcess | INFO | DONE -> D:\QCNC\qcnc_qfd\results\main\shot_budget

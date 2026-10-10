@@ -1,0 +1,48 @@
+{
+  "caps": {
+    "test_neg": 400,
+    "test_pos": 1000000,
+    "train_neg": 550,
+    "train_pos": 250,
+    "val_neg": 300,
+    "val_pos": 1000000
+  },
+  "dataset": "creditcard",
+  "feature_maps": {
+    "ZZ": {
+      "fmap_params": {
+        "entanglement": "full",
+        "input_range": [
+          1.3691388026842772,
+          3.141592653589793
+        ],
+        "name": "ZZ",
+        "reps": 2
+      },
+      "k": 5,
+      "logical_ops": {
+        "cx": 40,
+        "h": 10,
+        "p": 30
+      },
+      "selected": [
+        "V11",
+        "V3",
+        "V4",
+        "V13",
+        "V21"
+      ]
+    }
+  },
+  "frauds": {
+    "test": 95,
+    "train": 250,
+    "val": 94
+  },
+  "rows": {
+    "test": 495,
+    "train": 800,
+    "val": 394
+  },
+  "seed": 0
+}

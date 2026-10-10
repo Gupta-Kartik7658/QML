@@ -1,0 +1,113 @@
+2026-10-10 20:30:46 | MainProcess | INFO | [prepare] loading creditcard ...
+2026-10-10 20:30:47 | MainProcess | INFO | [prepare] creditcard: 283726 rows, 473 positives (0.167%), 30 candidate features, schema check: True
+2026-10-10 20:30:47 | MainProcess | INFO | [prepare] cache hit creditcard seed=0 (seed0_aebffa6828302393)
+2026-10-10 20:30:47 | MainProcess | INFO | [SFS] resuming from stage 7 (Z_seed0_cea1530f5b7ce34c.json)
+2026-10-10 20:30:48 | MainProcess | INFO | Z: k=7 selected=['V14', 'V10', 'V12', 'Amount', 'V16', 'V1', 'V18'] logical ops {'h': 14, 'p': 14}
+2026-10-10 20:30:48 | MainProcess | INFO | [SFS] resuming from stage 7 (ZZ_seed0_d4539e6c59eb1e0e.json)
+2026-10-10 20:30:51 | MainProcess | INFO | ZZ: k=7 selected=['V11', 'V3', 'V4', 'V13', 'V21', 'V20', 'V27'] logical ops {'cx': 84, 'p': 56, 'h': 14}
+2026-10-10 20:30:51 | MainProcess | INFO | bundle written to D:\QCNC\qcnc_qfd\results\main\ibm_hardware\bundle: rows {'train': 800, 'val': 394, 'test': 495}, frauds {'train': 250, 'val': 94, 'test': 95} -> copy nothing, the IBM script reads it in place
+2026-10-10 22:38:23 | MainProcess | INFO | ibm_marrakesh Z     ideal (exact)                            xgb: AUC 0.9308 [0.890,0.965] AP 0.2129
+2026-10-10 22:38:24 | MainProcess | INFO | ibm_marrakesh Z     ideal (exact)                            svm: AUC 0.9365 [0.900,0.965] AP 0.1449
+2026-10-10 22:39:03 | MainProcess | INFO | ibm_marrakesh Z     ideal (exact)                            mlp: AUC 0.9331 [0.896,0.967] AP 0.1456
+2026-10-10 22:39:07 | MainProcess | INFO | ibm_marrakesh Z     ideal + 1024 shots (sim)                 xgb: AUC 0.9371 [0.897,0.971] AP 0.4222
+2026-10-10 22:39:08 | MainProcess | INFO | ibm_marrakesh Z     ideal + 1024 shots (sim)                 svm: AUC 0.9378 [0.903,0.968] AP 0.1297
+2026-10-10 22:39:23 | MainProcess | INFO | ibm_marrakesh Z     ideal + 1024 shots (sim)                 mlp: AUC 0.9343 [0.899,0.967] AP 0.1461
+2026-10-10 22:39:24 | MainProcess | INFO | ibm_marrakesh Z     superconducting sim + 1024 shots         xgb: AUC 0.9396 [0.899,0.970] AP 0.1518
+2026-10-10 22:39:25 | MainProcess | INFO | ibm_marrakesh Z     superconducting sim + 1024 shots         svm: AUC 0.9394 [0.906,0.967] AP 0.1303
+2026-10-10 22:39:32 | MainProcess | INFO | ibm_marrakesh Z     superconducting sim + 1024 shots         mlp: AUC 0.9304 [0.891,0.966] AP 0.1344
+2026-10-10 22:39:35 | MainProcess | INFO | ibm_marrakesh Z     trapped_ion sim + 1024 shots             xgb: AUC 0.9431 [0.909,0.975] AP 0.1830
+2026-10-10 22:39:36 | MainProcess | INFO | ibm_marrakesh Z     trapped_ion sim + 1024 shots             svm: AUC 0.9403 [0.906,0.968] AP 0.2074
+2026-10-10 22:40:27 | MainProcess | INFO | ibm_marrakesh Z     trapped_ion sim + 1024 shots             mlp: AUC 0.9336 [0.892,0.966] AP 0.2741
+2026-10-10 22:40:28 | MainProcess | INFO | ibm_marrakesh Z     hardware ibm_marrakesh                   xgb: AUC 0.9493 [0.912,0.976] AP 0.1887
+2026-10-10 22:40:28 | MainProcess | INFO | ibm_marrakesh Z     hardware ibm_marrakesh                   svm: AUC 0.9382 [0.905,0.970] AP 0.2368
+2026-10-10 22:40:37 | MainProcess | INFO | ibm_marrakesh Z     hardware ibm_marrakesh                   mlp: AUC 0.9378 [0.901,0.968] AP 0.2609
+2026-10-10 22:40:40 | MainProcess | INFO | ibm_marrakesh Z     transfer: ideal-trained, hw calibrated   xgb: AUC 0.9380 [0.900,0.969] AP 0.2593
+2026-10-10 22:40:41 | MainProcess | INFO | ibm_marrakesh Z     transfer: ideal-trained, hw calibrated   svm: AUC 0.9358 [0.897,0.966] AP 0.1983
+2026-10-10 22:41:10 | MainProcess | INFO | ibm_marrakesh Z     transfer: ideal-trained, hw calibrated   mlp: AUC 0.9315 [0.892,0.963] AP 0.2329
+2026-10-10 22:41:13 | MainProcess | INFO | ibm_marrakesh ZZ    ideal (exact)                            xgb: AUC 0.9427 [0.903,0.975] AP 0.6947
+2026-10-10 22:41:15 | MainProcess | INFO | ibm_marrakesh ZZ    ideal (exact)                            svm: AUC 0.9302 [0.882,0.968] AP 0.4932
+2026-10-10 22:42:16 | MainProcess | INFO | ibm_marrakesh ZZ    ideal (exact)                            mlp: AUC 0.9152 [0.863,0.961] AP 0.7058
+2026-10-10 22:42:19 | MainProcess | INFO | ibm_marrakesh ZZ    ideal + 1024 shots (sim)                 xgb: AUC 0.9356 [0.898,0.970] AP 0.6718
+2026-10-10 22:42:20 | MainProcess | INFO | ibm_marrakesh ZZ    ideal + 1024 shots (sim)                 svm: AUC 0.9190 [0.864,0.960] AP 0.3071
+2026-10-10 22:43:20 | MainProcess | INFO | ibm_marrakesh ZZ    ideal + 1024 shots (sim)                 mlp: AUC 0.9167 [0.865,0.962] AP 0.7022
+2026-10-10 22:43:23 | MainProcess | INFO | ibm_marrakesh ZZ    superconducting sim + 1024 shots         xgb: AUC 0.9314 [0.891,0.966] AP 0.3360
+2026-10-10 22:43:25 | MainProcess | INFO | ibm_marrakesh ZZ    superconducting sim + 1024 shots         svm: AUC 0.9122 [0.858,0.956] AP 0.3763
+2026-10-10 22:44:22 | MainProcess | INFO | ibm_marrakesh ZZ    superconducting sim + 1024 shots         mlp: AUC 0.9133 [0.867,0.953] AP 0.6060
+2026-10-10 22:44:25 | MainProcess | INFO | ibm_marrakesh ZZ    trapped_ion sim + 1024 shots             xgb: AUC 0.9282 [0.889,0.966] AP 0.7531
+2026-10-10 22:44:26 | MainProcess | INFO | ibm_marrakesh ZZ    trapped_ion sim + 1024 shots             svm: AUC 0.9205 [0.871,0.966] AP 0.4392
+2026-10-10 22:45:14 | MainProcess | INFO | ibm_marrakesh ZZ    trapped_ion sim + 1024 shots             mlp: AUC 0.9168 [0.868,0.960] AP 0.7172
+2026-10-10 22:45:18 | MainProcess | INFO | ibm_marrakesh ZZ    hardware ibm_marrakesh                   xgb: AUC 0.9217 [0.877,0.959] AP 0.6054
+2026-10-10 22:45:19 | MainProcess | INFO | ibm_marrakesh ZZ    hardware ibm_marrakesh                   svm: AUC 0.9192 [0.881,0.954] AP 0.2592
+2026-10-10 22:46:09 | MainProcess | INFO | ibm_marrakesh ZZ    hardware ibm_marrakesh                   mlp: AUC 0.8923 [0.840,0.940] AP 0.4195
+2026-10-10 22:46:11 | MainProcess | INFO | ibm_marrakesh ZZ    transfer: ideal-trained, hw calibrated   xgb: AUC 0.8867 [0.839,0.931] AP 0.2148
+2026-10-10 22:46:12 | MainProcess | INFO | ibm_marrakesh ZZ    transfer: ideal-trained, hw calibrated   svm: AUC 0.9125 [0.874,0.947] AP 0.1521
+2026-10-10 22:47:00 | MainProcess | INFO | ibm_marrakesh ZZ    transfer: ideal-trained, hw calibrated   mlp: AUC 0.8592 [0.799,0.909] AP 0.4236
+2026-10-10 22:47:01 | MainProcess | INFO | per-physical-qubit affine law:
+      backend fmap  n_qubits  beta_median  beta_min  beta_max  alpha_min  alpha_max  r2_median   r2_min  resid_over_shot_median  resid_over_shot_p90  resid_over_shot_max
+ibm_marrakesh    Z        98     0.960991  0.157168  1.003999  -0.252390   0.269449   0.996556 0.829383                1.095046             1.589078             2.240808
+ibm_marrakesh   ZZ        56     0.543997 -0.248376  0.739705  -0.040426   0.285874   0.962645 0.006700                1.365763             1.882155             2.853146
+2026-10-10 22:47:11 | MainProcess | INFO | 
+      backend fmap  beta_mean   r2_min  r2_mean  max_abs_residual  resid_sd_over_shot_sd
+ibm_marrakesh    Z   0.919591 0.864187 0.946700          0.898871               3.769323
+ibm_marrakesh   ZZ   0.478583 0.557594 0.687101          0.869040               4.215188
+2026-10-10 22:57:26 | MainProcess | INFO | ibm_marrakesh Z     ideal (exact)                            xgb: AUC 0.9308 [0.890,0.965] AP 0.2129
+2026-10-10 22:57:26 | MainProcess | INFO | ibm_marrakesh Z     ideal (exact)                            svm: AUC 0.9365 [0.900,0.965] AP 0.1449
+2026-10-10 22:57:42 | MainProcess | INFO | ibm_marrakesh Z     ideal (exact)                            mlp: AUC 0.9331 [0.896,0.967] AP 0.1456
+2026-10-10 22:57:43 | MainProcess | INFO | ibm_marrakesh Z     ideal + 1024 shots (sim)                 xgb: AUC 0.9371 [0.897,0.971] AP 0.4222
+2026-10-10 22:57:43 | MainProcess | INFO | ibm_marrakesh Z     ideal + 1024 shots (sim)                 svm: AUC 0.9378 [0.903,0.968] AP 0.1297
+2026-10-10 22:57:52 | MainProcess | INFO | ibm_marrakesh Z     ideal + 1024 shots (sim)                 mlp: AUC 0.9343 [0.899,0.967] AP 0.1461
+2026-10-10 22:57:53 | MainProcess | INFO | ibm_marrakesh Z     superconducting sim + 1024 shots         xgb: AUC 0.9396 [0.899,0.970] AP 0.1518
+2026-10-10 22:57:53 | MainProcess | INFO | ibm_marrakesh Z     superconducting sim + 1024 shots         svm: AUC 0.9394 [0.906,0.967] AP 0.1303
+2026-10-10 22:57:58 | MainProcess | INFO | ibm_marrakesh Z     superconducting sim + 1024 shots         mlp: AUC 0.9304 [0.891,0.966] AP 0.1344
+2026-10-10 22:57:58 | MainProcess | INFO | ibm_marrakesh Z     trapped_ion sim + 1024 shots             xgb: AUC 0.9431 [0.909,0.975] AP 0.1830
+2026-10-10 22:57:58 | MainProcess | INFO | ibm_marrakesh Z     trapped_ion sim + 1024 shots             svm: AUC 0.9403 [0.906,0.968] AP 0.2074
+2026-10-10 22:58:03 | MainProcess | INFO | ibm_marrakesh Z     trapped_ion sim + 1024 shots             mlp: AUC 0.9336 [0.892,0.966] AP 0.2741
+2026-10-10 22:58:04 | MainProcess | INFO | ibm_marrakesh Z     hardware ibm_marrakesh                   xgb: AUC 0.9493 [0.912,0.976] AP 0.1887
+2026-10-10 22:58:04 | MainProcess | INFO | ibm_marrakesh Z     hardware ibm_marrakesh                   svm: AUC 0.9382 [0.905,0.970] AP 0.2368
+2026-10-10 22:58:09 | MainProcess | INFO | ibm_marrakesh Z     hardware ibm_marrakesh                   mlp: AUC 0.9378 [0.901,0.968] AP 0.2609
+2026-10-10 22:58:09 | MainProcess | INFO | ibm_marrakesh Z     transfer: ideal-trained, hw calibrated   xgb: AUC 0.9380 [0.900,0.969] AP 0.2593
+2026-10-10 22:58:10 | MainProcess | INFO | ibm_marrakesh Z     transfer: ideal-trained, hw calibrated   svm: AUC 0.9358 [0.897,0.966] AP 0.1983
+2026-10-10 22:58:15 | MainProcess | INFO | ibm_marrakesh Z     transfer: ideal-trained, hw calibrated   mlp: AUC 0.9315 [0.892,0.963] AP 0.2329
+2026-10-10 22:58:19 | MainProcess | INFO | ibm_marrakesh ZZ    ideal (exact)                            xgb: AUC 0.9427 [0.903,0.975] AP 0.6947
+2026-10-10 22:58:19 | MainProcess | INFO | ibm_marrakesh ZZ    ideal (exact)                            svm: AUC 0.9302 [0.882,0.968] AP 0.4932
+2026-10-10 22:58:25 | MainProcess | INFO | ibm_marrakesh ZZ    ideal (exact)                            mlp: AUC 0.9152 [0.863,0.961] AP 0.7058
+2026-10-10 22:58:25 | MainProcess | INFO | ibm_marrakesh ZZ    ideal + 1024 shots (sim)                 xgb: AUC 0.9356 [0.898,0.970] AP 0.6718
+2026-10-10 22:58:25 | MainProcess | INFO | ibm_marrakesh ZZ    ideal + 1024 shots (sim)                 svm: AUC 0.9190 [0.864,0.960] AP 0.3071
+2026-10-10 22:58:30 | MainProcess | INFO | ibm_marrakesh ZZ    ideal + 1024 shots (sim)                 mlp: AUC 0.9167 [0.865,0.962] AP 0.7022
+2026-10-10 22:58:30 | MainProcess | INFO | ibm_marrakesh ZZ    superconducting sim + 1024 shots         xgb: AUC 0.9314 [0.891,0.966] AP 0.3360
+2026-10-10 22:58:31 | MainProcess | INFO | ibm_marrakesh ZZ    superconducting sim + 1024 shots         svm: AUC 0.9122 [0.858,0.956] AP 0.3763
+2026-10-10 22:58:36 | MainProcess | INFO | ibm_marrakesh ZZ    superconducting sim + 1024 shots         mlp: AUC 0.9133 [0.867,0.953] AP 0.6060
+2026-10-10 22:58:36 | MainProcess | INFO | ibm_marrakesh ZZ    trapped_ion sim + 1024 shots             xgb: AUC 0.9282 [0.889,0.966] AP 0.7531
+2026-10-10 22:58:36 | MainProcess | INFO | ibm_marrakesh ZZ    trapped_ion sim + 1024 shots             svm: AUC 0.9205 [0.871,0.966] AP 0.4392
+2026-10-10 22:58:41 | MainProcess | INFO | ibm_marrakesh ZZ    trapped_ion sim + 1024 shots             mlp: AUC 0.9168 [0.868,0.960] AP 0.7172
+2026-10-10 22:58:42 | MainProcess | INFO | ibm_marrakesh ZZ    hardware ibm_marrakesh                   xgb: AUC 0.9217 [0.877,0.959] AP 0.6054
+2026-10-10 22:58:42 | MainProcess | INFO | ibm_marrakesh ZZ    hardware ibm_marrakesh                   svm: AUC 0.9192 [0.881,0.954] AP 0.2592
+2026-10-10 22:58:47 | MainProcess | INFO | ibm_marrakesh ZZ    hardware ibm_marrakesh                   mlp: AUC 0.8923 [0.840,0.940] AP 0.4195
+2026-10-10 22:58:47 | MainProcess | INFO | ibm_marrakesh ZZ    transfer: ideal-trained, hw calibrated   xgb: AUC 0.8867 [0.839,0.931] AP 0.2148
+2026-10-10 22:58:47 | MainProcess | INFO | ibm_marrakesh ZZ    transfer: ideal-trained, hw calibrated   svm: AUC 0.9125 [0.874,0.947] AP 0.1521
+2026-10-10 22:58:52 | MainProcess | INFO | ibm_marrakesh ZZ    transfer: ideal-trained, hw calibrated   mlp: AUC 0.8592 [0.799,0.909] AP 0.4236
+2026-10-10 22:58:52 | MainProcess | INFO | hardware shot budget (xgb test AUC):
+source      hardware  ideal sim
+fmap shots                     
+Z    16       0.9258     0.9279
+     32       0.9423     0.9326
+     64       0.9465     0.9397
+     128      0.9410     0.9343
+     256      0.9462     0.9295
+     512      0.9448     0.9357
+     1024     0.9493     0.9292
+ZZ   16       0.8108     0.9406
+     32       0.8223     0.9335
+     64       0.8893     0.9325
+     128      0.8935     0.9410
+     256      0.9185     0.9246
+     512      0.9225     0.9292
+     1024     0.9217     0.9328
+2026-10-10 22:58:52 | MainProcess | INFO | per-physical-qubit affine law:
+      backend fmap  n_qubits  beta_median  beta_min  beta_max  alpha_min  alpha_max  r2_median   r2_min  resid_over_shot_median  resid_over_shot_p90  resid_over_shot_max
+ibm_marrakesh    Z        98     0.960991  0.157168  1.003999  -0.252390   0.269449   0.996556 0.829383                1.095046             1.589078             2.240808
+ibm_marrakesh   ZZ        56     0.543997 -0.248376  0.739705  -0.040426   0.285874   0.962645 0.006700                1.365763             1.882155             2.853146
+2026-10-10 22:58:54 | MainProcess | INFO | 
+      backend fmap  beta_mean   r2_min  r2_mean  max_abs_residual  resid_sd_over_shot_sd
+ibm_marrakesh    Z   0.919591 0.864187 0.946700          0.898871               3.769323
+ibm_marrakesh   ZZ   0.478583 0.557594 0.687101          0.869040               4.215188
